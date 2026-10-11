@@ -1,0 +1,27 @@
+# Ignore everything in the root directory by default
+/*
+
+# Whitelist root config files
+!/.gitignore
+!/.gitattributes
+!/.cpanel.yml
+!/wp-content/
+
+# Ignore everything in wp-content except themes
+/wp-content/*
+!/wp-content/themes/
+
+# Ignore all other themes
+/wp-content/themes/*
+
+# Whitelist ONLY the active custom theme
+!/wp-content/themes/graphics-innovator/
+
+# Exclude any zip or backup inside the theme
+/wp-content/themes/graphics-innovator/*.zip
+/wp-content/themes/graphics-innovator/*.sql
+/wp-content/themes/graphics-innovator/*.tar.gz
+
+# OS metadata
+.DS_Store
+Thumbs.db

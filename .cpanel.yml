@@ -1,0 +1,5 @@
+---
+deployment:
+  tasks:
+    - export DEPLOYPATH=/home/grapdktk/public_html
+    - /bin/cp -R wp-content/themes/graphics-innovator $DEPLOYPATH/wp-content/themes/

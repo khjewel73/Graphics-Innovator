@@ -318,6 +318,33 @@ $after_img_1  = $base_url . '/2022/12/shadow-masking-c.png'; // Example assumed 
         --gi-header-height-sm: 68px;
     }
 }
+/* ---- Hero Banner Image ---- */
+.gi-hero-banner-wrap {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    max-width: 550px;
+}
+.gi-hero-banner-img {
+    width: 100%;
+    max-width: 520px;
+    height: auto;
+    object-fit: contain;
+    filter: drop-shadow(0 20px 40px rgba(0, 0, 0, 0.4));
+    transition: transform 0.4s ease, filter 0.4s ease;
+    animation: gi-hero-float 5s ease-in-out infinite alternate;
+}
+.gi-hero-banner-img:hover {
+    transform: scale(1.03);
+    filter: drop-shadow(0 25px 45px rgba(243, 112, 33, 0.25));
+}
+@keyframes gi-hero-float {
+    0%   { transform: translateY(0); }
+    100% { transform: translateY(-12px); }
+}
 </style>
 
 <!-- ==========================================
@@ -367,12 +394,14 @@ $after_img_1  = $base_url . '/2022/12/shadow-masking-c.png'; // Example assumed 
         </div>
 
         <div class="gi-hero-visual" data-gi-animate="fade-in" data-gi-delay="300">
-            <!-- Hero Before/After -->
-            <?php gi_before_after( 
-                $base_url . '/2022/10/After.jpg', 
-                $base_url . '/2022/10/Beforel.jpg', 
-                'Original', 'Retouched', 'hero' 
-            ); ?>
+            <!-- Hero Banner Graphic -->
+            <div class="gi-hero-banner-wrap">
+                <img src="<?php echo esc_url( $base_url . '/2025/05/Home-Banner.png' ); ?>" 
+                     alt="<?php esc_attr_e( 'Graphics Innovator Photo Editing Services', 'graphics-innovator' ); ?>" 
+                     class="gi-hero-banner-img"
+                     loading="eager"
+                     onerror="this.onerror=null;this.src='https://graphicsinnovator.com/wp-content/uploads/2025/05/Home-Banner.png';">
+            </div>
         </div>
 
     </div>

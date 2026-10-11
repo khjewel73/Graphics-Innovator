@@ -234,6 +234,292 @@ get_header(); ?>
     color: #fff;
 }
 
+/* WhatsApp & Custom Volume Rate Styling */
+.gi-price-custom-block {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 14px;
+    padding: 1.25rem 1.4rem;
+    margin-bottom: 2rem;
+    transition: all 0.3s ease;
+}
+.gi-pricing-card:hover .gi-price-custom-block {
+    border-color: rgba(37, 211, 102, 0.4);
+    background: rgba(37, 211, 102, 0.04);
+}
+.gi-custom-title {
+    font-size: 1.55rem;
+    font-weight: 800;
+    color: #ffffff;
+    line-height: 1.2;
+    margin-bottom: 0.35rem;
+    letter-spacing: -0.3px;
+}
+.gi-custom-sub {
+    font-size: 0.92rem;
+    color: #25D366;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    margin-bottom: 0.5rem;
+}
+.gi-custom-badge {
+    display: inline-block;
+    font-size: 0.72rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    padding: 3px 8px;
+    border-radius: 6px;
+    background: rgba(42, 106, 238, 0.15);
+    color: var(--gi-price-accent);
+    border: 1px solid rgba(42, 106, 238, 0.3);
+}
+
+.gi-card-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    margin-top: auto;
+}
+.gi-btn-wa {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    background: linear-gradient(135deg, #25D366 0%, #128C7E 100%);
+    color: #ffffff !important;
+    border: none;
+    padding: 1.1rem;
+    border-radius: 12px;
+    font-size: 1.05rem;
+    font-weight: 700;
+    text-decoration: none;
+    box-shadow: 0 8px 20px rgba(37, 211, 102, 0.35);
+    transition: all 0.3s;
+}
+.gi-btn-wa:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 28px rgba(37, 211, 102, 0.55);
+    color: #ffffff !important;
+}
+
+/* Director Hotwire Banner */
+.gi-director-banner {
+    background: linear-gradient(135deg, rgba(15, 43, 36, 0.95) 0%, rgba(8, 17, 30, 0.98) 100%);
+    border: 1px solid rgba(37, 211, 102, 0.35);
+    border-radius: 20px;
+    padding: 2.2rem 2.8rem;
+    margin-bottom: 3.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2.5rem;
+    box-shadow: 0 20px 45px rgba(0,0,0,0.5), 0 0 35px rgba(37, 211, 102, 0.12);
+}
+.gi-director-content {
+    flex: 1;
+}
+.gi-director-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.76rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    color: #25D366;
+    background: rgba(37, 211, 102, 0.12);
+    border: 1px solid rgba(37, 211, 102, 0.3);
+    padding: 5px 12px;
+    border-radius: 50px;
+    margin-bottom: 0.8rem;
+}
+.gi-pulse-dot {
+    width: 8px;
+    height: 8px;
+    background: #25D366;
+    border-radius: 50%;
+    box-shadow: 0 0 8px #25D366;
+    animation: giPulse 1.8s infinite;
+}
+@keyframes giPulse {
+    0% { transform: scale(1); opacity: 1; }
+    50% { transform: scale(1.4); opacity: 0.4; }
+    100% { transform: scale(1); opacity: 1; }
+}
+.gi-director-title {
+    font-size: 1.8rem;
+    font-weight: 800;
+    color: #ffffff;
+    margin: 0 0 0.5rem 0;
+    line-height: 1.25;
+}
+.gi-director-desc {
+    font-size: 1rem;
+    color: rgba(255,255,255,0.78);
+    margin: 0;
+    line-height: 1.55;
+    max-width: 680px;
+}
+.gi-director-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    flex-shrink: 0;
+    min-width: 280px;
+}
+.gi-director-btn-wa {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    background: linear-gradient(135deg, #25D366 0%, #128C7E 100%);
+    color: #ffffff !important;
+    border: none;
+    padding: 1.15rem 1.8rem;
+    border-radius: 12px;
+    font-size: 1.05rem;
+    font-weight: 700;
+    text-decoration: none;
+    box-shadow: 0 8px 22px rgba(37, 211, 102, 0.45);
+    transition: all 0.3s;
+}
+.gi-director-btn-wa:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 30px rgba(37, 211, 102, 0.6);
+}
+.gi-director-btn-trial {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    background: transparent;
+    color: #ffffff !important;
+    border: 1px solid rgba(255,255,255,0.25);
+    padding: 0.85rem 1.5rem;
+    border-radius: 12px;
+    font-size: 0.92rem;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.25s;
+}
+.gi-director-btn-trial:hover {
+    background: rgba(255,255,255,0.08);
+    border-color: #ffffff;
+}
+
+/* Hero Trust Pills */
+.gi-hero-pills {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-top: 1.75rem;
+}
+.gi-hero-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.12);
+    padding: 7px 16px;
+    border-radius: 50px;
+    font-size: 0.85rem;
+    color: rgba(255,255,255,0.9);
+    font-weight: 500;
+}
+.gi-hero-pill svg {
+    color: #25D366;
+}
+
+/* Why Human Section */
+.gi-why-human {
+    margin-top: 4rem;
+    padding-top: 3.5rem;
+    border-top: 1px solid rgba(255,255,255,0.08);
+}
+.gi-why-human-title {
+    text-align: center;
+    margin-bottom: 2.5rem;
+}
+.gi-why-human-title h2 {
+    font-size: 2rem;
+    font-weight: 800;
+    color: #fff;
+    margin-bottom: 0.5rem;
+}
+.gi-why-human-title p {
+    color: rgba(255,255,255,0.65);
+    font-size: 1.05rem;
+}
+.gi-why-human-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.5rem;
+}
+.gi-why-card {
+    background: rgba(255,255,255,0.02);
+    border: 1px solid rgba(255,255,255,0.06);
+    border-radius: 16px;
+    padding: 1.8rem 1.5rem;
+    transition: transform 0.3s, border-color 0.3s;
+}
+.gi-why-card:hover {
+    transform: translateY(-4px);
+    border-color: rgba(37, 211, 102, 0.3);
+}
+.gi-why-icon {
+    width: 44px;
+    height: 44px;
+    border-radius: 10px;
+    background: rgba(37, 211, 102, 0.12);
+    color: #25D366;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1.2rem;
+}
+.gi-why-card h3 {
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: 0.5rem;
+}
+.gi-why-card p {
+    font-size: 0.88rem;
+    color: rgba(255,255,255,0.65);
+    line-height: 1.5;
+    margin: 0;
+}
+
+@media (max-width: 1024px) {
+    .gi-why-human-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+@media (max-width: 900px) {
+    .gi-director-banner {
+        flex-direction: column;
+        text-align: center;
+        padding: 2rem 1.5rem;
+    }
+    .gi-director-actions {
+        width: 100%;
+        min-width: unset;
+    }
+}
+@media (max-width: 600px) {
+    .gi-why-human-grid {
+        grid-template-columns: 1fr;
+    }
+    .gi-director-title {
+        font-size: 1.45rem;
+    }
+}
+
 /* Trust Bar Upgraded (Full Wide Screen) */
 .gi-trust-bar {
     width: 100vw;
@@ -456,76 +742,184 @@ get_header(); ?>
     <section class="gi-rhythm-block gi-rhythm-blue">
         <div class="gi-pricing-container">
         <div class="gi-pricing-hero">
-            <h1>Transparent Pricing. <br>World-Class Quality.</h1>
-            <p>Scale your eCommerce imagery without scaling your overhead. No hidden fees, strict NDA protection, and pixel-perfect results delivered in 24 hours.</p>
+            <h1>Tailored Bulk Rates. <br><span class="gi-text-gradient">Direct Human Production.</span></h1>
+            <p>No automated bots, no rigid middleman markups. Every catalog has unique complexity—talk directly with our senior retouching leads on WhatsApp for customized wholesale volume rates starting as low as $0.25/image.</p>
+            
+            <div class="gi-hero-pills">
+                <span class="gi-hero-pill">
+                    <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+                    Average WhatsApp Reply: &lt; 2 Mins
+                </span>
+                <span class="gi-hero-pill">
+                    <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+                    100% Handcrafted by Senior Retouchers (0 AI Artifacts)
+                </span>
+                <span class="gi-hero-pill">
+                    <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
+                    Strict Non-Disclosure (NDA) Protected
+                </span>
+            </div>
         </div>
         </div>
     </section>
 
     <section class="gi-rhythm-block gi-rhythm-charcoal">
         <div class="gi-pricing-container">
+
+        <!-- Live Production Director Hotwire Banner -->
+        <div class="gi-director-banner">
+            <div class="gi-director-content">
+                <div class="gi-director-badge">
+                    <span class="gi-pulse-dot"></span>
+                    Live Production Director On Duty
+                </div>
+                <h2 class="gi-director-title">Need a Custom Wholesale Rate for 50 to 5,000+ Images?</h2>
+                <p class="gi-director-desc">Skip the long email ticketing queue. Send sample photos or catalog guidelines directly to our lead production supervisor on WhatsApp for an instant, locked-in custom quote within 2–5 minutes.</p>
+            </div>
+            <div class="gi-director-actions">
+                <a href="https://wa.me/8801714516662?text=<?php echo rawurlencode('Hello Graphics Innovator! I have a batch of photos and need an instant custom volume rate.'); ?>" target="_blank" rel="noopener noreferrer" class="gi-director-btn-wa">
+                    <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91C2.13 13.66 2.59 15.36 3.45 16.86L2.05 22L7.3 20.62C8.75 21.41 10.38 21.83 12.04 21.83C17.5 21.83 21.95 17.38 21.95 11.92C21.95 9.27 20.92 6.78 19.05 4.91C17.18 3.03 14.69 2 12.04 2M12.05 3.67C14.25 3.67 16.31 4.53 17.87 6.09C19.42 7.65 20.28 9.72 20.28 11.92C20.28 16.46 16.58 20.15 12.04 20.15C10.56 20.15 9.11 19.76 7.85 19L7.55 18.83L4.43 19.65L5.26 16.61L5.06 16.29C4.24 14.99 3.8 13.47 3.8 11.91C3.81 7.37 7.5 3.67 12.05 3.67M9.53 7.08C9.33 7.08 9.14 7.15 8.98 7.39C8.78 7.63 8.24 8.14 8.24 9.18C8.24 10.22 9 11.22 9.12 11.38C9.24 11.54 10.61 13.65 12.7 14.55C14.44 15.3 14.79 15.15 15.17 15.12C15.56 15.08 16.42 14.61 16.6 14.1C16.78 13.59 16.78 13.16 16.72 13.06C16.67 12.96 16.53 12.9 16.33 12.8C16.12 12.7 15.12 12.21 14.93 12.14C14.75 12.07 14.61 12.04 14.47 12.24C14.33 12.45 13.94 12.9 13.82 13.04C13.7 13.18 13.58 13.2 13.38 13.1C13.17 13 12.5 12.78 11.71 12.07C11.09 11.52 10.67 10.84 10.55 10.63C10.43 10.43 10.54 10.31 10.64 10.21C10.74 10.12 10.85 9.98 10.96 9.86C11.06 9.74 11.1 9.65 11.16 9.51C11.23 9.38 11.19 9.25 11.14 9.15C11.09 9.05 10.68 8.04 10.51 7.63C10.35 7.23 10.18 7.28 10.05 7.27C9.93 7.27 9.79 7.27 9.64 7.27L9.53 7.08Z"/></svg>
+                    <span>Chat on WhatsApp</span>
+                </a>
+                <a href="<?php echo esc_url( home_url( '/free-trial/' ) ); ?>" class="gi-director-btn-trial">
+                    🧪 Test 2 Images For Free First
+                </a>
+            </div>
+        </div>
+
         <div class="gi-pricing-grid">
             
-            <!-- Tier 1 -->
+            <!-- Tier 1: Essential Clipping -->
             <div class="gi-pricing-card">
-                <div class="gi-tier-name">Essential Clipping</div>
-                <div class="gi-tier-desc">Perfect for high-volume eCommerce catalogs that need rapid, flawless background removal.</div>
-                <div class="gi-price-block">
-                    <span class="gi-currency">$</span>
-                    <span class="gi-price">0.99</span>
-                    <span class="gi-period">/ image</span>
+                <div class="gi-tier-name">Essential Bulk Clipping</div>
+                <div class="gi-tier-desc">High-speed background removal, multi-path clipping, and cutouts for eCommerce catalogs.</div>
+                
+                <div class="gi-price-custom-block">
+                    <div class="gi-custom-title">Custom Volume Rate</div>
+                    <div class="gi-custom-sub">⚡ Starting from $0.25 / image</div>
+                    <span class="gi-custom-badge">Volume Tiered Pricing</span>
                 </div>
+
                 <ul class="gi-features-list">
-                    <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg> Advanced Multi-path Clipping</li>
-                    <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg> Flawless Background Removal</li>
-                    <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg> Basic Image Alignment</li>
-                    <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg> Amazon & eBay Ready</li>
-                    <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg> 24-Hour Turnaround</li>
+                    <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg> Hand-drawn pen clipping paths (100% human)</li>
+                    <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg> Pure white (RGB 255) &amp; transparent cutouts</li>
+                    <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg> Precision centering &amp; margin alignment</li>
+                    <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg> Amazon, eBay &amp; Shopify ready formats</li>
+                    <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg> Guaranteed 12–24h batch turnaround</li>
                 </ul>
-                <a href="<?php echo esc_url( home_url( '/free-trial/' ) ); ?>" class="gi-pricing-btn gi-btn-outline">Start Free Trial</a>
+
+                <div class="gi-card-actions">
+                    <a href="https://wa.me/8801714516662?text=<?php echo rawurlencode('Hello Graphics Innovator! I need a bulk volume rate for Essential Clipping & Background Removal.'); ?>" target="_blank" rel="noopener noreferrer" class="gi-btn-wa">
+                        <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91C2.13 13.66 2.59 15.36 3.45 16.86L2.05 22L7.3 20.62C8.75 21.41 10.38 21.83 12.04 21.83C17.5 21.83 21.95 17.38 21.95 11.92C21.95 9.27 20.92 6.78 19.05 4.91C17.18 3.03 14.69 2 12.04 2M12.05 3.67C14.25 3.67 16.31 4.53 17.87 6.09C19.42 7.65 20.28 9.72 20.28 11.92C20.28 16.46 16.58 20.15 12.04 20.15C10.56 20.15 9.11 19.76 7.85 19L7.55 18.83L4.43 19.65L5.26 16.61L5.06 16.29C4.24 14.99 3.8 13.47 3.8 11.91C3.81 7.37 7.5 3.67 12.05 3.67M9.53 7.08C9.33 7.08 9.14 7.15 8.98 7.39C8.78 7.63 8.24 8.14 8.24 9.18C8.24 10.22 9 11.22 9.12 11.38C9.24 11.54 10.61 13.65 12.7 14.55C14.44 15.3 14.79 15.15 15.17 15.12C15.56 15.08 16.42 14.61 16.6 14.1C16.78 13.59 16.78 13.16 16.72 13.06C16.67 12.96 16.53 12.9 16.33 12.8C16.12 12.7 15.12 12.21 14.93 12.14C14.75 12.07 14.61 12.04 14.47 12.24C14.33 12.45 13.94 12.9 13.82 13.04C13.7 13.18 13.58 13.2 13.38 13.1C13.17 13 12.5 12.78 11.71 12.07C11.09 11.52 10.67 10.84 10.55 10.63C10.43 10.43 10.54 10.31 10.64 10.21C10.74 10.12 10.85 9.98 10.96 9.86C11.06 9.74 11.1 9.65 11.16 9.51C11.23 9.38 11.19 9.25 11.14 9.15C11.09 9.05 10.68 8.04 10.51 7.63C10.35 7.23 10.18 7.28 10.05 7.27C9.93 7.27 9.79 7.27 9.64 7.27L9.53 7.08Z"/></svg>
+                        <span>Get Batch Quote on WhatsApp</span>
+                    </a>
+                    <a href="<?php echo esc_url( home_url( '/free-trial/' ) ); ?>" class="gi-pricing-btn gi-btn-outline">Test 2 Images Free</a>
+                </div>
             </div>
 
-            <!-- Tier 2 (Popular) -->
+            <!-- Tier 2: Commercial Retouching (Most Popular) -->
             <div class="gi-pricing-card is-popular">
-                <div class="gi-popular-badge">Most Popular</div>
-                <div class="gi-tier-name">Advanced Retouching</div>
-                <div class="gi-tier-desc">The industry standard for premium brands. Includes complex shadows and color correction.</div>
-                <div class="gi-price-block">
-                    <span class="gi-currency">$</span>
-                    <span class="gi-price">2.49</span>
-                    <span class="gi-period">/ image</span>
+                <div class="gi-popular-badge">🔥 Most Popular</div>
+                <div class="gi-tier-name">Commercial Retouching</div>
+                <div class="gi-tier-desc">The industry standard for apparel, footwear, and consumer brand catalogs.</div>
+                
+                <div class="gi-price-custom-block">
+                    <div class="gi-custom-title">Tailored Catalog Rate</div>
+                    <div class="gi-custom-sub">⚡ Custom Quote • Save up to 45%</div>
+                    <span class="gi-custom-badge">Direct Supervisor Negotiation</span>
                 </div>
+
                 <ul class="gi-features-list">
-                    <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg> Everything in Essential</li>
-                    <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg> Ghost Mannequin Effect</li>
-                    <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg> Drop & Reflection Shadows</li>
-                    <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg> Advanced Color Correction</li>
-                    <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg> Spot & Blemish Removal</li>
-                    <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg> Dedicated Account Manager</li>
+                    <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg> Everything in Essential Clipping</li>
+                    <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg> Invisible Ghost Mannequin &amp; Neck Joint 3D</li>
+                    <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg> Natural, drop &amp; realistic reflection shadows</li>
+                    <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg> Precision color matching to physical swatches</li>
+                    <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg> Dust, scratch, wrinkle &amp; blemish removal</li>
+                    <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg> Dedicated production supervisor assigned</li>
                 </ul>
-                <a href="<?php echo esc_url( home_url( '/contact-us/' ) ); ?>" class="gi-pricing-btn gi-btn-solid">Get Started Now</a>
+
+                <div class="gi-card-actions">
+                    <a href="https://wa.me/8801714516662?text=<?php echo rawurlencode('Hello Graphics Innovator! I need a custom catalog rate for Commercial Retouching & Ghost Mannequin.'); ?>" target="_blank" rel="noopener noreferrer" class="gi-btn-wa">
+                        <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91C2.13 13.66 2.59 15.36 3.45 16.86L2.05 22L7.3 20.62C8.75 21.41 10.38 21.83 12.04 21.83C17.5 21.83 21.95 17.38 21.95 11.92C21.95 9.27 20.92 6.78 19.05 4.91C17.18 3.03 14.69 2 12.04 2M12.05 3.67C14.25 3.67 16.31 4.53 17.87 6.09C19.42 7.65 20.28 9.72 20.28 11.92C20.28 16.46 16.58 20.15 12.04 20.15C10.56 20.15 9.11 19.76 7.85 19L7.55 18.83L4.43 19.65L5.26 16.61L5.06 16.29C4.24 14.99 3.8 13.47 3.8 11.91C3.81 7.37 7.5 3.67 12.05 3.67M9.53 7.08C9.33 7.08 9.14 7.15 8.98 7.39C8.78 7.63 8.24 8.14 8.24 9.18C8.24 10.22 9 11.22 9.12 11.38C9.24 11.54 10.61 13.65 12.7 14.55C14.44 15.3 14.79 15.15 15.17 15.12C15.56 15.08 16.42 14.61 16.6 14.1C16.78 13.59 16.78 13.16 16.72 13.06C16.67 12.96 16.53 12.9 16.33 12.8C16.12 12.7 15.12 12.21 14.93 12.14C14.75 12.07 14.61 12.04 14.47 12.24C14.33 12.45 13.94 12.9 13.82 13.04C13.7 13.18 13.58 13.2 13.38 13.1C13.17 13 12.5 12.78 11.71 12.07C11.09 11.52 10.67 10.84 10.55 10.63C10.43 10.43 10.54 10.31 10.64 10.21C10.74 10.12 10.85 9.98 10.96 9.86C11.06 9.74 11.1 9.65 11.16 9.51C11.23 9.38 11.19 9.25 11.14 9.15C11.09 9.05 10.68 8.04 10.51 7.63C10.35 7.23 10.18 7.28 10.05 7.27C9.93 7.27 9.79 7.27 9.64 7.27L9.53 7.08Z"/></svg>
+                        <span>Chat With Retouch Lead</span>
+                    </a>
+                    <a href="<?php echo esc_url( home_url( '/free-trial/' ) ); ?>" class="gi-pricing-btn gi-btn-outline">Start Free Trial Test</a>
+                </div>
             </div>
 
-            <!-- Tier 3 -->
+            <!-- Tier 3: High-End Editorial -->
             <div class="gi-pricing-card">
-                <div class="gi-tier-name">High-End Editorial</div>
-                <div class="gi-tier-desc">Magazine-quality retouching for fashion, models, jewelry, and highly complex imagery.</div>
-                <div class="gi-price-block">
-                    <span class="gi-currency">$</span>
-                    <span class="gi-price">5.99</span>
-                    <span class="gi-period">/ image</span>
+                <div class="gi-tier-name">High-End Editorial &amp; Jewelry</div>
+                <div class="gi-tier-desc">Magazine-quality retouching for jewelry, cosmetics, luxury goods, and fashion models.</div>
+                
+                <div class="gi-price-custom-block">
+                    <div class="gi-custom-title">Enterprise Studio Scope</div>
+                    <div class="gi-custom-sub">⚡ Bespoke Scope • 1-on-1 Direction</div>
+                    <span class="gi-custom-badge">Senior Art Director Lead</span>
                 </div>
+
                 <ul class="gi-features-list">
-                    <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg> Everything in Advanced</li>
-                    <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg> High-End Skin Retouching</li>
-                    <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg> Stray Hair & Wrinkle Removal</li>
-                    <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg> Non-destructive Dodge & Burn</li>
-                    <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg> Unlimited Free Revisions</li>
+                    <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg> Everything in Commercial Retouching</li>
+                    <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg> Non-destructive Dodge &amp; Burn skin treatment</li>
+                    <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg> High-end jewelry diamond sparkle &amp; metal polish</li>
+                    <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg> Stray hair, texture &amp; anatomical contouring</li>
+                    <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg> Multi-layer PSD delivery with masks intact</li>
+                    <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg> Unlimited revisions until 100% sign-off</li>
                 </ul>
-                <a href="<?php echo esc_url( home_url( '/contact-us/' ) ); ?>" class="gi-pricing-btn gi-btn-outline">Speak to an Expert</a>
+
+                <div class="gi-card-actions">
+                    <a href="https://wa.me/8801714516662?text=<?php echo rawurlencode('Hello Graphics Innovator! I need a consultation with your Senior Art Director for High-End Editorial Retouching.'); ?>" target="_blank" rel="noopener noreferrer" class="gi-btn-wa">
+                        <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91C2.13 13.66 2.59 15.36 3.45 16.86L2.05 22L7.3 20.62C8.75 21.41 10.38 21.83 12.04 21.83C17.5 21.83 21.95 17.38 21.95 11.92C21.95 9.27 20.92 6.78 19.05 4.91C17.18 3.03 14.69 2 12.04 2M12.05 3.67C14.25 3.67 16.31 4.53 17.87 6.09C19.42 7.65 20.28 9.72 20.28 11.92C20.28 16.46 16.58 20.15 12.04 20.15C10.56 20.15 9.11 19.76 7.85 19L7.55 18.83L4.43 19.65L5.26 16.61L5.06 16.29C4.24 14.99 3.8 13.47 3.8 11.91C3.81 7.37 7.5 3.67 12.05 3.67M9.53 7.08C9.33 7.08 9.14 7.15 8.98 7.39C8.78 7.63 8.24 8.14 8.24 9.18C8.24 10.22 9 11.22 9.12 11.38C9.24 11.54 10.61 13.65 12.7 14.55C14.44 15.3 14.79 15.15 15.17 15.12C15.56 15.08 16.42 14.61 16.6 14.1C16.78 13.59 16.78 13.16 16.72 13.06C16.67 12.96 16.53 12.9 16.33 12.8C16.12 12.7 15.12 12.21 14.93 12.14C14.75 12.07 14.61 12.04 14.47 12.24C14.33 12.45 13.94 12.9 13.82 13.04C13.7 13.18 13.58 13.2 13.38 13.1C13.17 13 12.5 12.78 11.71 12.07C11.09 11.52 10.67 10.84 10.55 10.63C10.43 10.43 10.54 10.31 10.64 10.21C10.74 10.12 10.85 9.98 10.96 9.86C11.06 9.74 11.1 9.65 11.16 9.51C11.23 9.38 11.19 9.25 11.14 9.15C11.09 9.05 10.68 8.04 10.51 7.63C10.35 7.23 10.18 7.28 10.05 7.27C9.93 7.27 9.79 7.27 9.64 7.27L9.53 7.08Z"/></svg>
+                        <span>Consult Senior Art Director</span>
+                    </a>
+                    <a href="<?php echo esc_url( home_url( '/contact-us/' ) ); ?>" class="gi-pricing-btn gi-btn-outline">Book Consultation</a>
+                </div>
             </div>
 
         </div>
+
+        <!-- Why Human Production Wins Section -->
+        <div class="gi-why-human">
+            <div class="gi-why-human-title">
+                <h2>Why Direct Human Production Crushes Rigid Pricing</h2>
+                <p>Every photoshoot has unique lighting, cutouts, and catalog guidelines. Here is why clients choose our direct human funnel:</p>
+            </div>
+            
+            <div class="gi-why-human-grid">
+                <div class="gi-why-card">
+                    <div class="gi-why-icon">
+                        <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+                    </div>
+                    <h3>Volume Elasticity</h3>
+                    <p>Why pay flat fees? The higher your monthly volume, the lower we discount your per-image rate down to $0.25. You negotiate directly with our production leads.</p>
+                </div>
+
+                <div class="gi-why-card">
+                    <div class="gi-why-icon">
+                        <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                    </div>
+                    <h3>2-Minute WhatsApp Speed</h3>
+                    <p>No waiting 48 hours for an email ticketing system. Get direct status updates, revision checks, and quote confirmations in real-time on your phone.</p>
+                </div>
+
+                <div class="gi-why-card">
+                    <div class="gi-why-icon">
+                        <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 9V5a3 3 0 0 0-3-3l-4 9v11h11.28a2 2 0 0 0 2-1.7l1.38-9a2 2 0 0 0-2-2.3zM7 22H4a2 2 0 0 1-2-2v-7a2 2 0 0 1 2-2h3"></path></svg>
+                    </div>
+                    <h3>Zero AI Hallucinations</h3>
+                    <p>Automated AI tools distort jewelry facets, blur fine fabric textures, and create jagged edges. 100% of our work is crafted manually with pen tools and layer masks.</p>
+                </div>
+
+                <div class="gi-why-card">
+                    <div class="gi-why-icon">
+                        <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
+                    </div>
+                    <h3>Risk-Free 2-Image Test</h3>
+                    <p>Never commit before testing. Send us 2 of your most complex product images right now. We will edit them to perfection before you spend a single dollar.</p>
+                </div>
+            </div>
+        </div>
+
         </div>
     </section>
 

@@ -1014,6 +1014,99 @@ get_header(); ?>
     </section>
     <?php endif; ?>
 
+    <?php if ( $slug === 'photo-retouching-service' ) : ?>
+    <!-- ==========================================
+         PHOTO RETOUCHING BEFORE / AFTER TRANSFORMATION
+         ========================================== -->
+    <section class="gi-rhythm-block gi-rhythm-charcoal gi-gm-showcase-section">
+        <div class="gi-cp-container">
+            <div class="gi-gm-header">
+                <span class="gi-gm-pill-tag">Visual Proof &bull; Real Studio Results</span>
+                <h2 class="gi-gm-title">Before &amp; After Transformation</h2>
+                <p class="gi-gm-subtitle">Compare raw, unedited captures against our final high-end retouched deliverables. Simply hover and move your cursor across any photo below (or drag the slider) to inspect our frequency separation, blemish cleanup, and tone grading.</p>
+            </div>
+
+            <div class="gi-gm-grid">
+                
+                <!-- Sample 01: Beauty & Skin Retouching -->
+                <article class="gi-gm-card" data-gi-animate="fade-up">
+                    <div class="gi-gm-card-media">
+                        <?php 
+                        gi_before_after( 
+                            get_template_directory_uri() . '/pr-before-01.webp', 
+                            get_template_directory_uri() . '/pr-after-01.webp', 
+                            'Before 01', 
+                            'After 01', 
+                            'pr_sample_1' 
+                        ); 
+                        ?>
+                    </div>
+                    <div class="gi-gm-card-body">
+                        <div class="gi-gm-card-meta">
+                            <span class="gi-gm-badge">Sample 01 &bull; Before 01 &rarr; After 01</span>
+                            <span class="gi-gm-badge-category">Beauty &amp; Skin Care</span>
+                        </div>
+                        <h3>High-End Skin Retouching &bull; Frequency Separation</h3>
+                        <p>Complete elimination of acne, blemishes, and uneven redness while retaining authentic microscopic skin pore texture and natural highlights.</p>
+                        <div class="gi-gm-card-specs">
+                            <span class="gi-gm-spec-pill">
+                                <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
+                                Acne &amp; Redness Eliminated
+                            </span>
+                            <span class="gi-gm-spec-pill">
+                                <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
+                                Natural Pores Preserved
+                            </span>
+                            <span class="gi-gm-spec-pill">
+                                <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
+                                16-Bit Color Grading
+                            </span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Sample 02: Fashion & Eyewear Retouching -->
+                <article class="gi-gm-card" data-gi-animate="fade-up" data-gi-delay="100">
+                    <div class="gi-gm-card-media">
+                        <?php 
+                        gi_before_after( 
+                            get_template_directory_uri() . '/pr-before-02.webp', 
+                            get_template_directory_uri() . '/pr-after-02.webp', 
+                            'Before 02', 
+                            'After 02', 
+                            'pr_sample_2' 
+                        ); 
+                        ?>
+                    </div>
+                    <div class="gi-gm-card-body">
+                        <div class="gi-gm-card-meta">
+                            <span class="gi-gm-badge">Sample 02 &bull; Before 02 &rarr; After 02</span>
+                            <span class="gi-gm-badge-category">Fashion &amp; Glamour</span>
+                        </div>
+                        <h3>Fashion Retouching &bull; Lens Tint &amp; Background Isolation</h3>
+                        <p>Creative lens tinting with magenta gradient, cosmetic lip recoloring, delicate skin smoothing, and clean isolation onto pure white studio background.</p>
+                        <div class="gi-gm-card-specs">
+                            <span class="gi-gm-spec-pill">
+                                <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
+                                Lens Tint &amp; Color Grading
+                            </span>
+                            <span class="gi-gm-spec-pill">
+                                <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
+                                Pure White 255/255/255
+                            </span>
+                            <span class="gi-gm-spec-pill">
+                                <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
+                                Natural Facial Highlights
+                            </span>
+                        </div>
+                    </div>
+                </article>
+
+            </div>
+        </div>
+    </section>
+    <?php endif; ?>
+
     <section class="gi-rhythm-block gi-rhythm-blue">
         <div class="gi-cp-container">
         <!-- CTA -->

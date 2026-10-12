@@ -702,6 +702,60 @@ get_header(); ?>
     text-overflow: ellipsis;
     text-shadow: 0 2px 4px rgba(0, 0, 0, 0.8);
 }
+/* Gallery Works Showcase (Clean Portfolio Cards — No Before/After Slider) */
+.gi-work-card {
+    position: relative;
+    border-radius: 20px;
+    overflow: hidden;
+    background: #ffffff;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+    aspect-ratio: 1 / 1;
+    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s ease, border-color 0.4s ease;
+    display: flex;
+    flex-direction: column;
+}
+.gi-work-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.7), 0 0 30px rgba(42, 106, 238, 0.25);
+    border-color: rgba(42, 106, 238, 0.4);
+}
+.gi-work-card-media {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    background: #ffffff;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.gi-work-card-media img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    display: block;
+    transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.gi-work-card:hover .gi-work-card-media img {
+    transform: scale(1.05);
+}
+.gi-work-card-caption {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 2.2rem 1.25rem 0.95rem 1.25rem;
+    background: linear-gradient(to top, rgba(3, 8, 17, 0.92) 0%, rgba(3, 8, 17, 0.45) 65%, transparent 100%);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.5rem;
+    z-index: 5;
+    pointer-events: none;
+    transition: background 0.3s ease;
+}
 </style>
 
 <main class="gi-cp-wrapper gi-page-rhythm">
@@ -984,72 +1038,81 @@ get_header(); ?>
 
     <?php if ( $slug === 'shadow-creation-service' ) : ?>
     <!-- ==========================================
-         SHADOW CREATION BEFORE / AFTER SHOWCASE
+         SHADOW CREATION GALLERY WORKS SHOWCASE
          ========================================== -->
     <section class="gi-rhythm-block gi-rhythm-charcoal gi-gm-showcase-section">
         <div class="gi-cp-container">
             <div class="gi-gm-header">
-                <span class="gi-gm-pill-tag">Visual Proof &bull; Real Studio Results</span>
-                <h2 class="gi-gm-title">Before &amp; After Works Showcase</h2>
-                <p class="gi-gm-subtitle">Compare flat, floating product cutouts against our realistic studio shadow enhancements. Simply hover and move your cursor across any photo below (or drag the slider) to inspect how natural drop shadows, reflection lighting, and ground contact depth bring products to life.</p>
+                <span class="gi-gm-pill-tag">Portfolio &bull; Real Studio Results</span>
+                <h2 class="gi-gm-title">Shadow Creation Works Showcase</h2>
+                <p class="gi-gm-subtitle">Explore our gallery of realistic shadow creation, reflection effects, and natural ground depth. We craft custom drop shadows, floating shadows, and mirror reflections that make eCommerce products look grounded and premium.</p>
             </div>
 
-            <div class="gi-gm-grid gi-gm-grid--square">
+            <div class="gi-gm-grid">
                 
                 <!-- Sample 01: Silk Bow Tie -->
-                <article class="gi-gm-card" data-gi-animate="fade-up">
-                    <div class="gi-gm-card-media">
-                        <?php 
-                        gi_before_after( 
-                            get_template_directory_uri() . '/sc-before-01.webp', 
-                            get_template_directory_uri() . '/sc-after-01.webp', 
-                            'Before 01', 
-                            'After 01', 
-                            'sc_sample_1' 
-                        ); 
-                        ?>
+                <article class="gi-work-card" data-gi-animate="fade-up">
+                    <div class="gi-work-card-media">
+                        <img src="<?php echo esc_url( get_template_directory_uri() . '/sc-work-01.webp' ); ?>" alt="Silk Bow Tie with Reflection and Drop Shadow" loading="lazy">
                     </div>
-                    <div class="gi-gm-card-caption">
+                    <div class="gi-work-card-caption">
                         <span class="gi-gm-card-tag">Sample 01</span>
-                        <span class="gi-gm-card-title">Silk Bow Tie &bull; Drop &amp; Ground Shadow</span>
+                        <span class="gi-gm-card-title">Silk Bow Tie &bull; Reflection &amp; Drop Shadow</span>
                     </div>
                 </article>
 
                 <!-- Sample 02: Modern Planter -->
-                <article class="gi-gm-card" data-gi-animate="fade-up" data-gi-delay="100">
-                    <div class="gi-gm-card-media">
-                        <?php 
-                        gi_before_after( 
-                            get_template_directory_uri() . '/sc-before-02.webp', 
-                            get_template_directory_uri() . '/sc-after-02.webp', 
-                            'Before 02', 
-                            'After 02', 
-                            'sc_sample_2' 
-                        ); 
-                        ?>
+                <article class="gi-work-card" data-gi-animate="fade-up" data-gi-delay="100">
+                    <div class="gi-work-card-media">
+                        <img src="<?php echo esc_url( get_template_directory_uri() . '/sc-work-02.webp' ); ?>" alt="Modern Planter with Natural Cast Shadow" loading="lazy">
                     </div>
-                    <div class="gi-gm-card-caption">
+                    <div class="gi-work-card-caption">
                         <span class="gi-gm-card-tag">Sample 02</span>
                         <span class="gi-gm-card-title">Modern Planter &bull; Natural Cast Shadow</span>
                     </div>
                 </article>
 
                 <!-- Sample 03: Leather Belt -->
-                <article class="gi-gm-card" data-gi-animate="fade-up" data-gi-delay="200">
-                    <div class="gi-gm-card-media">
-                        <?php 
-                        gi_before_after( 
-                            get_template_directory_uri() . '/sc-before-03.webp', 
-                            get_template_directory_uri() . '/sc-after-03.webp', 
-                            'Before 03', 
-                            'After 03', 
-                            'sc_sample_3' 
-                        ); 
-                        ?>
+                <article class="gi-work-card" data-gi-animate="fade-up" data-gi-delay="150">
+                    <div class="gi-work-card-media">
+                        <img src="<?php echo esc_url( get_template_directory_uri() . '/sc-work-03.webp' ); ?>" alt="Leather Belt with Soft Contact Shadow" loading="lazy">
                     </div>
-                    <div class="gi-gm-card-caption">
+                    <div class="gi-work-card-caption">
                         <span class="gi-gm-card-tag">Sample 03</span>
                         <span class="gi-gm-card-title">Leather Belt &bull; Soft Contact Shadow</span>
+                    </div>
+                </article>
+
+                <!-- Sample 04: Designer Handbag -->
+                <article class="gi-work-card" data-gi-animate="fade-up" data-gi-delay="200">
+                    <div class="gi-work-card-media">
+                        <img src="<?php echo esc_url( get_template_directory_uri() . '/sc-work-04.webp' ); ?>" alt="Designer Handbag with Floating Drop Shadow" loading="lazy">
+                    </div>
+                    <div class="gi-work-card-caption">
+                        <span class="gi-gm-card-tag">Sample 04</span>
+                        <span class="gi-gm-card-title">Designer Handbag &bull; Floating Drop Shadow</span>
+                    </div>
+                </article>
+
+                <!-- Sample 05: Suede High Heel -->
+                <article class="gi-work-card" data-gi-animate="fade-up" data-gi-delay="250">
+                    <div class="gi-work-card-media">
+                        <img src="<?php echo esc_url( get_template_directory_uri() . '/sc-work-05.webp' ); ?>" alt="Suede High Heel with Natural Surface Shadow" loading="lazy">
+                    </div>
+                    <div class="gi-work-card-caption">
+                        <span class="gi-gm-card-tag">Sample 05</span>
+                        <span class="gi-gm-card-title">Suede High Heel &bull; Natural Surface Shadow</span>
+                    </div>
+                </article>
+
+                <!-- Sample 06: Sport Riding Boots -->
+                <article class="gi-work-card" data-gi-animate="fade-up" data-gi-delay="300">
+                    <div class="gi-work-card-media">
+                        <img src="<?php echo esc_url( get_template_directory_uri() . '/sc-work-06.webp' ); ?>" alt="Sport Riding Boots with Mirror Reflection Shadow" loading="lazy">
+                    </div>
+                    <div class="gi-work-card-caption">
+                        <span class="gi-gm-card-tag">Sample 06</span>
+                        <span class="gi-gm-card-title">Sport Riding Boots &bull; Mirror Reflection Shadow</span>
                     </div>
                 </article>
 

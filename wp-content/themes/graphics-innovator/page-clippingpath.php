@@ -549,6 +549,50 @@ get_header(); ?>
                              decoding="async">
                     </picture>
                 </div>
+                <div class="gi-cp-gallery-item">
+                    <picture>
+                        <source srcset="<?php echo esc_url( get_template_directory_uri() . '/cp-sample-5.webp' ); ?>" type="image/webp">
+                        <img src="<?php echo esc_url( get_template_directory_uri() . '/cp-sample-5.jpg' ); ?>" 
+                             alt="<?php esc_attr_e( 'Clipping Path Sample - Toy & Fabric Cutout', 'graphics-innovator' ); ?>" 
+                             width="575" 
+                             height="800" 
+                             loading="lazy" 
+                             decoding="async">
+                    </picture>
+                </div>
+                <div class="gi-cp-gallery-item">
+                    <picture>
+                        <source srcset="<?php echo esc_url( get_template_directory_uri() . '/cp-sample-6.webp' ); ?>" type="image/webp">
+                        <img src="<?php echo esc_url( get_template_directory_uri() . '/cp-sample-6.jpg' ); ?>" 
+                             alt="<?php esc_attr_e( 'Clipping Path Sample - Multi-Part Precision Cutout', 'graphics-innovator' ); ?>" 
+                             width="575" 
+                             height="800" 
+                             loading="lazy" 
+                             decoding="async">
+                    </picture>
+                </div>
+                <div class="gi-cp-gallery-item">
+                    <picture>
+                        <source srcset="<?php echo esc_url( get_template_directory_uri() . '/cp-sample-7.webp' ); ?>" type="image/webp">
+                        <img src="<?php echo esc_url( get_template_directory_uri() . '/cp-sample-7.jpg' ); ?>" 
+                             alt="<?php esc_attr_e( 'Clipping Path Sample - Figure & Accessories Cutout', 'graphics-innovator' ); ?>" 
+                             width="575" 
+                             height="800" 
+                             loading="lazy" 
+                             decoding="async">
+                    </picture>
+                </div>
+                <div class="gi-cp-gallery-item">
+                    <picture>
+                        <source srcset="<?php echo esc_url( get_template_directory_uri() . '/cp-sample-8.webp' ); ?>" type="image/webp">
+                        <img src="<?php echo esc_url( get_template_directory_uri() . '/cp-sample-8.jpg' ); ?>" 
+                             alt="<?php esc_attr_e( 'Clipping Path Sample - Eyewear & Tabletop Cutout', 'graphics-innovator' ); ?>" 
+                             width="575" 
+                             height="800" 
+                             loading="lazy" 
+                             decoding="async">
+                    </picture>
+                </div>
             </div>
         </div>
         </div>

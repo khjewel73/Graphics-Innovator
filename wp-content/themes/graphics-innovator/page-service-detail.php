@@ -568,6 +568,31 @@ get_header(); ?>
     background: #ffffff;
     overflow: hidden;
 }
+.gi-gm-card-media::after {
+    content: 'Hover or drag to compare';
+    position: absolute;
+    bottom: 12px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(3, 8, 17, 0.78);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    color: rgba(255, 255, 255, 0.88);
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    padding: 0.3rem 0.8rem;
+    border-radius: 999px;
+    border: 1px solid rgba(255, 255, 255, 0.14);
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    z-index: 6;
+}
+.gi-gm-card:hover .gi-gm-card-media::after {
+    opacity: 1;
+    transform: translateX(-50%) translateY(-2px);
+}
 .gi-gm-card-media .gi-before-after {
     border-radius: 0;
     margin: 0;
@@ -757,7 +782,7 @@ get_header(); ?>
             <div class="gi-gm-header">
                 <span class="gi-gm-pill-tag">Visual Proof &bull; Real Studio Results</span>
                 <h2 class="gi-gm-title">Before &amp; After Transformation</h2>
-                <p class="gi-gm-subtitle">Compare raw mannequin studio captures against our final 3D ghost mannequin extractions. Drag the interactive sliders below to inspect our neck joint assembly, sleeve symmetry, and fabric alignment.</p>
+                <p class="gi-gm-subtitle">Compare raw mannequin studio captures against our final 3D ghost mannequin extractions. Simply hover and move your cursor across any photo below (or drag the slider) to instantly reveal the Before and After transformation.</p>
             </div>
 
             <div class="gi-gm-grid">

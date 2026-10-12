@@ -176,7 +176,73 @@ document.addEventListener('DOMContentLoaded', () => {
         syncImgWidth();
         window.addEventListener('resize', syncImgWidth, { passive: true });
 
-        // Mouse events
+        // Hover tracking: Moving cursor over the image smoothly reveals Before & After without needing click & drag
+        let isHovering = false;
+
+        container.addEventListener('mouseenter', () => {
+            isHovering = true;
+            beforeImg.style.transition = 'none';
+            handle.style.transition = 'none';
+        });
+
+        container.addEventListener('mousemove', (e) => {
+            if (isDragging) return;
+            slide(e.clientX);
+        });
+
+        container.addEventListener('mouseleave', () => {
+            if (isDragging) return;
+            isHovering = false;
+            // Smoothly glide back to balanced 50% split on mouse leave
+            beforeImg.style.transition = 'width 0.45s cubic-bezier(0.16, 1, 0.3, 1)';
+            handle.style.transition = 'left 0.45s cubic-bezier(0.16, 1, 0.3, 1)';
+            beforeImg.style.width = '50%';
+            handle.style.left = 'calc(50% - 2px)';
+            syncImgWidth();
+            setTimeout(() => {
+                if (!isHovering) {
+                    beforeImg.style.transition = '';
+                    handle.style.transition = '';
+                }
+            }, 450);
+        });
+
+        // Hovering directly over "Before" label slides to reveal 100% of the Before image
+        const labelBefore = container.querySelector('.gi-ba-label--before');
+        const labelAfter  = container.querySelector('.gi-ba-label--after');
+
+        if (labelBefore) {
+            labelBefore.style.cursor = 'pointer';
+            labelBefore.addEventListener('mouseenter', () => {
+                beforeImg.style.transition = 'width 0.35s ease';
+                handle.style.transition = 'left 0.35s ease';
+                beforeImg.style.width = '100%';
+                handle.style.left = 'calc(100% - 2px)';
+                syncImgWidth();
+            });
+            labelBefore.addEventListener('mouseleave', () => {
+                beforeImg.style.transition = '';
+                handle.style.transition = '';
+            });
+        }
+
+        // Hovering directly over "After" label slides to reveal 100% of the After image
+        if (labelAfter) {
+            labelAfter.style.cursor = 'pointer';
+            labelAfter.addEventListener('mouseenter', () => {
+                beforeImg.style.transition = 'width 0.35s ease';
+                handle.style.transition = 'left 0.35s ease';
+                beforeImg.style.width = '0%';
+                handle.style.left = '-2px';
+                syncImgWidth();
+            });
+            labelAfter.addEventListener('mouseleave', () => {
+                beforeImg.style.transition = '';
+                handle.style.transition = '';
+            });
+        }
+
+        // Mouse drag events
         handle.addEventListener('mousedown', (e) => {
             isDragging = true;
             handle.classList.add('gi-dragging');
@@ -189,7 +255,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
         window.addEventListener('mousemove', (e) => {
             if (!isDragging) return;
-            slide(e.clientX); // FIX: was e.pageX
+            slide(e.clientX);
         });
 
         // Touch events
@@ -203,10 +269,10 @@ document.addEventListener('DOMContentLoaded', () => {
         });
         window.addEventListener('touchmove', (e) => {
             if (!isDragging) return;
-            slide(e.touches[0].clientX); // FIX: was e.touches[0].pageX
+            slide(e.touches[0].clientX);
         }, { passive: true });
 
-        // Also allow dragging anywhere on the container (not just handle)
+        // Container click / touch drag
         container.addEventListener('mousedown', (e) => {
             isDragging = true;
             handle.classList.add('gi-dragging');

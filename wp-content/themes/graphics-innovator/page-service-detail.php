@@ -947,6 +947,43 @@ get_header(); ?>
                     </div>
                 </article>
 
+                <!-- Sample 06: Sheer Lace Dress -->
+                <article class="gi-gm-card" data-gi-animate="fade-up" data-gi-delay="300">
+                    <div class="gi-gm-card-media">
+                        <?php 
+                        gi_before_after( 
+                            get_template_directory_uri() . '/gm-before-06.webp', 
+                            get_template_directory_uri() . '/gm-after-06.webp', 
+                            'Before 06', 
+                            'After 06', 
+                            'gm_sample_6' 
+                        ); 
+                        ?>
+                    </div>
+                    <div class="gi-gm-card-body">
+                        <div class="gi-gm-card-meta">
+                            <span class="gi-gm-badge">Sample 06 &bull; Before 06 &rarr; After 06</span>
+                            <span class="gi-gm-badge-category">Sheer &amp; Delicate Fabric</span>
+                        </div>
+                        <h3>Sheer Lace Dress &bull; Transparent Mannequin Cutout</h3>
+                        <p>Complex transparent mannequin eradication through sheer fabric and lace embroidery. Preserves subtle rear strap visibility and intricate hem scalloping on pure white.</p>
+                        <div class="gi-gm-card-specs">
+                            <span class="gi-gm-spec-pill">
+                                <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
+                                Transparent Torso Eradicated
+                            </span>
+                            <span class="gi-gm-spec-pill">
+                                <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
+                                Sheer Mesh Transparency Kept
+                            </span>
+                            <span class="gi-gm-spec-pill">
+                                <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
+                                Intricate Lace Edge Intact
+                            </span>
+                        </div>
+                    </div>
+                </article>
+
             </div>
         </div>
     </section>

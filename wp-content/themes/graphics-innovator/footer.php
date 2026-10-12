@@ -73,7 +73,7 @@ $email    = get_theme_mod( 'gi_email', 'info@graphicsinnovator.com' );
                         'depth'          => 1,
                     ] );
                 } else {
-                    echo '<ul class="gi-footer-nav"><li><a href="#">Clipping Path</a></li><li><a href="#">Background Removal</a></li><li><a href="#">Shadow Making</a></li><li><a href="#">Image Masking</a></li></ul>';
+                    echo '<ul class="gi-footer-nav"><li><a href="' . esc_url( home_url('/clippingpath/') ) . '">Clipping Path</a></li><li><a href="' . esc_url( home_url('/background-removal-service/') ) . '">Background Removal</a></li><li><a href="' . esc_url( home_url('/shadow-creation-service/') ) . '">Shadow Creation</a></li><li><a href="' . esc_url( home_url('/image-masking-service/') ) . '">Image Masking</a></li><li><a href="' . esc_url( home_url('/ghost-mannequin-service/') ) . '">Ghost Mannequin</a></li></ul>';
                 }
                 ?>
             </div>
@@ -90,7 +90,7 @@ $email    = get_theme_mod( 'gi_email', 'info@graphicsinnovator.com' );
                         'depth'          => 1,
                     ] );
                 } else {
-                    echo '<ul class="gi-footer-nav"><li><a href="' . esc_url( home_url('/about/') ) . '">About Us</a></li><li><a href="' . esc_url( home_url('/pricing/') ) . '">Pricing Plans</a></li><li><a href="' . esc_url( home_url('/portfolio/') ) . '">Portfolio</a></li><li><a href="' . esc_url( home_url('/contact/') ) . '">Contact Us</a></li></ul>';
+                    echo '<ul class="gi-footer-nav"><li><a href="' . esc_url( home_url('/about-us/') ) . '">About Us</a></li><li><a href="' . esc_url( home_url('/how-it-work/') ) . '">How It Works</a></li><li><a href="' . esc_url( home_url('/pricing-3/') ) . '">Pricing Plans</a></li><li><a href="' . esc_url( home_url('/portfolio-details/') ) . '">Portfolio</a></li><li><a href="' . esc_url( home_url('/free-trial/') ) . '">Free Trial</a></li><li><a href="' . esc_url( home_url('/contact-us/') ) . '">Contact Us</a></li></ul>';
                 }
                 ?>
             </div>

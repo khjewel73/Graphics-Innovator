@@ -43,8 +43,8 @@ class GI_Nav_Walker extends Walker_Nav_Menu {
         $atts = [];
         $atts['title']  = ! empty( $item->attr_title ) ? $item->attr_title : '';
         $atts['target'] = ! empty( $item->target ) ? $item->target : '';
-        $atts['rel']    = ! empty( $item->xfn ) ? $item->xfn : '';
-        $atts['href']   = ! empty( $item->url ) ? $item->url : '';
+        $raw_url        = ! empty( $item->url ) ? $item->url : '';
+        $atts['href']   = function_exists( 'gi_normalize_nav_url' ) ? gi_normalize_nav_url( $raw_url ) : $raw_url;
         $atts['class']  = 'gi-menu-link' . ( $depth > 0 ? ' gi-submenu-link' : '' );
 
         // Add aria-haspopup for dropdown parents

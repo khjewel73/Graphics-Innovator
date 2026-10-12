@@ -269,3 +269,127 @@ function gi_get_upload_url( $filename ) {
     $upload_dir = wp_upload_dir();
     return $upload_dir['baseurl'] . '/' . ltrim( $filename, '/' );
 }
+
+// ─────────────────────────────────────────────
+//  DYNAMIC NAVIGATION URL NORMALIZER
+//  Seamlessly adapts all menu links to BOTH Localhost & Live Hosting
+// ─────────────────────────────────────────────
+function gi_normalize_nav_url( $url ) {
+    if ( empty( $url ) || $url === '#' || strpos( $url, 'javascript:' ) === 0 || strpos( $url, 'mailto:' ) === 0 || strpos( $url, 'tel:' ) === 0 ) {
+        return $url;
+    }
+
+    // Do not touch external third-party links (WhatsApp, social media, external auth)
+    $external_domains = [
+        'wa.me',
+        'whatsapp.com',
+        'facebook.com',
+        'twitter.com',
+        'x.com',
+        'linkedin.com',
+        'instagram.com',
+        'youtube.com',
+        'pinterest.com',
+        'github.com',
+    ];
+    foreach ( $external_domains as $ext_domain ) {
+        if ( stripos( $url, $ext_domain ) !== false ) {
+            return $url;
+        }
+    }
+
+    $current_home = untrailingslashit( home_url() );
+
+    // Known site host bases from both live and local environments
+    $known_bases = [
+        'https://graphicsinnovator.com',
+        'http://graphicsinnovator.com',
+        'https://www.graphicsinnovator.com',
+        'http://www.graphicsinnovator.com',
+        'http://localhost/Graphics%20Innovator',
+        'http://localhost/Graphics Innovator',
+        'http://127.0.0.1/Graphics%20Innovator',
+        'http://127.0.0.1/Graphics Innovator',
+        'http://localhost',
+        'http://127.0.0.1',
+    ];
+
+    foreach ( $known_bases as $base ) {
+        if ( stripos( $url, $base ) === 0 ) {
+            $path = substr( $url, strlen( $base ) );
+            // Clean up any remaining leading subdirectory fragment if base was just http://localhost
+            if ( stripos( $path, '/Graphics%20Innovator' ) === 0 ) {
+                $path = substr( $path, strlen( '/Graphics%20Innovator' ) );
+            } elseif ( stripos( $path, '/Graphics Innovator' ) === 0 ) {
+                $path = substr( $path, strlen( '/Graphics Innovator' ) );
+            }
+
+            if ( empty( $path ) || $path === '/' ) {
+                return trailingslashit( $current_home );
+            }
+            return $current_home . ( $path[0] === '/' ? $path : '/' . $path );
+        }
+    }
+
+    // Root-relative path (e.g., "/services/" or "/contact-us/")
+    // On localhost in a subfolder, a root-relative path points to localhost root and fails.
+    // Convert it to use current home_url() so it works perfectly everywhere.
+    if ( strpos( $url, '/' ) === 0 && strpos( $url, '//' ) !== 0 ) {
+        return $current_home . $url;
+    }
+
+    return $url;
+}
+
+// Hook URL normalizer into WordPress nav menu filters
+add_filter( 'wp_nav_menu_objects', 'gi_filter_nav_menu_objects', 20 );
+function gi_filter_nav_menu_objects( $items ) {
+    if ( ! is_array( $items ) ) return $items;
+    foreach ( $items as &$item ) {
+        if ( isset( $item->url ) ) {
+            $item->url = gi_normalize_nav_url( $item->url );
+        }
+    }
+    return $items;
+}
+
+add_filter( 'nav_menu_link_attributes', 'gi_filter_nav_menu_link_attributes', 20, 4 );
+function gi_filter_nav_menu_link_attributes( $atts, $item, $args, $depth ) {
+    if ( ! empty( $atts['href'] ) ) {
+        $atts['href'] = gi_normalize_nav_url( $atts['href'] );
+    }
+    return $atts;
+}
+
+// ─────────────────────────────────────────────
+//  SMART SLUG REDIRECTS / ALIASES
+//  Ensures /pricing/, /contact/, /about/ work seamlessly
+// ─────────────────────────────────────────────
+add_action( 'init', 'gi_smart_slug_redirects', 1 );
+function gi_smart_slug_redirects() {
+    if ( is_admin() || ( defined( 'DOING_AJAX' ) && DOING_AJAX ) || ( defined( 'REST_REQUEST' ) && REST_REQUEST ) ) return;
+
+    $req_uri = isset( $_SERVER['REQUEST_URI'] ) ? $_SERVER['REQUEST_URI'] : '';
+    if ( empty( $req_uri ) ) return;
+
+    $path = trim( parse_url( $req_uri, PHP_URL_PATH ), '/' );
+    if ( empty( $path ) ) return;
+
+    // Get the trailing slug
+    $parts = explode( '/', $path );
+    $last_slug = strtolower( end( $parts ) );
+
+    $slug_aliases = [
+        'pricing'      => 'pricing-3',
+        'contact'      => 'contact-us',
+        'about'        => 'about-us',
+        'how-it-works' => 'how-it-work',
+        'portfolio'    => 'portfolio-details',
+        'trial'        => 'free-trial',
+    ];
+
+    if ( isset( $slug_aliases[ $last_slug ] ) ) {
+        wp_safe_redirect( home_url( '/' . $slug_aliases[ $last_slug ] . '/' ), 301 );
+        exit;
+    }
+}

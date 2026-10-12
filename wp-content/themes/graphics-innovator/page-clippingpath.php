@@ -593,6 +593,39 @@ get_header(); ?>
                              decoding="async">
                     </picture>
                 </div>
+                <div class="gi-cp-gallery-item">
+                    <picture>
+                        <source srcset="<?php echo esc_url( get_template_directory_uri() . '/cp-sample-9.webp' ); ?>" type="image/webp">
+                        <img src="<?php echo esc_url( get_template_directory_uri() . '/cp-sample-9.jpg' ); ?>" 
+                             alt="<?php esc_attr_e( 'Clipping Path Sample - Sports Equipment & Bicycle Cutout', 'graphics-innovator' ); ?>" 
+                             width="575" 
+                             height="800" 
+                             loading="lazy" 
+                             decoding="async">
+                    </picture>
+                </div>
+                <div class="gi-cp-gallery-item">
+                    <picture>
+                        <source srcset="<?php echo esc_url( get_template_directory_uri() . '/cp-sample-10.webp' ); ?>" type="image/webp">
+                        <img src="<?php echo esc_url( get_template_directory_uri() . '/cp-sample-10.jpg' ); ?>" 
+                             alt="<?php esc_attr_e( 'Clipping Path Sample - Handcrafted Ornament & Birds Cutout', 'graphics-innovator' ); ?>" 
+                             width="575" 
+                             height="800" 
+                             loading="lazy" 
+                             decoding="async">
+                    </picture>
+                </div>
+                <div class="gi-cp-gallery-item">
+                    <picture>
+                        <source srcset="<?php echo esc_url( get_template_directory_uri() . '/cp-sample-11.webp' ); ?>" type="image/webp">
+                        <img src="<?php echo esc_url( get_template_directory_uri() . '/cp-sample-11.jpg' ); ?>" 
+                             alt="<?php esc_attr_e( 'Clipping Path Sample - Plush Toy & Apparel Cutout', 'graphics-innovator' ); ?>" 
+                             width="575" 
+                             height="800" 
+                             loading="lazy" 
+                             decoding="async">
+                    </picture>
+                </div>
             </div>
         </div>
         </div>

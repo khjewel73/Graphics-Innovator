@@ -153,40 +153,65 @@ document.addEventListener('DOMContentLoaded', () => {
         const handle    = slider.querySelector('.gi-ba-handle');
         if (!container || !beforeImg || !handle) return;
 
-        let isDragging = false;
-
-        const syncImgWidth = () => {
+        const syncImgDimensions = () => {
             const bImg = beforeImg.querySelector('img');
+            const aImg = container.querySelector('.gi-ba-after img');
             if (bImg && container.offsetWidth > 0) {
-                bImg.style.width = `${container.offsetWidth}px`;
+                const w = container.offsetWidth;
+                bImg.style.width = `${w}px`;
                 bImg.style.maxWidth = 'none';
+
+                const h = (aImg && aImg.offsetHeight > 0) ? aImg.offsetHeight : container.offsetHeight;
+                if (h > 0) {
+                    bImg.style.height = `${h}px`;
+                    bImg.style.maxHeight = 'none';
+                }
             }
         };
 
         const slide = (clientX) => {
-            const rect     = container.getBoundingClientRect();
-            let position   = ((clientX - rect.left) / rect.width) * 100;
-            position       = Math.max(0, Math.min(100, position));  // Clamp 0–100
+            const rect = container.getBoundingClientRect();
+            if (rect.width <= 0) return;
+            let position = ((clientX - rect.left) / rect.width) * 100;
+            position = Math.max(0, Math.min(100, position));  // Clamp 0–100
 
             beforeImg.style.width = `${position}%`;
-            syncImgWidth();
             handle.style.left     = `calc(${position}% - 2px)`;
         };
 
-        syncImgWidth();
-        window.addEventListener('resize', syncImgWidth, { passive: true });
+        syncImgDimensions();
+
+        const aImg = container.querySelector('.gi-ba-after img');
+        const bImg = beforeImg.querySelector('img');
+        if (aImg) {
+            if (aImg.complete) {
+                syncImgDimensions();
+            } else {
+                aImg.addEventListener('load', syncImgDimensions, { once: true });
+            }
+        }
+        if (bImg && !bImg.complete) {
+            bImg.addEventListener('load', syncImgDimensions, { once: true });
+        }
+
+        window.addEventListener('resize', syncImgDimensions, { passive: true });
 
         // Hover tracking: Moving cursor over the image smoothly reveals Before & After without needing click & drag
         let isHovering = false;
 
-        container.addEventListener('mouseenter', () => {
+        container.addEventListener('mouseenter', (e) => {
             isHovering = true;
+            syncImgDimensions();
             beforeImg.style.transition = 'none';
             handle.style.transition = 'none';
+            if (e && typeof e.clientX === 'number') {
+                slide(e.clientX);
+            }
         });
 
         container.addEventListener('mousemove', (e) => {
             if (isDragging) return;
+            if (e.target && e.target.closest && e.target.closest('.gi-ba-label')) return;
             slide(e.clientX);
         });
 
@@ -198,7 +223,6 @@ document.addEventListener('DOMContentLoaded', () => {
             handle.style.transition = 'left 0.45s cubic-bezier(0.16, 1, 0.3, 1)';
             beforeImg.style.width = '50%';
             handle.style.left = 'calc(50% - 2px)';
-            syncImgWidth();
             setTimeout(() => {
                 if (!isHovering) {
                     beforeImg.style.transition = '';
@@ -218,7 +242,6 @@ document.addEventListener('DOMContentLoaded', () => {
                 handle.style.transition = 'left 0.35s ease';
                 beforeImg.style.width = '100%';
                 handle.style.left = 'calc(100% - 2px)';
-                syncImgWidth();
             });
             labelBefore.addEventListener('mouseleave', () => {
                 beforeImg.style.transition = '';
@@ -234,7 +257,6 @@ document.addEventListener('DOMContentLoaded', () => {
                 handle.style.transition = 'left 0.35s ease';
                 beforeImg.style.width = '0%';
                 handle.style.left = '-2px';
-                syncImgWidth();
             });
             labelAfter.addEventListener('mouseleave', () => {
                 beforeImg.style.transition = '';
@@ -246,6 +268,8 @@ document.addEventListener('DOMContentLoaded', () => {
         handle.addEventListener('mousedown', (e) => {
             isDragging = true;
             handle.classList.add('gi-dragging');
+            beforeImg.style.transition = 'none';
+            handle.style.transition = 'none';
             e.preventDefault(); // Prevent text selection while dragging
         });
         window.addEventListener('mouseup', () => {
@@ -262,6 +286,9 @@ document.addEventListener('DOMContentLoaded', () => {
         handle.addEventListener('touchstart', () => {
             isDragging = true;
             handle.classList.add('gi-dragging');
+            beforeImg.style.transition = 'none';
+            handle.style.transition = 'none';
+            syncImgDimensions();
         }, { passive: true });
         window.addEventListener('touchend', () => {
             isDragging = false;
@@ -274,12 +301,19 @@ document.addEventListener('DOMContentLoaded', () => {
 
         // Container click / touch drag
         container.addEventListener('mousedown', (e) => {
+            if (e.target && e.target.closest && e.target.closest('.gi-ba-label')) return;
             isDragging = true;
             handle.classList.add('gi-dragging');
+            beforeImg.style.transition = 'none';
+            handle.style.transition = 'none';
             slide(e.clientX);
         });
         container.addEventListener('touchstart', (e) => {
+            if (e.target && e.target.closest && e.target.closest('.gi-ba-label')) return;
             isDragging = true;
+            beforeImg.style.transition = 'none';
+            handle.style.transition = 'none';
+            syncImgDimensions();
             slide(e.touches[0].clientX);
         }, { passive: true });
     });

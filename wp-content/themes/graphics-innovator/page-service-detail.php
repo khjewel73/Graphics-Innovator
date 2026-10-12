@@ -574,10 +574,13 @@ get_header(); ?>
     background: #ffffff;
     border: 1px solid rgba(255, 255, 255, 0.08);
     box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
-    aspect-ratio: 3/4;
+    aspect-ratio: 555 / 736;
     transition: transform 0.4s ease, box-shadow 0.4s ease, border-color 0.4s ease;
     display: flex;
     flex-direction: column;
+}
+.gi-gm-grid--2col .gi-gm-card {
+    aspect-ratio: 1 / 1;
 }
 .gi-gm-card:hover {
     transform: translateY(-8px);
@@ -591,18 +594,50 @@ get_header(); ?>
     background: #ffffff;
     overflow: hidden;
 }
-.gi-gm-card-media .gi-before-after,
-.gi-gm-card-media .gi-ba-container {
+.gi-gm-card-media .gi-before-after {
     width: 100%;
     height: 100%;
     border-radius: 0;
     margin: 0;
     background: #ffffff;
+    box-shadow: none;
 }
-.gi-gm-card-media .gi-ba-container img {
+.gi-gm-card-media .gi-ba-container {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    overflow: hidden;
+    background: #ffffff;
+}
+.gi-gm-card-media .gi-ba-after {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+.gi-gm-card-media .gi-ba-after img {
     width: 100%;
     height: 100%;
     object-fit: cover;
+    object-position: center;
+    display: block;
+}
+.gi-gm-card-media .gi-ba-before {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    height: 100%;
+    overflow: hidden;
+}
+.gi-gm-card-media .gi-ba-before img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
     display: block;
 }
 .gi-gm-card-media::after {

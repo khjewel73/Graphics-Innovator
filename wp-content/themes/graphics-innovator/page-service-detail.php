@@ -537,18 +537,27 @@ get_header(); ?>
     line-height: 1.7;
     margin: 0;
 }
+.gi-gm-showcase-section .gi-cp-container {
+    max-width: 1280px;
+}
 .gi-gm-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 2.75rem;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 2rem;
 }
 .gi-gm-card {
+    flex: 0 1 calc(33.333% - 1.35rem);
+    width: calc(33.333% - 1.35rem);
+    max-width: calc(33.333% - 1.35rem);
     background: linear-gradient(145deg, rgba(255, 255, 255, 0.04) 0%, rgba(15, 23, 42, 0.45) 100%);
     border: 1px solid rgba(255, 255, 255, 0.08);
-    border-radius: 24px;
+    border-radius: 20px;
     overflow: hidden;
-    box-shadow: 0 25px 60px rgba(0, 0, 0, 0.45);
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.45);
     transition: transform 0.4s ease, box-shadow 0.4s ease;
+    display: flex;
+    flex-direction: column;
 }
 .gi-gm-card:hover {
     transform: translateY(-6px);
@@ -567,73 +576,93 @@ get_header(); ?>
     background: #ffffff;
 }
 .gi-gm-card-body {
-    padding: 2.25rem;
+    padding: 1.6rem;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
 }
 .gi-gm-card-meta {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    gap: 1rem;
-    margin-bottom: 1rem;
+    gap: 0.75rem;
+    margin-bottom: 0.85rem;
 }
 .gi-gm-badge {
     display: inline-block;
-    padding: 0.35rem 0.85rem;
+    padding: 0.35rem 0.75rem;
     border-radius: 100px;
     background: rgba(234, 88, 12, 0.15);
     border: 1px solid rgba(234, 88, 12, 0.35);
     color: #ff9800;
-    font-size: 0.8rem;
+    font-size: 0.76rem;
     font-weight: 700;
-    letter-spacing: 0.05em;
+    letter-spacing: 0.04em;
     text-transform: uppercase;
+    white-space: nowrap;
 }
 .gi-gm-badge-category {
-    font-size: 0.8rem;
+    font-size: 0.76rem;
     color: rgba(255, 255, 255, 0.5);
     text-transform: uppercase;
-    letter-spacing: 0.08em;
+    letter-spacing: 0.06em;
     font-weight: 600;
 }
 .gi-gm-card-body h3 {
-    font-size: 1.45rem;
+    font-size: 1.25rem;
     font-weight: 800;
     color: #ffffff;
-    margin-bottom: 0.75rem;
-    line-height: 1.3;
+    margin-bottom: 0.6rem;
+    line-height: 1.35;
 }
 .gi-gm-card-body p {
     color: rgba(255, 255, 255, 0.7);
-    font-size: 1rem;
-    line-height: 1.65;
-    margin-bottom: 1.5rem;
+    font-size: 0.92rem;
+    line-height: 1.6;
+    margin-bottom: 1.25rem;
+    flex-grow: 1;
 }
 .gi-gm-card-specs {
     display: flex;
     flex-wrap: wrap;
-    gap: 0.6rem;
+    gap: 0.5rem;
+    margin-top: auto;
 }
 .gi-gm-spec-pill {
     display: inline-flex;
     align-items: center;
-    gap: 0.4rem;
-    font-size: 0.82rem;
+    gap: 0.35rem;
+    font-size: 0.76rem;
     color: rgba(255, 255, 255, 0.85);
     background: rgba(255, 255, 255, 0.04);
     border: 1px solid rgba(255, 255, 255, 0.09);
-    padding: 0.35rem 0.8rem;
-    border-radius: 8px;
+    padding: 0.3rem 0.65rem;
+    border-radius: 6px;
 }
 .gi-gm-spec-pill svg {
-    width: 14px;
-    height: 14px;
+    width: 13px;
+    height: 13px;
     color: #10b981;
     flex-shrink: 0;
 }
-@media (max-width: 991px) {
+@media (max-width: 1024px) {
+    .gi-gm-card {
+        flex: 0 1 calc(50% - 1rem);
+        width: calc(50% - 1rem);
+        max-width: calc(50% - 1rem);
+    }
+}
+@media (max-width: 720px) {
     .gi-gm-grid {
-        grid-template-columns: 1fr;
-        gap: 2rem;
+        gap: 1.5rem;
+    }
+    .gi-gm-card {
+        flex: 0 1 100%;
+        width: 100%;
+        max-width: 100%;
+    }
+    .gi-gm-card-body {
+        padding: 1.35rem;
     }
 }
 </style>
@@ -809,6 +838,117 @@ get_header(); ?>
                             <span class="gi-gm-spec-pill">
                                 <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
                                 Natural Fabric Volume
+                            </span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Sample 03: Plaid Tailored Jacket -->
+                <article class="gi-gm-card" data-gi-animate="fade-up" data-gi-delay="150">
+                    <div class="gi-gm-card-media">
+                        <?php 
+                        gi_before_after( 
+                            get_template_directory_uri() . '/gm-before-03.webp', 
+                            get_template_directory_uri() . '/gm-after-03.webp', 
+                            'Before 03', 
+                            'After 03', 
+                            'gm_sample_3' 
+                        ); 
+                        ?>
+                    </div>
+                    <div class="gi-gm-card-body">
+                        <div class="gi-gm-card-meta">
+                            <span class="gi-gm-badge">Sample 03 &bull; Before 03 &rarr; After 03</span>
+                            <span class="gi-gm-badge-category">Outerwear</span>
+                        </div>
+                        <h3>Plaid Tailored Jacket &bull; Clear Mannequin Removal</h3>
+                        <p>Complete transparent mannequin torso and neck elimination. Inside collar lining reconstructed with authentic brand label and crisp contour edge definition.</p>
+                        <div class="gi-gm-card-specs">
+                            <span class="gi-gm-spec-pill">
+                                <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
+                                Transparent Torso Eradicated
+                            </span>
+                            <span class="gi-gm-spec-pill">
+                                <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
+                                Inner Brand Tag Rebuilt
+                            </span>
+                            <span class="gi-gm-spec-pill">
+                                <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
+                                Pure White 255/255/255
+                            </span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Sample 04: Corduroy Blazer -->
+                <article class="gi-gm-card" data-gi-animate="fade-up" data-gi-delay="200">
+                    <div class="gi-gm-card-media">
+                        <?php 
+                        gi_before_after( 
+                            get_template_directory_uri() . '/gm-before-04.webp', 
+                            get_template_directory_uri() . '/gm-after-04.webp', 
+                            'Before 04', 
+                            'After 04', 
+                            'gm_sample_4' 
+                        ); 
+                        ?>
+                    </div>
+                    <div class="gi-gm-card-body">
+                        <div class="gi-gm-card-meta">
+                            <span class="gi-gm-badge">Sample 04 &bull; Before 04 &rarr; After 04</span>
+                            <span class="gi-gm-badge-category">Tailored Wear</span>
+                        </div>
+                        <h3>Corduroy Blazer &bull; Deep Lapel &amp; Inner Lining</h3>
+                        <p>Full mannequin body and undergarment eradication with deep V-lapel interior reconstruction. Preserved golden chain collar loop and textured fabric integrity.</p>
+                        <div class="gi-gm-card-specs">
+                            <span class="gi-gm-spec-pill">
+                                <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
+                                Deep Lapel Interior Rebuilt
+                            </span>
+                            <span class="gi-gm-spec-pill">
+                                <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
+                                Gold Chain &amp; Label Saved
+                            </span>
+                            <span class="gi-gm-spec-pill">
+                                <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
+                                Corduroy Texture Intact
+                            </span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Sample 05: Red Wrap Dress -->
+                <article class="gi-gm-card" data-gi-animate="fade-up" data-gi-delay="250">
+                    <div class="gi-gm-card-media">
+                        <?php 
+                        gi_before_after( 
+                            get_template_directory_uri() . '/gm-before-05.webp', 
+                            get_template_directory_uri() . '/gm-after-05.webp', 
+                            'Before 05', 
+                            'After 05', 
+                            'gm_sample_5' 
+                        ); 
+                        ?>
+                    </div>
+                    <div class="gi-gm-card-body">
+                        <div class="gi-gm-card-meta">
+                            <span class="gi-gm-badge">Sample 05 &bull; Before 05 &rarr; After 05</span>
+                            <span class="gi-gm-badge-category">Women&#39;s Fashion</span>
+                        </div>
+                        <h3>Red Wrap Dress &bull; Hanger Removal &amp; 3D Draping</h3>
+                        <p>Hanger and wall shadows completely eliminated to produce an organic 3D hollow mannequin aesthetic with inside neck label insert and graceful garment flow.</p>
+                        <div class="gi-gm-card-specs">
+                            <span class="gi-gm-spec-pill">
+                                <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
+                                Hanger &amp; Cast Shadow Removed
+                            </span>
+                            <span class="gi-gm-spec-pill">
+                                <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
+                                Floating 3D Hollow Form
+                            </span>
+                            <span class="gi-gm-spec-pill">
+                                <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
+                                Neckline Label Insertion
                             </span>
                         </div>
                     </div>

@@ -108,11 +108,11 @@ function gi_before_after( $before_img, $after_img, $before_label = 'Before', $af
     <div class="gi-before-after" id="<?php echo esc_attr( $uid ); ?>" data-gi-ba>
         <div class="gi-ba-container">
             <div class="gi-ba-after">
-                <img src="<?php echo esc_url( $after_img ); ?>" alt="<?php echo esc_attr( $after_label ); ?>" loading="lazy">
+                <img src="<?php echo esc_url( $after_img ); ?>" alt="<?php echo esc_attr( $after_label ); ?>">
                 <span class="gi-ba-label gi-ba-label--after"><?php echo esc_html( $after_label ); ?></span>
             </div>
             <div class="gi-ba-before">
-                <img src="<?php echo esc_url( $before_img ); ?>" alt="<?php echo esc_attr( $before_label ); ?>" loading="lazy">
+                <img src="<?php echo esc_url( $before_img ); ?>" alt="<?php echo esc_attr( $before_label ); ?>">
                 <span class="gi-ba-label gi-ba-label--before"><?php echo esc_html( $before_label ); ?></span>
             </div>
             <div class="gi-ba-handle" aria-label="Drag to compare">

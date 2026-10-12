@@ -538,52 +538,89 @@ get_header(); ?>
     margin: 0;
 }
 .gi-gm-showcase-section .gi-cp-container {
-    max-width: 1200px;
+    max-width: 1280px;
 }
 .gi-gm-grid {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 2.5rem;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+}
+@media (max-width: 991px) {
+    .gi-gm-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.5rem;
+    }
+}
+@media (max-width: 576px) {
+    .gi-gm-grid {
+        grid-template-columns: 1fr;
+        gap: 1.25rem;
+    }
+}
+.gi-gm-grid--2col {
+    grid-template-columns: repeat(2, 1fr);
+    max-width: 900px;
+    margin: 0 auto;
+}
+@media (max-width: 768px) {
+    .gi-gm-grid--2col {
+        grid-template-columns: 1fr;
+    }
 }
 .gi-gm-card {
-    flex: 0 1 calc(50% - 1.25rem);
-    width: calc(50% - 1.25rem);
-    max-width: calc(50% - 1.25rem);
-    background: linear-gradient(145deg, rgba(255, 255, 255, 0.04) 0%, rgba(15, 23, 42, 0.45) 100%);
-    border: 1px solid rgba(255, 255, 255, 0.08);
-    border-radius: 22px;
+    position: relative;
+    border-radius: 20px;
     overflow: hidden;
-    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.45);
-    transition: transform 0.4s ease, box-shadow 0.4s ease;
+    background: #ffffff;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+    aspect-ratio: 3/4;
+    transition: transform 0.4s ease, box-shadow 0.4s ease, border-color 0.4s ease;
     display: flex;
     flex-direction: column;
 }
 .gi-gm-card:hover {
-    transform: translateY(-6px);
-    box-shadow: 0 30px 70px rgba(0, 0, 0, 0.6), 0 0 30px rgba(42, 106, 238, 0.2);
+    transform: translateY(-8px);
+    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.7), 0 0 30px rgba(42, 106, 238, 0.3);
+    border-color: rgba(42, 106, 238, 0.4);
 }
 .gi-gm-card-media {
     position: relative;
+    width: 100%;
+    height: 100%;
     background: #ffffff;
     overflow: hidden;
+}
+.gi-gm-card-media .gi-before-after,
+.gi-gm-card-media .gi-ba-container {
+    width: 100%;
+    height: 100%;
+    border-radius: 0;
+    margin: 0;
+    background: #ffffff;
+}
+.gi-gm-card-media .gi-ba-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
 }
 .gi-gm-card-media::after {
     content: 'Hover or drag to compare';
     position: absolute;
-    bottom: 12px;
+    bottom: 52px;
     left: 50%;
     transform: translateX(-50%);
-    background: rgba(3, 8, 17, 0.78);
+    background: rgba(3, 8, 17, 0.85);
     backdrop-filter: blur(8px);
     -webkit-backdrop-filter: blur(8px);
-    color: rgba(255, 255, 255, 0.88);
+    color: rgba(255, 255, 255, 0.9);
     font-size: 0.72rem;
     font-weight: 600;
     letter-spacing: 0.05em;
     padding: 0.3rem 0.8rem;
     border-radius: 999px;
-    border: 1px solid rgba(255, 255, 255, 0.14);
+    border: 1px solid rgba(255, 255, 255, 0.16);
     pointer-events: none;
     opacity: 0;
     transition: opacity 0.3s ease, transform 0.3s ease;
@@ -593,95 +630,41 @@ get_header(); ?>
     opacity: 1;
     transform: translateX(-50%) translateY(-2px);
 }
-.gi-gm-card-media .gi-before-after {
-    border-radius: 0;
-    margin: 0;
-}
-.gi-gm-card-media .gi-ba-container {
-    background: #ffffff;
-}
-.gi-gm-card-body {
-    padding: 2rem;
-    display: flex;
-    flex-direction: column;
-    flex: 1;
-}
-.gi-gm-card-meta {
+.gi-gm-card-caption {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 2.2rem 1.25rem 0.95rem 1.25rem;
+    background: linear-gradient(to top, rgba(3, 8, 17, 0.92) 0%, rgba(3, 8, 17, 0.4) 65%, transparent 100%);
     display: flex;
     align-items: center;
     justify-content: space-between;
-    gap: 0.75rem;
-    margin-bottom: 0.9rem;
+    gap: 0.5rem;
+    z-index: 5;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
 }
-.gi-gm-badge {
-    display: inline-block;
-    padding: 0.35rem 0.8rem;
-    border-radius: 100px;
-    background: rgba(234, 88, 12, 0.15);
-    border: 1px solid rgba(234, 88, 12, 0.35);
+.gi-gm-card-tag {
+    background: rgba(234, 88, 12, 0.22);
     color: #ff9800;
-    font-size: 0.78rem;
+    border: 1px solid rgba(234, 88, 12, 0.45);
+    padding: 0.22rem 0.65rem;
+    border-radius: 50px;
+    font-size: 0.72rem;
     font-weight: 700;
     letter-spacing: 0.04em;
     text-transform: uppercase;
     white-space: nowrap;
 }
-.gi-gm-badge-category {
-    font-size: 0.78rem;
-    color: rgba(255, 255, 255, 0.5);
-    text-transform: uppercase;
-    letter-spacing: 0.06em;
-    font-weight: 600;
-}
-.gi-gm-card-body h3 {
-    font-size: 1.35rem;
-    font-weight: 800;
+.gi-gm-card-title {
     color: #ffffff;
-    margin-bottom: 0.65rem;
-    line-height: 1.35;
-}
-.gi-gm-card-body p {
-    color: rgba(255, 255, 255, 0.7);
-    font-size: 0.95rem;
-    line-height: 1.65;
-    margin-bottom: 1.35rem;
-    flex-grow: 1;
-}
-.gi-gm-card-specs {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.55rem;
-    margin-top: auto;
-}
-.gi-gm-spec-pill {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.38rem;
-    font-size: 0.78rem;
-    color: rgba(255, 255, 255, 0.85);
-    background: rgba(255, 255, 255, 0.04);
-    border: 1px solid rgba(255, 255, 255, 0.09);
-    padding: 0.32rem 0.7rem;
-    border-radius: 7px;
-}
-.gi-gm-spec-pill svg {
-    width: 14px;
-    height: 14px;
-    color: #10b981;
-    flex-shrink: 0;
-}
-@media (max-width: 991px) {
-    .gi-gm-grid {
-        gap: 1.75rem;
-    }
-    .gi-gm-card {
-        flex: 0 1 100%;
-        width: 100%;
-        max-width: 100%;
-    }
-    .gi-gm-card-body {
-        padding: 1.6rem;
-    }
+    font-size: 0.86rem;
+    font-weight: 700;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.8);
 }
 </style>
 
@@ -800,27 +783,9 @@ get_header(); ?>
                         ); 
                         ?>
                     </div>
-                    <div class="gi-gm-card-body">
-                        <div class="gi-gm-card-meta">
-                            <span class="gi-gm-badge">Sample 01 &bull; Before 01 &rarr; After 01</span>
-                            <span class="gi-gm-badge-category">Athletic Apparel</span>
-                        </div>
-                        <h3>Athletic Cycling Jersey &bull; Invisible Neck Joint</h3>
-                        <p>Complete mannequin body and arm elimination with realistic inner collar tag reconstruction, symmetrical sleeve draping, and authentic 3D depth shadows.</p>
-                        <div class="gi-gm-card-specs">
-                            <span class="gi-gm-spec-pill">
-                                <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
-                                Mannequin Body Eradicated
-                            </span>
-                            <span class="gi-gm-spec-pill">
-                                <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
-                                Inner Zipper &amp; Collar Rebuilt
-                            </span>
-                            <span class="gi-gm-spec-pill">
-                                <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
-                                Pure White 255/255/255
-                            </span>
-                        </div>
+                    <div class="gi-gm-card-caption">
+                        <span class="gi-gm-card-tag">Sample 01</span>
+                        <span class="gi-gm-card-title">Cycling Jersey &bull; Invisible Neck</span>
                     </div>
                 </article>
 
@@ -837,27 +802,9 @@ get_header(); ?>
                         ); 
                         ?>
                     </div>
-                    <div class="gi-gm-card-body">
-                        <div class="gi-gm-card-meta">
-                            <span class="gi-gm-badge">Sample 02 &bull; Before 02 &rarr; After 02</span>
-                            <span class="gi-gm-badge-category">Casual Wear</span>
-                        </div>
-                        <h3>Striped Polo Shirt &bull; Collar Stitching &amp; Alignment</h3>
-                        <p>Mannequin neck removal with inside-out label insert stitching. Stripes perfectly aligned across the joint with natural fabric curve and shadow grading.</p>
-                        <div class="gi-gm-card-specs">
-                            <span class="gi-gm-spec-pill">
-                                <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
-                                Neck Label &amp; Tag Preserved
-                            </span>
-                            <span class="gi-gm-spec-pill">
-                                <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
-                                Symmetrical Sleeve Shaping
-                            </span>
-                            <span class="gi-gm-spec-pill">
-                                <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
-                                Natural Fabric Volume
-                            </span>
-                        </div>
+                    <div class="gi-gm-card-caption">
+                        <span class="gi-gm-card-tag">Sample 02</span>
+                        <span class="gi-gm-card-title">Striped Polo &bull; Collar Stitching</span>
                     </div>
                 </article>
 
@@ -874,27 +821,9 @@ get_header(); ?>
                         ); 
                         ?>
                     </div>
-                    <div class="gi-gm-card-body">
-                        <div class="gi-gm-card-meta">
-                            <span class="gi-gm-badge">Sample 03 &bull; Before 03 &rarr; After 03</span>
-                            <span class="gi-gm-badge-category">Outerwear</span>
-                        </div>
-                        <h3>Plaid Tailored Jacket &bull; Clear Mannequin Removal</h3>
-                        <p>Complete transparent mannequin torso and neck elimination. Inside collar lining reconstructed with authentic brand label and crisp contour edge definition.</p>
-                        <div class="gi-gm-card-specs">
-                            <span class="gi-gm-spec-pill">
-                                <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
-                                Transparent Torso Eradicated
-                            </span>
-                            <span class="gi-gm-spec-pill">
-                                <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
-                                Inner Brand Tag Rebuilt
-                            </span>
-                            <span class="gi-gm-spec-pill">
-                                <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
-                                Pure White 255/255/255
-                            </span>
-                        </div>
+                    <div class="gi-gm-card-caption">
+                        <span class="gi-gm-card-tag">Sample 03</span>
+                        <span class="gi-gm-card-title">Plaid Jacket &bull; Torso Eradicated</span>
                     </div>
                 </article>
 
@@ -911,27 +840,9 @@ get_header(); ?>
                         ); 
                         ?>
                     </div>
-                    <div class="gi-gm-card-body">
-                        <div class="gi-gm-card-meta">
-                            <span class="gi-gm-badge">Sample 04 &bull; Before 04 &rarr; After 04</span>
-                            <span class="gi-gm-badge-category">Tailored Wear</span>
-                        </div>
-                        <h3>Corduroy Blazer &bull; Deep Lapel &amp; Inner Lining</h3>
-                        <p>Full mannequin body and undergarment eradication with deep V-lapel interior reconstruction. Preserved golden chain collar loop and textured fabric integrity.</p>
-                        <div class="gi-gm-card-specs">
-                            <span class="gi-gm-spec-pill">
-                                <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
-                                Deep Lapel Interior Rebuilt
-                            </span>
-                            <span class="gi-gm-spec-pill">
-                                <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
-                                Gold Chain &amp; Label Saved
-                            </span>
-                            <span class="gi-gm-spec-pill">
-                                <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
-                                Corduroy Texture Intact
-                            </span>
-                        </div>
+                    <div class="gi-gm-card-caption">
+                        <span class="gi-gm-card-tag">Sample 04</span>
+                        <span class="gi-gm-card-title">Corduroy Blazer &bull; Deep Lapel</span>
                     </div>
                 </article>
 
@@ -948,27 +859,9 @@ get_header(); ?>
                         ); 
                         ?>
                     </div>
-                    <div class="gi-gm-card-body">
-                        <div class="gi-gm-card-meta">
-                            <span class="gi-gm-badge">Sample 05 &bull; Before 05 &rarr; After 05</span>
-                            <span class="gi-gm-badge-category">Women&#39;s Fashion</span>
-                        </div>
-                        <h3>Red Wrap Dress &bull; Hanger Removal &amp; 3D Draping</h3>
-                        <p>Hanger and wall shadows completely eliminated to produce an organic 3D hollow mannequin aesthetic with inside neck label insert and graceful garment flow.</p>
-                        <div class="gi-gm-card-specs">
-                            <span class="gi-gm-spec-pill">
-                                <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
-                                Hanger &amp; Cast Shadow Removed
-                            </span>
-                            <span class="gi-gm-spec-pill">
-                                <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
-                                Floating 3D Hollow Form
-                            </span>
-                            <span class="gi-gm-spec-pill">
-                                <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
-                                Neckline Label Insertion
-                            </span>
-                        </div>
+                    <div class="gi-gm-card-caption">
+                        <span class="gi-gm-card-tag">Sample 05</span>
+                        <span class="gi-gm-card-title">Red Wrap Dress &bull; 3D Draping</span>
                     </div>
                 </article>
 
@@ -985,27 +878,9 @@ get_header(); ?>
                         ); 
                         ?>
                     </div>
-                    <div class="gi-gm-card-body">
-                        <div class="gi-gm-card-meta">
-                            <span class="gi-gm-badge">Sample 06 &bull; Before 06 &rarr; After 06</span>
-                            <span class="gi-gm-badge-category">Sheer &amp; Delicate Fabric</span>
-                        </div>
-                        <h3>Sheer Lace Dress &bull; Transparent Mannequin Cutout</h3>
-                        <p>Complex transparent mannequin eradication through sheer fabric and lace embroidery. Preserves subtle rear strap visibility and intricate hem scalloping on pure white.</p>
-                        <div class="gi-gm-card-specs">
-                            <span class="gi-gm-spec-pill">
-                                <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
-                                Transparent Torso Eradicated
-                            </span>
-                            <span class="gi-gm-spec-pill">
-                                <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
-                                Sheer Mesh Transparency Kept
-                            </span>
-                            <span class="gi-gm-spec-pill">
-                                <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
-                                Intricate Lace Edge Intact
-                            </span>
-                        </div>
+                    <div class="gi-gm-card-caption">
+                        <span class="gi-gm-card-tag">Sample 06</span>
+                        <span class="gi-gm-card-title">Sheer Lace &bull; Transparent Cutout</span>
                     </div>
                 </article>
 
@@ -1026,7 +901,7 @@ get_header(); ?>
                 <p class="gi-gm-subtitle">Compare raw, unedited captures against our final high-end retouched deliverables. Simply hover and move your cursor across any photo below (or drag the slider) to inspect our frequency separation, blemish cleanup, and tone grading.</p>
             </div>
 
-            <div class="gi-gm-grid">
+            <div class="gi-gm-grid gi-gm-grid--2col">
                 
                 <!-- Sample 01: Beauty & Skin Retouching -->
                 <article class="gi-gm-card" data-gi-animate="fade-up">
@@ -1041,27 +916,9 @@ get_header(); ?>
                         ); 
                         ?>
                     </div>
-                    <div class="gi-gm-card-body">
-                        <div class="gi-gm-card-meta">
-                            <span class="gi-gm-badge">Sample 01 &bull; Before 01 &rarr; After 01</span>
-                            <span class="gi-gm-badge-category">Beauty &amp; Skin Care</span>
-                        </div>
-                        <h3>High-End Skin Retouching &bull; Frequency Separation</h3>
-                        <p>Complete elimination of acne, blemishes, and uneven redness while retaining authentic microscopic skin pore texture and natural highlights.</p>
-                        <div class="gi-gm-card-specs">
-                            <span class="gi-gm-spec-pill">
-                                <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
-                                Acne &amp; Redness Eliminated
-                            </span>
-                            <span class="gi-gm-spec-pill">
-                                <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
-                                Natural Pores Preserved
-                            </span>
-                            <span class="gi-gm-spec-pill">
-                                <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
-                                16-Bit Color Grading
-                            </span>
-                        </div>
+                    <div class="gi-gm-card-caption">
+                        <span class="gi-gm-card-tag">Sample 01</span>
+                        <span class="gi-gm-card-title">High-End Skin &bull; Frequency Separation</span>
                     </div>
                 </article>
 
@@ -1078,27 +935,9 @@ get_header(); ?>
                         ); 
                         ?>
                     </div>
-                    <div class="gi-gm-card-body">
-                        <div class="gi-gm-card-meta">
-                            <span class="gi-gm-badge">Sample 02 &bull; Before 02 &rarr; After 02</span>
-                            <span class="gi-gm-badge-category">Fashion &amp; Glamour</span>
-                        </div>
-                        <h3>Fashion Retouching &bull; Lens Tint &amp; Background Isolation</h3>
-                        <p>Creative lens tinting with magenta gradient, cosmetic lip recoloring, delicate skin smoothing, and clean isolation onto pure white studio background.</p>
-                        <div class="gi-gm-card-specs">
-                            <span class="gi-gm-spec-pill">
-                                <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
-                                Lens Tint &amp; Color Grading
-                            </span>
-                            <span class="gi-gm-spec-pill">
-                                <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
-                                Pure White 255/255/255
-                            </span>
-                            <span class="gi-gm-spec-pill">
-                                <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
-                                Natural Facial Highlights
-                            </span>
-                        </div>
+                    <div class="gi-gm-card-caption">
+                        <span class="gi-gm-card-tag">Sample 02</span>
+                        <span class="gi-gm-card-title">Fashion Retouching &bull; Lens Tint Isolation</span>
                     </div>
                 </article>
 

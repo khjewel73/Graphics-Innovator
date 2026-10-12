@@ -70,3 +70,38 @@ add_filter( 'gi_theme_asset_src', function( $src ) {
 
 // 8. Disable XML-RPC (Prevents DDoS Bot Attacks & Saves Server Resources)
 add_filter('xmlrpc_enabled', '__return_false');
+
+// 9. Disable Native Lazy Loading (User preference: immediate visual render with no scroll pop-in)
+add_filter( 'wp_lazy_loading_enabled', '__return_false' );
+add_filter( 'wp_img_tag_add_loading_attr', '__return_false' );
+
+// 10. Automatically Output Lightweight WebP for Image Sub-Sizes (Thumbnails, Medium, Large)
+add_filter( 'image_editor_output_format', function( $formats ) {
+    $formats['image/jpeg'] = 'image/webp';
+    $formats['image/png']  = 'image/webp';
+    return $formats;
+} );
+
+// 11. Master Perceptual Quality Preset (82% — zero human-visible degradation, ~70% lighter)
+add_filter( 'wp_editor_set_quality', function( $quality, $mime_type ) {
+    return 82;
+}, 10, 2 );
+add_filter( 'jpeg_quality', function() { return 82; } );
+
+// 12. Dynamic WebP Replacement
+// If a matching .webp file exists in uploads, automatically serve the lightweight WebP version
+add_filter( 'wp_get_attachment_image_src', function( $image, $attachment_id, $size, $icon ) {
+    if ( is_array( $image ) && ! empty( $image[0] ) ) {
+        $url = $image[0];
+        $webp_url = preg_replace( '/\.(png|jpe?g)$/i', '.webp', $url );
+        if ( $webp_url !== $url ) {
+            $uploads = wp_upload_dir();
+            $rel_path = str_replace( $uploads['baseurl'], '', $webp_url );
+            $file_path = $uploads['basedir'] . $rel_path;
+            if ( file_exists( $file_path ) ) {
+                $image[0] = $webp_url;
+            }
+        }
+    }
+    return $image;
+}, 10, 4 );

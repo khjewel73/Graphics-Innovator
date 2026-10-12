@@ -396,11 +396,18 @@ $after_img_1  = $base_url . '/2022/12/shadow-masking-c.png'; // Example assumed 
         <div class="gi-hero-visual" data-gi-animate="fade-in" data-gi-delay="300">
             <!-- Hero Banner Graphic -->
             <div class="gi-hero-banner-wrap">
-                <img src="<?php echo esc_url( $base_url . '/2025/05/Home-Banner.png' ); ?>" 
-                     alt="<?php esc_attr_e( 'Graphics Innovator Photo Editing Services', 'graphics-innovator' ); ?>" 
-                     class="gi-hero-banner-img"
-                     loading="eager"
-                     onerror="this.onerror=null;this.src='https://graphicsinnovator.com/wp-content/uploads/2025/05/Home-Banner.png';">
+                <picture>
+                    <source srcset="<?php echo esc_url( get_template_directory_uri() . '/Home-Banner.webp' ); ?>" type="image/webp">
+                    <img src="<?php echo esc_url( get_template_directory_uri() . '/Home-Banner.png' ); ?>" 
+                         alt="<?php esc_attr_e( 'Graphics Innovator Photo Editing Services', 'graphics-innovator' ); ?>" 
+                         class="gi-hero-banner-img"
+                         width="1040"
+                         height="948"
+                         fetchpriority="high"
+                         loading="eager"
+                         decoding="async"
+                         onerror="this.onerror=null;this.src='https://graphicsinnovator.com/wp-content/uploads/2025/05/Home-Banner.png';">
+                </picture>
             </div>
         </div>
 

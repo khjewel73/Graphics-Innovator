@@ -579,6 +579,7 @@ get_header(); ?>
     display: flex;
     flex-direction: column;
 }
+.gi-gm-grid--square .gi-gm-card,
 .gi-gm-grid--2col .gi-gm-card {
     aspect-ratio: 1 / 1;
 }
@@ -973,6 +974,82 @@ get_header(); ?>
                     <div class="gi-gm-card-caption">
                         <span class="gi-gm-card-tag">Sample 02</span>
                         <span class="gi-gm-card-title">Fashion Retouching &bull; Lens Tint Isolation</span>
+                    </div>
+                </article>
+
+            </div>
+        </div>
+    </section>
+    <?php endif; ?>
+
+    <?php if ( $slug === 'shadow-creation-service' ) : ?>
+    <!-- ==========================================
+         SHADOW CREATION BEFORE / AFTER SHOWCASE
+         ========================================== -->
+    <section class="gi-rhythm-block gi-rhythm-charcoal gi-gm-showcase-section">
+        <div class="gi-cp-container">
+            <div class="gi-gm-header">
+                <span class="gi-gm-pill-tag">Visual Proof &bull; Real Studio Results</span>
+                <h2 class="gi-gm-title">Before &amp; After Works Showcase</h2>
+                <p class="gi-gm-subtitle">Compare flat, floating product cutouts against our realistic studio shadow enhancements. Simply hover and move your cursor across any photo below (or drag the slider) to inspect how natural drop shadows, reflection lighting, and ground contact depth bring products to life.</p>
+            </div>
+
+            <div class="gi-gm-grid gi-gm-grid--square">
+                
+                <!-- Sample 01: Silk Bow Tie -->
+                <article class="gi-gm-card" data-gi-animate="fade-up">
+                    <div class="gi-gm-card-media">
+                        <?php 
+                        gi_before_after( 
+                            get_template_directory_uri() . '/sc-before-01.webp', 
+                            get_template_directory_uri() . '/sc-after-01.webp', 
+                            'Before 01', 
+                            'After 01', 
+                            'sc_sample_1' 
+                        ); 
+                        ?>
+                    </div>
+                    <div class="gi-gm-card-caption">
+                        <span class="gi-gm-card-tag">Sample 01</span>
+                        <span class="gi-gm-card-title">Silk Bow Tie &bull; Drop &amp; Ground Shadow</span>
+                    </div>
+                </article>
+
+                <!-- Sample 02: Modern Planter -->
+                <article class="gi-gm-card" data-gi-animate="fade-up" data-gi-delay="100">
+                    <div class="gi-gm-card-media">
+                        <?php 
+                        gi_before_after( 
+                            get_template_directory_uri() . '/sc-before-02.webp', 
+                            get_template_directory_uri() . '/sc-after-02.webp', 
+                            'Before 02', 
+                            'After 02', 
+                            'sc_sample_2' 
+                        ); 
+                        ?>
+                    </div>
+                    <div class="gi-gm-card-caption">
+                        <span class="gi-gm-card-tag">Sample 02</span>
+                        <span class="gi-gm-card-title">Modern Planter &bull; Natural Cast Shadow</span>
+                    </div>
+                </article>
+
+                <!-- Sample 03: Leather Belt -->
+                <article class="gi-gm-card" data-gi-animate="fade-up" data-gi-delay="200">
+                    <div class="gi-gm-card-media">
+                        <?php 
+                        gi_before_after( 
+                            get_template_directory_uri() . '/sc-before-03.webp', 
+                            get_template_directory_uri() . '/sc-after-03.webp', 
+                            'Before 03', 
+                            'After 03', 
+                            'sc_sample_3' 
+                        ); 
+                        ?>
+                    </div>
+                    <div class="gi-gm-card-caption">
+                        <span class="gi-gm-card-tag">Sample 03</span>
+                        <span class="gi-gm-card-title">Leather Belt &bull; Soft Contact Shadow</span>
                     </div>
                 </article>
 

@@ -308,10 +308,10 @@ get_header(); ?>
 }
 .gi-cp-gallery-grid {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 1.75rem;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
 }
-@media (max-width: 1024px) {
+@media (max-width: 991px) {
     .gi-cp-gallery-grid {
         grid-template-columns: repeat(2, 1fr);
         gap: 1.5rem;

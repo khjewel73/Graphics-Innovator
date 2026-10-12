@@ -155,14 +155,26 @@ document.addEventListener('DOMContentLoaded', () => {
 
         let isDragging = false;
 
+        const syncImgWidth = () => {
+            const bImg = beforeImg.querySelector('img');
+            if (bImg && container.offsetWidth > 0) {
+                bImg.style.width = `${container.offsetWidth}px`;
+                bImg.style.maxWidth = 'none';
+            }
+        };
+
         const slide = (clientX) => {
             const rect     = container.getBoundingClientRect();
             let position   = ((clientX - rect.left) / rect.width) * 100;
             position       = Math.max(0, Math.min(100, position));  // Clamp 0–100
 
             beforeImg.style.width = `${position}%`;
+            syncImgWidth();
             handle.style.left     = `calc(${position}% - 2px)`;
         };
+
+        syncImgWidth();
+        window.addEventListener('resize', syncImgWidth, { passive: true });
 
         // Mouse events
         handle.addEventListener('mousedown', (e) => {

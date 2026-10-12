@@ -501,6 +501,141 @@ get_header(); ?>
         padding: 3rem 1.5rem;
     }
 }
+
+/* Before & After Transformation Rhythm Section */
+.gi-gm-showcase-section {
+    padding-block: var(--gi-space-16, 6rem);
+}
+.gi-gm-header {
+    text-align: center;
+    max-width: 820px;
+    margin: 0 auto 3.75rem auto;
+}
+.gi-gm-pill-tag {
+    display: inline-block;
+    font-size: 0.85rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: #ff9800;
+    background: rgba(255, 152, 0, 0.1);
+    border: 1px solid rgba(255, 152, 0, 0.25);
+    padding: 0.4rem 1.1rem;
+    border-radius: 100px;
+    margin-bottom: 1.25rem;
+}
+.gi-gm-title {
+    font-size: clamp(2.2rem, 4vw, 3.2rem);
+    font-weight: 800;
+    margin-bottom: 1.25rem;
+    color: #fff;
+    letter-spacing: -0.02em;
+}
+.gi-gm-subtitle {
+    color: rgba(255, 255, 255, 0.72);
+    font-size: 1.15rem;
+    line-height: 1.7;
+    margin: 0;
+}
+.gi-gm-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2.75rem;
+}
+.gi-gm-card {
+    background: linear-gradient(145deg, rgba(255, 255, 255, 0.04) 0%, rgba(15, 23, 42, 0.45) 100%);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 24px;
+    overflow: hidden;
+    box-shadow: 0 25px 60px rgba(0, 0, 0, 0.45);
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+.gi-gm-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 30px 70px rgba(0, 0, 0, 0.6), 0 0 30px rgba(42, 106, 238, 0.2);
+}
+.gi-gm-card-media {
+    position: relative;
+    background: #ffffff;
+    overflow: hidden;
+}
+.gi-gm-card-media .gi-before-after {
+    border-radius: 0;
+    margin: 0;
+}
+.gi-gm-card-media .gi-ba-container {
+    background: #ffffff;
+}
+.gi-gm-card-body {
+    padding: 2.25rem;
+}
+.gi-gm-card-meta {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+.gi-gm-badge {
+    display: inline-block;
+    padding: 0.35rem 0.85rem;
+    border-radius: 100px;
+    background: rgba(234, 88, 12, 0.15);
+    border: 1px solid rgba(234, 88, 12, 0.35);
+    color: #ff9800;
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+}
+.gi-gm-badge-category {
+    font-size: 0.8rem;
+    color: rgba(255, 255, 255, 0.5);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-weight: 600;
+}
+.gi-gm-card-body h3 {
+    font-size: 1.45rem;
+    font-weight: 800;
+    color: #ffffff;
+    margin-bottom: 0.75rem;
+    line-height: 1.3;
+}
+.gi-gm-card-body p {
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 1rem;
+    line-height: 1.65;
+    margin-bottom: 1.5rem;
+}
+.gi-gm-card-specs {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.6rem;
+}
+.gi-gm-spec-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    font-size: 0.82rem;
+    color: rgba(255, 255, 255, 0.85);
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.09);
+    padding: 0.35rem 0.8rem;
+    border-radius: 8px;
+}
+.gi-gm-spec-pill svg {
+    width: 14px;
+    height: 14px;
+    color: #10b981;
+    flex-shrink: 0;
+}
+@media (max-width: 991px) {
+    .gi-gm-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+}
 </style>
 
 <main class="gi-cp-wrapper gi-page-rhythm">
@@ -591,7 +726,100 @@ get_header(); ?>
         </div>
     </section>
 
-    <section class="gi-rhythm-block gi-rhythm-charcoal">
+    <?php if ( $slug === 'ghost-mannequin-service' || $slug === 'neck-joint-service' ) : ?>
+    <!-- ==========================================
+         BEFORE / AFTER TRANSFORMATION RHYTHM
+         ========================================== -->
+    <section class="gi-rhythm-block gi-rhythm-charcoal gi-gm-showcase-section">
+        <div class="gi-cp-container">
+            <div class="gi-gm-header">
+                <span class="gi-gm-pill-tag">Visual Proof &bull; Real Studio Results</span>
+                <h2 class="gi-gm-title">Before &amp; After Transformation</h2>
+                <p class="gi-gm-subtitle">Compare raw mannequin studio captures against our final 3D ghost mannequin extractions. Drag the interactive sliders below to inspect our neck joint assembly, sleeve symmetry, and fabric alignment.</p>
+            </div>
+
+            <div class="gi-gm-grid">
+                
+                <!-- Sample 01: Cycling Jersey -->
+                <article class="gi-gm-card" data-gi-animate="fade-up">
+                    <div class="gi-gm-card-media">
+                        <?php 
+                        gi_before_after( 
+                            get_template_directory_uri() . '/gm-before-01.webp', 
+                            get_template_directory_uri() . '/gm-after-01.webp', 
+                            'Before 01', 
+                            'After 01', 
+                            'gm_sample_1' 
+                        ); 
+                        ?>
+                    </div>
+                    <div class="gi-gm-card-body">
+                        <div class="gi-gm-card-meta">
+                            <span class="gi-gm-badge">Sample 01 &bull; Before 01 &rarr; After 01</span>
+                            <span class="gi-gm-badge-category">Athletic Apparel</span>
+                        </div>
+                        <h3>Athletic Cycling Jersey &bull; Invisible Neck Joint</h3>
+                        <p>Complete mannequin body and arm elimination with realistic inner collar tag reconstruction, symmetrical sleeve draping, and authentic 3D depth shadows.</p>
+                        <div class="gi-gm-card-specs">
+                            <span class="gi-gm-spec-pill">
+                                <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
+                                Mannequin Body Eradicated
+                            </span>
+                            <span class="gi-gm-spec-pill">
+                                <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
+                                Inner Zipper &amp; Collar Rebuilt
+                            </span>
+                            <span class="gi-gm-spec-pill">
+                                <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
+                                Pure White 255/255/255
+                            </span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Sample 02: Striped Polo Shirt -->
+                <article class="gi-gm-card" data-gi-animate="fade-up" data-gi-delay="100">
+                    <div class="gi-gm-card-media">
+                        <?php 
+                        gi_before_after( 
+                            get_template_directory_uri() . '/gm-before-02.webp', 
+                            get_template_directory_uri() . '/gm-after-02.webp', 
+                            'Before 02', 
+                            'After 02', 
+                            'gm_sample_2' 
+                        ); 
+                        ?>
+                    </div>
+                    <div class="gi-gm-card-body">
+                        <div class="gi-gm-card-meta">
+                            <span class="gi-gm-badge">Sample 02 &bull; Before 02 &rarr; After 02</span>
+                            <span class="gi-gm-badge-category">Casual Wear</span>
+                        </div>
+                        <h3>Striped Polo Shirt &bull; Collar Stitching &amp; Alignment</h3>
+                        <p>Mannequin neck removal with inside-out label insert stitching. Stripes perfectly aligned across the joint with natural fabric curve and shadow grading.</p>
+                        <div class="gi-gm-card-specs">
+                            <span class="gi-gm-spec-pill">
+                                <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
+                                Neck Label &amp; Tag Preserved
+                            </span>
+                            <span class="gi-gm-spec-pill">
+                                <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
+                                Symmetrical Sleeve Shaping
+                            </span>
+                            <span class="gi-gm-spec-pill">
+                                <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
+                                Natural Fabric Volume
+                            </span>
+                        </div>
+                    </div>
+                </article>
+
+            </div>
+        </div>
+    </section>
+    <?php endif; ?>
+
+    <section class="gi-rhythm-block gi-rhythm-blue">
         <div class="gi-cp-container">
         <!-- CTA -->
         <div class="gi-how-cta">

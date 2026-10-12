@@ -38,14 +38,22 @@ $base_url = $upload_dir['baseurl'];
                     </div>
                 </div>
                 <div style="margin-top: var(--gi-space-8);">
-                    <a href="<?php echo esc_url( home_url('/contact') ); ?>" class="gi-btn gi-btn-primary gi-btn-lg">Partner With Us</a>
+                    <a href="<?php echo esc_url( home_url('/contact-us/') ); ?>" class="gi-btn gi-btn-primary gi-btn-lg">Partner With Us</a>
                 </div>
             </div>
             <div data-gi-animate="fade-up" data-gi-delay="120">
-                <div class="gi-about-image-frame" style="position: relative; border-radius: var(--gi-radius-xl); overflow: hidden; box-shadow: var(--gi-shadow-xl);">
-                    <!-- Using a generic placeholder for the about image. Ideally, replace with an actual team/office shot -->
-                    <img src="<?php echo esc_url( home_url('/wp-content/uploads/2021/11/about_main_img.png') ); ?>" alt="Graphics Innovator Production House" style="width: 100%; height: auto; object-fit: cover; opacity: 1; display: block; position: relative; z-index: 1;">
-                    <div style="position: absolute; inset: 0; background: linear-gradient(135deg, rgba(42,106,238,0.2) 0%, rgba(10,22,40,0.6) 100%); z-index: 2;"></div>
+                <div class="gi-about-image-frame" style="position: relative; border-radius: 20px; overflow: hidden; box-shadow: 0 25px 60px rgba(0,0,0,0.5), 0 0 35px rgba(42, 106, 238, 0.15); border: 1px solid rgba(255,255,255,0.12); transition: transform 0.4s ease;">
+                    <picture>
+                        <source srcset="<?php echo esc_url( get_template_directory_uri() . '/about-team.webp' ); ?>" type="image/webp">
+                        <img src="<?php echo esc_url( get_template_directory_uri() . '/about-team.jpg' ); ?>" 
+                             alt="<?php esc_attr_e( 'Graphics Innovator Production Team & Studio Operations', 'graphics-innovator' ); ?>" 
+                             width="1024" 
+                             height="682"
+                             loading="eager"
+                             fetchpriority="high"
+                             decoding="async"
+                             style="width: 100%; height: auto; display: block; object-fit: cover; transition: transform 0.4s ease;">
+                    </picture>
                 </div>
             </div>
         </div>

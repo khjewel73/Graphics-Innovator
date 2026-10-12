@@ -308,25 +308,45 @@ get_header(); ?>
 }
 .gi-cp-gallery-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 2rem;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.75rem;
+}
+@media (max-width: 1024px) {
+    .gi-cp-gallery-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.5rem;
+    }
+}
+@media (max-width: 576px) {
+    .gi-cp-gallery-grid {
+        grid-template-columns: 1fr;
+        gap: 1.25rem;
+    }
 }
 .gi-cp-gallery-item {
     position: relative;
     border-radius: 20px;
     overflow: hidden;
-    border: 1px solid rgba(255,255,255,0.05);
+    background: #ffffff;
+    border: 1px solid rgba(255,255,255,0.08);
     box-shadow: 0 20px 40px rgba(0,0,0,0.5);
     aspect-ratio: 3/4;
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
 }
+.gi-cp-gallery-item:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 25px 50px rgba(0,0,0,0.6), 0 0 25px rgba(42, 106, 238, 0.25);
+}
+.gi-cp-gallery-item picture,
 .gi-cp-gallery-item img {
     width: 100%;
     height: 100%;
+    display: block;
     object-fit: cover;
-    transition: transform 0.6s ease;
+    transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
 }
 .gi-cp-gallery-item:hover img {
-    transform: scale(1.08);
+    transform: scale(1.06);
 }
 
 /* CTA Section */
@@ -486,13 +506,48 @@ get_header(); ?>
         <div class="gi-cp-gallery">
             <div class="gi-cp-gallery-grid">
                 <div class="gi-cp-gallery-item">
-                    <img src="https://graphicsinnovator.com/wp-content/uploads/2025/05/1.jpg" alt="Clipping Path Sample 1">
+                    <picture>
+                        <source srcset="<?php echo esc_url( get_template_directory_uri() . '/cp-sample-1.webp' ); ?>" type="image/webp">
+                        <img src="<?php echo esc_url( get_template_directory_uri() . '/cp-sample-1.jpg' ); ?>" 
+                             alt="<?php esc_attr_e( 'Clipping Path Sample - Fashion & Apparel Cutout', 'graphics-innovator' ); ?>" 
+                             width="575" 
+                             height="800" 
+                             loading="lazy" 
+                             decoding="async">
+                    </picture>
                 </div>
                 <div class="gi-cp-gallery-item">
-                    <img src="https://graphicsinnovator.com/wp-content/uploads/2023/09/2.jpg" alt="Clipping Path Sample 2">
+                    <picture>
+                        <source srcset="<?php echo esc_url( get_template_directory_uri() . '/cp-sample-2.webp' ); ?>" type="image/webp">
+                        <img src="<?php echo esc_url( get_template_directory_uri() . '/cp-sample-2.jpg' ); ?>" 
+                             alt="<?php esc_attr_e( 'Clipping Path Sample - Model & Portrait Editing', 'graphics-innovator' ); ?>" 
+                             width="575" 
+                             height="800" 
+                             loading="lazy" 
+                             decoding="async">
+                    </picture>
                 </div>
                 <div class="gi-cp-gallery-item">
-                    <img src="https://graphicsinnovator.com/wp-content/uploads/2025/05/3.jpg" alt="Clipping Path Sample 3">
+                    <picture>
+                        <source srcset="<?php echo esc_url( get_template_directory_uri() . '/cp-sample-3.webp' ); ?>" type="image/webp">
+                        <img src="<?php echo esc_url( get_template_directory_uri() . '/cp-sample-3.jpg' ); ?>" 
+                             alt="<?php esc_attr_e( 'Clipping Path Sample - Complex Product & Metal Cutout', 'graphics-innovator' ); ?>" 
+                             width="575" 
+                             height="800" 
+                             loading="lazy" 
+                             decoding="async">
+                    </picture>
+                </div>
+                <div class="gi-cp-gallery-item">
+                    <picture>
+                        <source srcset="<?php echo esc_url( get_template_directory_uri() . '/cp-sample-4.webp' ); ?>" type="image/webp">
+                        <img src="<?php echo esc_url( get_template_directory_uri() . '/cp-sample-4.jpg' ); ?>" 
+                             alt="<?php esc_attr_e( 'Clipping Path Sample - Healthcare & Bottle Product Cutout', 'graphics-innovator' ); ?>" 
+                             width="575" 
+                             height="800" 
+                             loading="lazy" 
+                             decoding="async">
+                    </picture>
                 </div>
             </div>
         </div>

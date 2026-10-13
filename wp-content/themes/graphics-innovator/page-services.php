@@ -357,6 +357,19 @@ $base_url   = $upload_dir['baseurl'];
                 <p>True-to-life color matching. We fix white balance issues, adjust vibrancy, and recolor products to ensure your digital catalog perfectly matches reality.</p>
             </a>
 
+            <!-- Service 7 -->
+            <a href="<?php echo esc_url( home_url('/jewelry-retouching/') ); ?>" class="gi-srv-card">
+                <div class="gi-srv-media">
+                    <img src="<?php echo esc_url( get_template_directory_uri() . '/jr-after-01.webp' ); ?>" alt="Jewelry retouching example" loading="lazy">
+                    <span>Diamond Sparkle</span>
+                </div>
+                <div class="gi-srv-icon">
+                    <svg viewBox="0 0 24 24"><polygon points="6 3 18 3 22 9 12 22 2 9"></polygon><line x1="2" y1="9" x2="22" y2="9"></line><polyline points="10 3 8 9 12 22 16 9 14 3"></polyline></svg>
+                </div>
+                <h3>Jewelry Retouching</h3>
+                <p>High-end diamond sparkle, metal smoothing, scratch and putty cleanup, and studio reflection perfection for fine jewelry catalogs.</p>
+            </a>
+
         </div>
         </div>
     </section>

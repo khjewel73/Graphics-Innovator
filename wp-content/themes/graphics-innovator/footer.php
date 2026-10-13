@@ -73,7 +73,7 @@ $email    = get_theme_mod( 'gi_email', 'info@graphicsinnovator.com' );
                         'depth'          => 1,
                     ] );
                 } else {
-                    echo '<ul class="gi-footer-nav"><li><a href="' . esc_url( home_url('/clippingpath/') ) . '">Clipping Path</a></li><li><a href="' . esc_url( home_url('/background-removal-service/') ) . '">Background Removal</a></li><li><a href="' . esc_url( home_url('/shadow-creation-service/') ) . '">Shadow Creation</a></li><li><a href="' . esc_url( home_url('/image-masking-service/') ) . '">Image Masking</a></li><li><a href="' . esc_url( home_url('/ghost-mannequin-service/') ) . '">Ghost Mannequin</a></li></ul>';
+                    echo '<ul class="gi-footer-nav"><li><a href="' . esc_url( home_url('/clippingpath/') ) . '">Clipping Path</a></li><li><a href="' . esc_url( home_url('/background-removal-service/') ) . '">Background Removal</a></li><li><a href="' . esc_url( home_url('/shadow-creation-service/') ) . '">Shadow Creation</a></li><li><a href="' . esc_url( home_url('/image-masking-service/') ) . '">Image Masking</a></li><li><a href="' . esc_url( home_url('/ghost-mannequin-service/') ) . '">Ghost Mannequin</a></li><li><a href="' . esc_url( home_url('/jewelry-retouching/') ) . '">Jewelry Retouching</a></li></ul>';
                 }
                 ?>
             </div>

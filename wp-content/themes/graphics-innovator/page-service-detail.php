@@ -1036,6 +1036,63 @@ get_header(); ?>
     </section>
     <?php endif; ?>
 
+    <?php if ( $slug === 'image-masking-service' ) : ?>
+    <!-- ==========================================
+         IMAGE MASKING BEFORE / AFTER TRANSFORMATION
+         ========================================== -->
+    <section class="gi-rhythm-block gi-rhythm-charcoal gi-gm-showcase-section">
+        <div class="gi-cp-container">
+            <div class="gi-gm-header">
+                <span class="gi-gm-pill-tag">Visual Proof &bull; Real Studio Results</span>
+                <h2 class="gi-gm-title">Before &amp; After Transformation</h2>
+                <p class="gi-gm-subtitle">Compare raw, complex backdrop captures against our advanced alpha channel and layer masking extractions. Simply hover and move your cursor across any photo below (or drag the slider) to inspect how every fine strand of flying hair and translucent edge is flawlessly preserved.</p>
+            </div>
+
+            <div class="gi-gm-grid gi-gm-grid--2col">
+                
+                <!-- Sample 01: Flying Hair Masking -->
+                <article class="gi-gm-card" data-gi-animate="fade-up">
+                    <div class="gi-gm-card-media">
+                        <?php 
+                        gi_before_after( 
+                            get_template_directory_uri() . '/im-before-01.webp', 
+                            get_template_directory_uri() . '/im-after-01.webp', 
+                            'Before 01', 
+                            'After 01', 
+                            'im_sample_1' 
+                        ); 
+                        ?>
+                    </div>
+                    <div class="gi-gm-card-caption">
+                        <span class="gi-gm-card-tag">Sample 01</span>
+                        <span class="gi-gm-card-title">Flying Hair Masking &bull; Fine Strand Extraction</span>
+                    </div>
+                </article>
+
+                <!-- Sample 02: Model Hair & Alpha Channel Masking -->
+                <article class="gi-gm-card" data-gi-animate="fade-up" data-gi-delay="100">
+                    <div class="gi-gm-card-media">
+                        <?php 
+                        gi_before_after( 
+                            get_template_directory_uri() . '/im-before-02.webp', 
+                            get_template_directory_uri() . '/im-after-02.webp', 
+                            'Before 02', 
+                            'After 02', 
+                            'im_sample_2' 
+                        ); 
+                        ?>
+                    </div>
+                    <div class="gi-gm-card-caption">
+                        <span class="gi-gm-card-tag">Sample 02</span>
+                        <span class="gi-gm-card-title">Model Hair &bull; Alpha Channel Masking</span>
+                    </div>
+                </article>
+
+            </div>
+        </div>
+    </section>
+    <?php endif; ?>
+
     <?php if ( $slug === 'shadow-creation-service' ) : ?>
     <!-- ==========================================
          SHADOW CREATION GALLERY WORKS SHOWCASE

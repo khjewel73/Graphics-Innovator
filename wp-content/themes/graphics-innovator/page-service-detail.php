@@ -1216,6 +1216,63 @@ get_header(); ?>
     </section>
     <?php endif; ?>
 
+    <?php if ( $slug === 'color-correction-service' ) : ?>
+    <!-- ==========================================
+         COLOR CORRECTION BEFORE / AFTER SHOWCASE
+         ========================================== -->
+    <section class="gi-rhythm-block gi-rhythm-charcoal gi-gm-showcase-section">
+        <div class="gi-cp-container">
+            <div class="gi-gm-header">
+                <span class="gi-gm-pill-tag">Visual Proof &bull; Real Studio Results</span>
+                <h2 class="gi-gm-title">Before &amp; After Transformation</h2>
+                <p class="gi-gm-subtitle">Compare original catalog captures against our multi-path color correction and fabric recoloring deliverables. Simply hover and move your cursor across any photo below (or drag the slider) to inspect how product variants and true-to-life tones are seamlessly transformed.</p>
+            </div>
+
+            <div class="gi-gm-grid gi-gm-grid--2col">
+                
+                <!-- Sample 01: Multi-Path Towel Recoloring -->
+                <article class="gi-gm-card" data-gi-animate="fade-up">
+                    <div class="gi-gm-card-media">
+                        <?php 
+                        gi_before_after( 
+                            get_template_directory_uri() . '/cc-before-01.webp', 
+                            get_template_directory_uri() . '/cc-after-01.webp', 
+                            'Before 01', 
+                            'After 01', 
+                            'cc_sample_1' 
+                        ); 
+                        ?>
+                    </div>
+                    <div class="gi-gm-card-caption">
+                        <span class="gi-gm-card-tag">Sample 01</span>
+                        <span class="gi-gm-card-title">Multi-Path Recoloring &bull; Waffle Towel Palette</span>
+                    </div>
+                </article>
+
+                <!-- Sample 02: Footwear Color Variant Isolation -->
+                <article class="gi-gm-card" data-gi-animate="fade-up" data-gi-delay="100">
+                    <div class="gi-gm-card-media">
+                        <?php 
+                        gi_before_after( 
+                            get_template_directory_uri() . '/cc-before-02.webp', 
+                            get_template_directory_uri() . '/cc-after-02.webp', 
+                            'Before 02', 
+                            'After 02', 
+                            'cc_sample_2' 
+                        ); 
+                        ?>
+                    </div>
+                    <div class="gi-gm-card-caption">
+                        <span class="gi-gm-card-tag">Sample 02</span>
+                        <span class="gi-gm-card-title">Footwear Color Variants &bull; Toe &amp; Strap Isolation</span>
+                    </div>
+                </article>
+
+            </div>
+        </div>
+    </section>
+    <?php endif; ?>
+
     <section class="gi-rhythm-block gi-rhythm-blue">
         <div class="gi-cp-container">
         <!-- CTA -->

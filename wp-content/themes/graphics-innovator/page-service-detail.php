@@ -1088,6 +1088,44 @@ get_header(); ?>
                     </div>
                 </article>
 
+                <!-- Sample 03: Curly Hair Backdrop Replacement -->
+                <article class="gi-gm-card" data-gi-animate="fade-up" data-gi-delay="150">
+                    <div class="gi-gm-card-media">
+                        <?php 
+                        gi_before_after( 
+                            get_template_directory_uri() . '/im-before-03.webp', 
+                            get_template_directory_uri() . '/im-after-03.webp', 
+                            'Before 03', 
+                            'After 03', 
+                            'im_sample_3' 
+                        ); 
+                        ?>
+                    </div>
+                    <div class="gi-gm-card-caption">
+                        <span class="gi-gm-card-tag">Sample 03</span>
+                        <span class="gi-gm-card-title">Curly Hair &bull; Backdrop Replacement</span>
+                    </div>
+                </article>
+
+                <!-- Sample 04: Full Body Alpha Cutout -->
+                <article class="gi-gm-card" data-gi-animate="fade-up" data-gi-delay="200">
+                    <div class="gi-gm-card-media">
+                        <?php 
+                        gi_before_after( 
+                            get_template_directory_uri() . '/im-before-04.webp', 
+                            get_template_directory_uri() . '/im-after-04.webp', 
+                            'Before 04', 
+                            'After 04', 
+                            'im_sample_4' 
+                        ); 
+                        ?>
+                    </div>
+                    <div class="gi-gm-card-caption">
+                        <span class="gi-gm-card-tag">Sample 04</span>
+                        <span class="gi-gm-card-title">Full Body Masking &bull; Alpha Cutout</span>
+                    </div>
+                </article>
+
             </div>
         </div>
     </section>

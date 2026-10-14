@@ -167,6 +167,45 @@ $service_data = [
         'f2_title' => 'Rig & Turntable Eradication',
         'f2_desc' => 'We completely remove mounting stands, turntables, wire holders, and reflection glare while preserving natural grounding shadows.',
     ],
+    'wedding-photo-retouch' => [
+        'hero_title' => 'Timeless Wedding Photo Retouching Services.',
+        'hero_desc' => 'Flawless bridal skin smoothing, stray hair cleanup, tuxedo and gown fabric perfection, stranger eradication, and romantic cinematic color grading.',
+        'split_title' => 'Timeless Memories.',
+        'split_highlight' => 'Flawless Emotion.',
+        'split_desc1' => 'Wedding photography captures once-in-a-lifetime moments, but unpredictable outdoor lighting, crowded venue backgrounds, windy flyaway hairs, and harsh shadows can compromise otherwise breathtaking captures.',
+        'split_desc2' => 'Our master wedding retouchers specialize in delicate, natural beauty editing. We smooth skin while preserving authentic pores, eliminate background strangers and venue clutter, brighten eyes and smiles, and apply romantic cinematic color toning that preserves the magic of your special day forever.',
+        'img' => get_template_directory_uri() . '/wedding-work-01.webp',
+        'f1_title' => 'Natural Skin & Beauty Polish',
+        'f1_desc' => 'Frequency separation and micro dodge & burn to eliminate blemishes, redness, and shine without artificial plastic looks.',
+        'f2_title' => 'Venue & Background Cleanup',
+        'f2_desc' => 'We seamlessly remove photo-bombers, venue clutter, power cables, and ground debris to keep the focus purely on the bride and groom.',
+    ],
+    'weding-photo-retouch' => [
+        'hero_title' => 'Timeless Wedding Photo Retouching Services.',
+        'hero_desc' => 'Flawless bridal skin smoothing, stray hair cleanup, tuxedo and gown fabric perfection, stranger eradication, and romantic cinematic color grading.',
+        'split_title' => 'Timeless Memories.',
+        'split_highlight' => 'Flawless Emotion.',
+        'split_desc1' => 'Wedding photography captures once-in-a-lifetime moments, but unpredictable outdoor lighting, crowded venue backgrounds, windy flyaway hairs, and harsh shadows can compromise otherwise breathtaking captures.',
+        'split_desc2' => 'Our master wedding retouchers specialize in delicate, natural beauty editing. We smooth skin while preserving authentic pores, eliminate background strangers and venue clutter, brighten eyes and smiles, and apply romantic cinematic color toning that preserves the magic of your special day forever.',
+        'img' => get_template_directory_uri() . '/wedding-work-01.webp',
+        'f1_title' => 'Natural Skin & Beauty Polish',
+        'f1_desc' => 'Frequency separation and micro dodge & burn to eliminate blemishes, redness, and shine without artificial plastic looks.',
+        'f2_title' => 'Venue & Background Cleanup',
+        'f2_desc' => 'We seamlessly remove photo-bombers, venue clutter, power cables, and ground debris to keep the focus purely on the bride and groom.',
+    ],
+    'wedding-photo-retouch-service' => [
+        'hero_title' => 'Timeless Wedding Photo Retouching Services.',
+        'hero_desc' => 'Flawless bridal skin smoothing, stray hair cleanup, tuxedo and gown fabric perfection, stranger eradication, and romantic cinematic color grading.',
+        'split_title' => 'Timeless Memories.',
+        'split_highlight' => 'Flawless Emotion.',
+        'split_desc1' => 'Wedding photography captures once-in-a-lifetime moments, but unpredictable outdoor lighting, crowded venue backgrounds, windy flyaway hairs, and harsh shadows can compromise otherwise breathtaking captures.',
+        'split_desc2' => 'Our master wedding retouchers specialize in delicate, natural beauty editing. We smooth skin while preserving authentic pores, eliminate background strangers and venue clutter, brighten eyes and smiles, and apply romantic cinematic color toning that preserves the magic of your special day forever.',
+        'img' => get_template_directory_uri() . '/wedding-work-01.webp',
+        'f1_title' => 'Natural Skin & Beauty Polish',
+        'f1_desc' => 'Frequency separation and micro dodge & burn to eliminate blemishes, redness, and shine without artificial plastic looks.',
+        'f2_title' => 'Venue & Background Cleanup',
+        'f2_desc' => 'We seamlessly remove photo-bombers, venue clutter, power cables, and ground debris to keep the focus purely on the bride and groom.',
+    ],
 ];
 
 // Default fallback if not found
@@ -1413,6 +1452,58 @@ get_header(); ?>
                     <div class="gi-work-card-caption">
                         <span class="gi-gm-card-tag">Sample 03</span>
                         <span class="gi-gm-card-title">Travel Bag &bull; Turntable Rig Eradication &amp; Symmetry</span>
+                    </div>
+                </article>
+
+            </div>
+        </div>
+    </section>
+    <?php endif; ?>
+
+    <?php if ( $slug === 'wedding-photo-retouch' || $slug === 'weding-photo-retouch' || $slug === 'wedding-photo-retouching' || $slug === 'wedding-photo-retouch-service' ) : ?>
+    <!-- ==========================================
+         WEDDING PHOTO RETOUCH SHOWCASE
+         ========================================== -->
+    <section class="gi-rhythm-block gi-rhythm-charcoal gi-gm-showcase-section">
+        <div class="gi-cp-container">
+            <div class="gi-gm-header">
+                <span class="gi-gm-pill-tag">Timeless Romance &bull; Natural Beauty Polish</span>
+                <h2 class="gi-gm-title">Wedding Photo Retouching Showcase</h2>
+                <p class="gi-gm-subtitle">Explore our wedding photography editing portfolio. We deliver authentic skin smoothing, flyaway hair cleanup, venue and stranger eradication, and romantic tone grading that preserves every cherished memory in stunning high resolution.</p>
+            </div>
+
+            <div class="gi-gm-grid">
+                
+                <!-- Sample 01: Couple Romantic Portrait -->
+                <article class="gi-work-card" data-gi-animate="fade-up">
+                    <div class="gi-work-card-media">
+                        <img src="<?php echo esc_url( get_template_directory_uri() . '/wedding-work-sq-01.webp' ); ?>" alt="Romantic Couple Outdoor Wedding Portrait" loading="lazy">
+                    </div>
+                    <div class="gi-work-card-caption">
+                        <span class="gi-gm-card-tag">Sample 01</span>
+                        <span class="gi-gm-card-title">Promenade Portrait &bull; Outdoor Light &amp; Atmosphere</span>
+                    </div>
+                </article>
+
+                <!-- Sample 02: Bridal Beauty & Skin Polish -->
+                <article class="gi-work-card" data-gi-animate="fade-up" data-gi-delay="100">
+                    <div class="gi-work-card-media">
+                        <img src="<?php echo esc_url( get_template_directory_uri() . '/wedding-work-02.webp' ); ?>" alt="Bridal Close-Up Skin Retouching and Beauty Polish" loading="lazy">
+                    </div>
+                    <div class="gi-work-card-caption">
+                        <span class="gi-gm-card-tag">Sample 02</span>
+                        <span class="gi-gm-card-title">Natural Beauty &bull; Skin Smoothing &amp; Smile Polish</span>
+                    </div>
+                </article>
+
+                <!-- Sample 03: Attire & Diamond Ring Detail -->
+                <article class="gi-work-card" data-gi-animate="fade-up" data-gi-delay="150">
+                    <div class="gi-work-card-media">
+                        <img src="<?php echo esc_url( get_template_directory_uri() . '/wedding-work-03.webp' ); ?>" alt="Wedding Attire Draping and Engagement Ring Sparkle" loading="lazy">
+                    </div>
+                    <div class="gi-work-card-caption">
+                        <span class="gi-gm-card-tag">Sample 03</span>
+                        <span class="gi-gm-card-title">Couple Embrace &bull; Ring Sparkle &amp; Attire Harmony</span>
                     </div>
                 </article>
 

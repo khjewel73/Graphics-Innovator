@@ -288,3 +288,67 @@ add_action( 'init', function() {
     update_option( 'gi_360_product_retouch_setup_v1', 1 );
 } );
 
+// ─────────────────────────────────────────────
+//  AUTO-PROVISION WEDDING PHOTO RETOUCH PAGE & MENU
+// ─────────────────────────────────────────────
+add_action( 'init', function() {
+    if ( get_option( 'gi_wedding_photo_retouch_setup_v1' ) ) {
+        return;
+    }
+
+    $page = get_page_by_path( 'wedding-photo-retouch' );
+    if ( ! $page ) {
+        $page_id = wp_insert_post( [
+            'post_title'     => 'Wedding Photo Retouch',
+            'post_name'      => 'wedding-photo-retouch',
+            'post_status'    => 'publish',
+            'post_type'      => 'page',
+            'comment_status' => 'closed',
+            'ping_status'    => 'closed',
+        ] );
+        if ( ! is_wp_error( $page_id ) && $page_id ) {
+            update_post_meta( $page_id, '_wp_page_template', 'page-service-detail.php' );
+        }
+    } else {
+        $page_id = $page->ID;
+        update_post_meta( $page_id, '_wp_page_template', 'page-service-detail.php' );
+    }
+
+    $locations = get_nav_menu_locations();
+    if ( ! empty( $locations['primary'] ) && $page_id ) {
+        $menu_id = $locations['primary'];
+        $items = wp_get_nav_menu_items( $menu_id );
+        $parent_id = 0;
+        $already_in_menu = false;
+        $max_order = 0;
+
+        if ( ! empty( $items ) ) {
+            foreach ( $items as $item ) {
+                if ( $item->title === 'Services' && $item->menu_item_parent == 0 ) {
+                    $parent_id = $item->ID;
+                }
+                if ( $item->object_id == $page_id || $item->title === 'Wedding Photo Retouch' || $item->title === 'Weding Photo Retouch' ) {
+                    $already_in_menu = true;
+                }
+                if ( $item->menu_order > $max_order ) {
+                    $max_order = $item->menu_order;
+                }
+            }
+        }
+
+        if ( ! $already_in_menu && $parent_id ) {
+            wp_update_nav_menu_item( $menu_id, 0, [
+                'menu-item-title'     => 'Wedding Photo Retouch',
+                'menu-item-object'    => 'page',
+                'menu-item-object-id' => $page_id,
+                'menu-item-type'      => 'post_type',
+                'menu-item-status'    => 'publish',
+                'menu-item-parent-id' => $parent_id,
+                'menu-item-position'  => $max_order + 1,
+            ] );
+        }
+    }
+
+    update_option( 'gi_wedding_photo_retouch_setup_v1', 1 );
+} );
+

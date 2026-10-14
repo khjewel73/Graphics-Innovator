@@ -183,3 +183,44 @@ add_action( 'init', function() {
     update_option( 'gi_jewelry_retouching_setup_v1', 1 );
 } );
 
+// ─────────────────────────────────────────────
+//  AUTO-CLEANUP / REMOVE NECK JOINT SERVICE
+// ─────────────────────────────────────────────
+add_action( 'init', function() {
+    if ( get_option( 'gi_neck_joint_cleanup_v1' ) ) {
+        return;
+    }
+
+    // Force delete the page if it exists
+    $page = get_page_by_path( 'neck-joint-service' );
+    if ( $page ) {
+        wp_delete_post( $page->ID, true );
+    }
+
+    // Remove Neck Joint item from all nav menus
+    $menus = wp_get_nav_menus();
+    if ( ! empty( $menus ) ) {
+        foreach ( $menus as $m ) {
+            $items = wp_get_nav_menu_items( $m->term_id );
+            if ( $items ) {
+                foreach ( $items as $item ) {
+                    if ( stripos( $item->url, 'neck-joint-service' ) !== false || stripos( $item->title, 'Neck Joint' ) !== false ) {
+                        wp_delete_post( $item->ID, true );
+                    }
+                }
+            }
+        }
+    }
+
+    update_option( 'gi_neck_joint_cleanup_v1', 1 );
+} );
+
+// 301 Redirect for legacy neck-joint-service URLs to ghost-mannequin-service
+add_action( 'template_redirect', function() {
+    $uri = $_SERVER['REQUEST_URI'] ?? '';
+    if ( stripos( $uri, 'neck-joint-service' ) !== false ) {
+        wp_redirect( home_url( '/ghost-mannequin-service/' ), 301 );
+        exit;
+    }
+} );
+

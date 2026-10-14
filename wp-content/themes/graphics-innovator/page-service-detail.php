@@ -76,19 +76,6 @@ $service_data = [
         'f2_title' => 'Warp & Symmetrical Shaping',
         'f2_desc' => 'We adjust the garment shape, fix asymmetrical sleeves, and smooth out wrinkles for a tailored, premium look.',
     ],
-    'neck-joint-service' => [
-        'hero_title' => 'Professional Neck Joint Services.',
-        'hero_desc' => 'The essential ghost mannequin technique. We expertly remove the mannequin and stitch the neck back in for a seamless 3D apparel display.',
-        'split_title' => 'Invisible Mannequins.',
-        'split_highlight' => 'Visible Quality.',
-        'split_desc1' => 'When shooting apparel on a mannequin, the neck and inner collar are always hidden. This breaks the illusion for the customer.',
-        'split_desc2' => 'Our neck joint specialists meticulously combine your primary shot with an inside-out collar shot. We reconstruct the missing fabric, align the patterns perfectly, and add depth shadows to make the clothing look like it is being worn by an invisible model.',
-        'img' => site_url('/wp-content/uploads/gi-services/neck_joint.png'),
-        'f1_title' => 'Pattern Alignment',
-        'f1_desc' => 'We perfectly align stripes, plaids, and complex fabric patterns during the stitching process so the joint is completely invisible.',
-        'f2_title' => 'Realistic Depth Shadows',
-        'f2_desc' => 'We manually paint natural interior shadows inside the neck joint to give the garment true 3D volume.',
-    ],
     'shadow-creation-service' => [
         'hero_title' => 'Realistic Shadow Creation Services.',
         'hero_desc' => 'Add stunning depth and realism to flat images. We expertly craft natural drop shadows, reflection shadows, and custom lighting enhancements.',
@@ -872,7 +859,7 @@ get_header(); ?>
         </div>
     </section>
 
-    <?php if ( $slug === 'ghost-mannequin-service' || $slug === 'neck-joint-service' ) : ?>
+    <?php if ( $slug === 'ghost-mannequin-service' ) : ?>
     <!-- ==========================================
          BEFORE / AFTER TRANSFORMATION RHYTHM
          ========================================== -->

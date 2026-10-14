@@ -16,7 +16,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 // ─────────────────────────────────────────────
 //  THEME CONSTANTS
 // ─────────────────────────────────────────────
-define( 'GI_VERSION',  '1.0.16' );
+define( 'GI_VERSION',  '1.0.17' );
 define( 'GI_ROOT',     get_template_directory() );
 define( 'GI_ROOT_URI', get_template_directory_uri() );
 define( 'GI_ASSETS',   GI_ROOT_URI . '/assets' );

@@ -141,6 +141,32 @@ $service_data = [
         'f2_title' => 'Metal Smoothing & Shine',
         'f2_desc' => 'We eliminate surface scratches, fingerprints, and solder seams to create a mirror-finish luxury band.',
     ],
+    '360-product-retouch' => [
+        'hero_title' => 'Enterprise 360° Product Retouching Services.',
+        'hero_desc' => 'Seamless multi-angle consistency, turntable axis stabilization, rigorous dust and reflection cleanup, and true-to-life color grading for interactive eCommerce spins.',
+        'split_title' => 'Flawless 360° Spins.',
+        'split_highlight' => 'Unshakable Consistency.',
+        'split_desc1' => 'Interactive 360-degree product spins and 3D turntable animations boost buyer confidence and dramatically reduce return rates.',
+        'split_desc2' => 'Our specialized 360 retouching team standardizes, aligns, cleans, and color-balances every single frame in your turntable sequence. We eradicate support rigs, turntable seams, and harsh studio reflections while aligning rotation axes so every product spins with silky, photorealistic perfection.',
+        'img' => get_template_directory_uri() . '/360-work-01.webp',
+        'f1_title' => 'Frame-to-Frame Alignment',
+        'f1_desc' => 'We stabilize the center axis across all 24/36/72 frames to eliminate wobbling, shaking, or jump cuts during 360 spins.',
+        'f2_title' => 'Rig & Turntable Eradication',
+        'f2_desc' => 'We completely remove mounting stands, turntables, wire holders, and reflection glare while preserving natural grounding shadows.',
+    ],
+    '360-product-retouch-service' => [
+        'hero_title' => 'Enterprise 360° Product Retouching Services.',
+        'hero_desc' => 'Seamless multi-angle consistency, turntable axis stabilization, rigorous dust and reflection cleanup, and true-to-life color grading for interactive eCommerce spins.',
+        'split_title' => 'Flawless 360° Spins.',
+        'split_highlight' => 'Unshakable Consistency.',
+        'split_desc1' => 'Interactive 360-degree product spins and 3D turntable animations boost buyer confidence and dramatically reduce return rates.',
+        'split_desc2' => 'Our specialized 360 retouching team standardizes, aligns, cleans, and color-balances every single frame in your turntable sequence. We eradicate support rigs, turntable seams, and harsh studio reflections while aligning rotation axes so every product spins with silky, photorealistic perfection.',
+        'img' => get_template_directory_uri() . '/360-work-01.webp',
+        'f1_title' => 'Frame-to-Frame Alignment',
+        'f1_desc' => 'We stabilize the center axis across all 24/36/72 frames to eliminate wobbling, shaking, or jump cuts during 360 spins.',
+        'f2_title' => 'Rig & Turntable Eradication',
+        'f2_desc' => 'We completely remove mounting stands, turntables, wire holders, and reflection glare while preserving natural grounding shadows.',
+    ],
 ];
 
 // Default fallback if not found
@@ -1335,6 +1361,58 @@ get_header(); ?>
                     <div class="gi-gm-card-caption">
                         <span class="gi-gm-card-tag">Sample 02</span>
                         <span class="gi-gm-card-title">Rose Gold Solitaire &bull; Facet Sparkle &amp; Mirror Finish</span>
+                    </div>
+                </article>
+
+            </div>
+        </div>
+    </section>
+    <?php endif; ?>
+
+    <?php if ( $slug === '360-product-retouch' || $slug === '360-product-retouch-service' ) : ?>
+    <!-- ==========================================
+         360 PRODUCT RETOUCH SHOWCASE
+         ========================================== -->
+    <section class="gi-rhythm-block gi-rhythm-charcoal gi-gm-showcase-section">
+        <div class="gi-cp-container">
+            <div class="gi-gm-header">
+                <span class="gi-gm-pill-tag">Interactive Precision &bull; Multi-Angle Consistency</span>
+                <h2 class="gi-gm-title">360&deg; Product Retouching Showcase</h2>
+                <p class="gi-gm-subtitle">Explore our portfolio of turntable and multi-angle product retouching. Every frame is stabilized on its central rotation axis, color-calibrated, and cleaned of turntable rigs to deliver a silky-smooth, photorealistic interactive spin.</p>
+            </div>
+
+            <div class="gi-gm-grid">
+                
+                <!-- Sample 01: Luxury Eyewear -->
+                <article class="gi-work-card" data-gi-animate="fade-up">
+                    <div class="gi-work-card-media">
+                        <img src="<?php echo esc_url( get_template_directory_uri() . '/360-work-01.webp' ); ?>" alt="Luxury Eyewear 360 Frame Retouching" loading="lazy">
+                    </div>
+                    <div class="gi-work-card-caption">
+                        <span class="gi-gm-card-tag">Sample 01</span>
+                        <span class="gi-gm-card-title">Designer Eyewear &bull; Frame Alignment &amp; Lens Clarity</span>
+                    </div>
+                </article>
+
+                <!-- Sample 02: Platform Sandals -->
+                <article class="gi-work-card" data-gi-animate="fade-up" data-gi-delay="100">
+                    <div class="gi-work-card-media">
+                        <img src="<?php echo esc_url( get_template_directory_uri() . '/360-work-02.webp' ); ?>" alt="Designer Platform Sandals Multi-Angle Retouch" loading="lazy">
+                    </div>
+                    <div class="gi-work-card-caption">
+                        <span class="gi-gm-card-tag">Sample 02</span>
+                        <span class="gi-gm-card-title">Woven Footwear &bull; Texture Depth &amp; Ground Shadow</span>
+                    </div>
+                </article>
+
+                <!-- Sample 03: Travel Bag -->
+                <article class="gi-work-card" data-gi-animate="fade-up" data-gi-delay="150">
+                    <div class="gi-work-card-media">
+                        <img src="<?php echo esc_url( get_template_directory_uri() . '/360-work-03.webp' ); ?>" alt="Travel Luggage 360 Turntable Retouch" loading="lazy">
+                    </div>
+                    <div class="gi-work-card-caption">
+                        <span class="gi-gm-card-tag">Sample 03</span>
+                        <span class="gi-gm-card-title">Travel Bag &bull; Turntable Rig Eradication &amp; Symmetry</span>
                     </div>
                 </article>
 

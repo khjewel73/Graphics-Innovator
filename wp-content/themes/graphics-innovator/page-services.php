@@ -370,6 +370,19 @@ $base_url   = $upload_dir['baseurl'];
                 <p>High-end diamond sparkle, metal smoothing, scratch and putty cleanup, and studio reflection perfection for fine jewelry catalogs.</p>
             </a>
 
+            <!-- Service 8 -->
+            <a href="<?php echo esc_url( home_url('/360-product-retouch/') ); ?>" class="gi-srv-card">
+                <div class="gi-srv-media">
+                    <img src="<?php echo esc_url( get_template_directory_uri() . '/360-work-01.webp' ); ?>" alt="360 Product Retouch example" loading="lazy">
+                    <span>360° Spin</span>
+                </div>
+                <div class="gi-srv-icon">
+                    <svg viewBox="0 0 24 24"><path d="M21.5 2v6h-6M21.34 15.57a10 10 0 1 1-.57-8.38l5.67-5.67"></path></svg>
+                </div>
+                <h3>360 Product Retouch</h3>
+                <p>Enterprise turntable alignment, frame-to-frame stabilization, reflection and rig removal, and color consistency for interactive 360° product spins.</p>
+            </a>
+
         </div>
         </div>
     </section>

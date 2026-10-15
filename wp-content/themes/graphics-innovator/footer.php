@@ -142,19 +142,17 @@ $email    = get_theme_mod( 'gi_email', 'info@graphicsinnovator.com' );
 // Hidden on all other pages.
 // =========================================================================
 $gi_show_whatsapp = false;
-if ( is_page( array( 'pricing', 'pricing-3', 'contact', 'contact-us', 'free-trial', 'trial' ) ) 
-     || is_page_template( array( 'page-pricing-3.php', 'page-pricing.php', 'page-contact.php', 'page-free-trial.php' ) ) ) {
-    $gi_show_whatsapp = true;
+if ( ! is_front_page() && ! is_home() ) {
+    if ( is_page( array( 'pricing', 'pricing-3', 'contact', 'contact-us', 'free-trial', 'trial' ) ) 
+         || is_page_template( array( 'page-pricing-3.php', 'page-pricing.php', 'page-contact.php', 'page-free-trial.php' ) ) ) {
+        $gi_show_whatsapp = true;
+    }
 }
 
 if ( $gi_show_whatsapp ) :
     $wa_phone_bd_clean = preg_replace( '/[^0-9]/', '', $phone_bd );
     if ( empty( $wa_phone_bd_clean ) ) {
         $wa_phone_bd_clean = '8801714516662';
-    }
-    $wa_phone_cy_clean = preg_replace( '/[^0-9]/', '', $phone_cy );
-    if ( empty( $wa_phone_cy_clean ) ) {
-        $wa_phone_cy_clean = '35796341452';
     }
     
     // Context-targeted pre-filled message
@@ -167,7 +165,6 @@ if ( $gi_show_whatsapp ) :
         $wa_msg = "Hello Graphics Innovator! I'm on your Contact page and would like to speak directly with a production director.";
     }
     $wa_url_bd = 'https://wa.me/' . $wa_phone_bd_clean . '?text=' . rawurlencode( $wa_msg );
-    $wa_url_cy = 'https://wa.me/' . $wa_phone_cy_clean . '?text=' . rawurlencode( $wa_msg );
 ?>
 <style>
 /* ==========================================================================
@@ -507,14 +504,7 @@ if ( $gi_show_whatsapp ) :
                     <span>Chat on WhatsApp Now</span>
                 </a>
 
-                <div class="gi-wa-quick-desks">
-                    <span>Direct Studios:</span>
-                    <span>
-                        <a href="<?php echo esc_url( $wa_url_bd ); ?>" target="_blank" rel="noopener">🇧🇩 BD Studio (24/7)</a>
-                        &nbsp;|&nbsp;
-                        <a href="<?php echo esc_url( $wa_url_cy ); ?>" target="_blank" rel="noopener">🇨🇾 CY HQ</a>
-                    </span>
-                </div>
+
             </div>
         </div>
 

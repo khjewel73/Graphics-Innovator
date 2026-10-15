@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 /**
  * Template Name: Homepage
  * 
@@ -658,416 +658,272 @@ $after_img_1  = $base_url . '/2022/12/shadow-masking-c.png'; // Example assumed 
 </section>
 
 <!-- ==========================================
-     PRICING PREVIEW (ENTERPRISE DARK MODE)
+     PRICING (CLEAN & MODERN LIGHT SECTION)
      ========================================== -->
 <style>
-/* ── Enterprise Pricing Showcase (Home Page — Crisp Light Edition) ────── */
+/* ---------------- Clean Modern Pricing Section ---------------- */
 .gi-home-pricing-section {
     position: relative;
     background:
-        radial-gradient(circle at 14% 12%, rgba(255, 106, 26, 0.05) 0%, transparent 35%),
-        radial-gradient(circle at 88% 75%, rgba(42, 106, 238, 0.06) 0%, transparent 38%),
-        linear-gradient(180deg, #f8fafc 0%, #ffffff 45%, #f1f5f9 100%);
+        radial-gradient(circle at 10% 15%, rgba(255, 106, 26, 0.04) 0%, transparent 40%),
+        radial-gradient(circle at 90% 80%, rgba(42, 106, 238, 0.05) 0%, transparent 45%),
+        linear-gradient(180deg, #f8fafc 0%, #ffffff 50%, #f1f5f9 100%);
     color: #0f172a;
-    padding: 6.5rem 0 7.5rem 0;
+    padding: 5.5rem 0 6rem 0;
     overflow: hidden;
-    border-top: 1px solid rgba(15, 23, 42, 0.06);
-    border-bottom: 1px solid rgba(15, 23, 42, 0.06);
-}
-.gi-home-pricing-section::before {
-    content: '';
-    position: absolute;
-    top: -150px;
-    left: -100px;
-    width: 500px;
-    height: 500px;
-    background: radial-gradient(circle, rgba(42, 106, 238, 0.10) 0%, transparent 70%);
-    filter: blur(90px);
-    opacity: 0.6;
-    pointer-events: none;
-    z-index: 0;
-}
-.gi-home-pricing-section::after {
-    content: '';
-    position: absolute;
-    bottom: -150px;
-    right: -100px;
-    width: 500px;
-    height: 500px;
-    background: radial-gradient(circle, rgba(234, 88, 12, 0.08) 0%, transparent 70%);
-    filter: blur(90px);
-    opacity: 0.5;
-    pointer-events: none;
-    z-index: 0;
+    border-top: 1px solid #e2e8f0;
+    border-bottom: 1px solid #e2e8f0;
 }
 .gi-home-pricing-section .gi-container {
     position: relative;
     z-index: 1;
 }
-
-/* Headings in light section */
 .gi-home-pricing-section .gi-section-title {
     color: #0f172a !important;
 }
 .gi-home-pricing-section .gi-section-subtitle {
-    color: #475569 !important;
+    color: #64748b !important;
+    max-width: 650px;
+    margin: 0.8rem auto 3.5rem auto;
+    font-size: 1.05rem;
+    line-height: 1.6;
 }
 
-/* Pills */
-.gi-home-pricing-section .gi-hero-pills {
+/* Pricing Grid */
+.gi-home-pricing-section .gi-pricing-cards-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    align-items: stretch;
+    max-width: 1160px;
+    margin: 0 auto 3rem auto;
+}
+
+/* Card Styling */
+.gi-home-pricing-section .gi-pricing-clean-card {
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 20px;
+    padding: 2.8rem 2.2rem 2.2rem 2.2rem;
+    box-shadow: 0 4px 20px rgba(15, 23, 42, 0.04);
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    position: relative;
+    display: flex;
+    flex-direction: column;
+}
+.gi-home-pricing-section .gi-pricing-clean-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 20px 40px rgba(15, 23, 42, 0.08);
+    border-color: #cbd5e1;
+}
+
+/* Featured / Popular Card */
+.gi-home-pricing-section .gi-pricing-clean-card.is-popular {
+    border: 2px solid #2a6aee;
+    box-shadow: 0 12px 36px rgba(42, 106, 238, 0.12);
+}
+.gi-home-pricing-section .gi-pricing-clean-card.is-popular:hover {
+    box-shadow: 0 22px 48px rgba(42, 106, 238, 0.18);
+    transform: translateY(-6px);
+}
+.gi-home-pricing-section .gi-pricing-popular-badge {
+    position: absolute;
+    top: -1px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: linear-gradient(135deg, #2a6aee 0%, #1d4ed8 100%);
+    color: #ffffff;
+    font-size: 0.72rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    padding: 5px 16px;
+    border-radius: 0 0 10px 10px;
+    box-shadow: 0 4px 10px rgba(42, 106, 238, 0.25);
+}
+
+/* Card Headers */
+.gi-home-pricing-section .gi-plan-title {
+    font-size: 1.4rem;
+    font-weight: 800;
+    color: #0f172a;
+    margin: 0 0 0.4rem 0;
+    letter-spacing: -0.3px;
+}
+.gi-home-pricing-section .gi-plan-tagline {
+    font-size: 0.9rem;
+    color: #64748b;
+    line-height: 1.5;
+    margin: 0 0 1.6rem 0;
+    min-height: 42px;
+}
+
+/* Price Value Display */
+.gi-home-pricing-section .gi-price-figure-wrap {
+    padding-bottom: 1.4rem;
+    border-bottom: 1px solid #f1f5f9;
+    margin-bottom: 1.5rem;
+}
+.gi-home-pricing-section .gi-price-figure {
+    font-size: 2.5rem;
+    font-weight: 800;
+    color: #0f172a;
+    line-height: 1;
+    display: flex;
+    align-items: baseline;
+    gap: 4px;
+    letter-spacing: -1px;
+}
+.gi-home-pricing-section .gi-price-figure .gi-price-currency {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #2a6aee;
+}
+.gi-home-pricing-section .gi-price-figure .gi-price-unit {
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: #64748b;
+    letter-spacing: 0;
+    margin-left: 2px;
+}
+.gi-home-pricing-section .gi-price-figure-custom {
+    font-size: 2.1rem;
+    font-weight: 800;
+    color: #0f172a;
+    letter-spacing: -0.5px;
+    line-height: 1.15;
+}
+.gi-home-pricing-section .gi-price-subtext {
+    font-size: 0.82rem;
+    color: #16a34a;
+    font-weight: 600;
+    margin-top: 0.45rem;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+/* Features List */
+.gi-home-pricing-section .gi-pricing-feature-list {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 2rem 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.85rem;
+    flex: 1;
+}
+.gi-home-pricing-section .gi-pricing-feature-list li {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 0.92rem;
+    color: #334155;
+    line-height: 1.4;
+}
+.gi-home-pricing-section .gi-pricing-feature-list li svg {
+    flex-shrink: 0;
+    width: 18px;
+    height: 18px;
+    color: #2a6aee;
+}
+
+/* CTA Buttons */
+.gi-home-pricing-section .gi-pricing-cta-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    width: 100%;
+    padding: 0.95rem 1.4rem;
+    border-radius: 12px;
+    font-size: 0.95rem;
+    font-weight: 700;
+    text-decoration: none;
+    transition: all 0.25s ease;
+    margin-top: auto;
+}
+.gi-home-pricing-section .gi-cta-outline {
+    background: #f8fafc;
+    color: #0f172a !important;
+    border: 1px solid #cbd5e1;
+}
+.gi-home-pricing-section .gi-cta-outline:hover {
+    background: #0f172a;
+    border-color: #0f172a;
+    color: #ffffff !important;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(15, 23, 42, 0.12);
+}
+.gi-home-pricing-section .gi-cta-solid {
+    background: #2a6aee;
+    color: #ffffff !important;
+    border: 1px solid #2a6aee;
+    box-shadow: 0 6px 18px rgba(42, 106, 238, 0.28);
+}
+.gi-home-pricing-section .gi-cta-solid:hover {
+    background: #1e50b5;
+    border-color: #1e50b5;
+    color: #ffffff !important;
+    transform: translateY(-2px);
+    box-shadow: 0 10px 24px rgba(42, 106, 238, 0.4);
+}
+
+/* Bottom Footer Bar */
+.gi-home-pricing-section .gi-pricing-footer-bar {
     display: flex;
     align-items: center;
     justify-content: center;
     flex-wrap: wrap;
-    gap: 0.85rem;
-    margin: 1.5rem auto 3.5rem auto;
-    max-width: 950px;
-}
-.gi-home-pricing-section .gi-hero-pill {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
+    gap: 1.5rem;
+    padding: 1.1rem 2rem;
     background: #ffffff;
-    border: 1px solid #e2e8f0;
-    box-shadow: 0 2px 8px rgba(15, 23, 42, 0.04);
-    padding: 7px 16px;
-    border-radius: 50px;
-    font-size: 0.85rem;
-    color: #334155;
-    font-weight: 600;
-}
-.gi-home-pricing-section .gi-hero-pill svg {
-    color: #16a34a;
-}
-
-/* Director Hotwire Banner */
-.gi-home-pricing-section .gi-director-banner {
-    background: linear-gradient(135deg, #ffffff 0%, #f0fdf4 100%);
-    border: 1.5px solid #86efac;
-    border-radius: 20px;
-    padding: 2.2rem 2.8rem;
-    margin-bottom: 3.5rem;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 2.5rem;
-    box-shadow: 0 15px 35px rgba(16, 185, 129, 0.08), 0 4px 12px rgba(15, 23, 42, 0.03);
-}
-.gi-home-pricing-section .gi-director-content {
-    flex: 1;
-}
-.gi-home-pricing-section .gi-director-badge {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    font-size: 0.76rem;
-    font-weight: 800;
-    text-transform: uppercase;
-    letter-spacing: 0.8px;
-    color: #15803d;
-    background: #dcfce7;
-    border: 1px solid #86efac;
-    padding: 5px 12px;
-    border-radius: 50px;
-    margin-bottom: 0.8rem;
-}
-.gi-home-pricing-section .gi-pulse-dot {
-    width: 8px;
-    height: 8px;
-    background: #16a34a;
-    border-radius: 50%;
-    box-shadow: 0 0 8px #16a34a;
-    animation: giPulseHome 1.8s infinite;
-}
-@keyframes giPulseHome {
-    0% { transform: scale(1); opacity: 1; }
-    50% { transform: scale(1.4); opacity: 0.4; }
-    100% { transform: scale(1); opacity: 1; }
-}
-.gi-home-pricing-section .gi-director-title {
-    font-size: 1.65rem;
-    font-weight: 800;
-    color: #0f172a;
-    margin: 0 0 0.5rem 0;
-    line-height: 1.25;
-}
-.gi-home-pricing-section .gi-director-desc {
-    font-size: 0.98rem;
-    color: #475569;
-    margin: 0;
-    line-height: 1.55;
-    max-width: 680px;
-}
-.gi-home-pricing-section .gi-director-actions {
-    display: flex;
-    flex-direction: column;
-    gap: 0.75rem;
-    flex-shrink: 0;
-    min-width: 270px;
-}
-.gi-home-pricing-section .gi-director-btn-wa {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 10px;
-    background: linear-gradient(135deg, #25D366 0%, #128C7E 100%);
-    color: #ffffff !important;
-    border: none;
-    padding: 1.05rem 1.6rem;
-    border-radius: 12px;
-    font-size: 1.02rem;
-    font-weight: 700;
-    text-decoration: none;
-    box-shadow: 0 8px 22px rgba(37, 211, 102, 0.35);
-    transition: all 0.3s ease;
-}
-.gi-home-pricing-section .gi-director-btn-wa:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 12px 30px rgba(37, 211, 102, 0.5);
-    color: #ffffff !important;
-}
-.gi-home-pricing-section .gi-director-btn-trial {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 8px;
-    background: #ffffff;
-    color: #1e293b !important;
-    border: 1px solid #cbd5e1;
-    padding: 0.8rem 1.4rem;
-    border-radius: 12px;
-    font-size: 0.92rem;
-    font-weight: 600;
-    text-decoration: none;
-    transition: all 0.25s ease;
-}
-.gi-home-pricing-section .gi-director-btn-trial:hover {
-    background: #0f172a;
-    border-color: #0f172a;
-    color: #ffffff !important;
-}
-
-/* Pricing Cards Grid */
-.gi-home-pricing-section .gi-price-cards-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-    gap: 2rem;
-    align-items: stretch;
-    margin-bottom: 3.5rem;
-}
-.gi-home-pricing-section .gi-price-card {
-    background: #ffffff;
-    border: 1px solid #e2e8f0;
-    border-radius: 24px;
-    padding: 3rem 2.2rem 2.5rem 2.2rem;
-    box-shadow: 0 10px 25px -5px rgba(15, 23, 42, 0.06), 0 4px 6px -2px rgba(15, 23, 42, 0.02);
-    transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
-    position: relative;
-    overflow: hidden;
-    display: flex;
-    flex-direction: column;
-}
-.gi-home-pricing-section .gi-price-card:hover {
-    transform: translateY(-8px);
-    border-color: #2a6aee;
-    box-shadow: 0 25px 50px -12px rgba(42, 106, 238, 0.16), 0 0 25px rgba(42, 106, 238, 0.06);
-}
-.gi-home-pricing-section .gi-price-card.is-popular {
-    background: #ffffff;
-    border: 2px solid #2a6aee;
-    box-shadow: 0 20px 45px rgba(42, 106, 238, 0.12), 0 0 20px rgba(42, 106, 238, 0.05);
-    transform: scale(1.03);
-}
-.gi-home-pricing-section .gi-price-card.is-popular:hover {
-    transform: scale(1.03) translateY(-8px);
-    border-color: #1e50b5;
-    box-shadow: 0 25px 55px rgba(42, 106, 238, 0.22);
-}
-.gi-home-pricing-section .gi-price-popular-pill {
-    position: absolute;
-    top: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    background: linear-gradient(135deg, #2a6aee 0%, #8b5cf6 100%);
-    color: #ffffff;
-    font-size: 0.75rem;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
-    padding: 0.5rem 1.5rem;
-    border-radius: 0 0 12px 12px;
-    box-shadow: 0 4px 12px rgba(42, 106, 238, 0.3);
-}
-.gi-home-pricing-section .gi-price-plan-name {
-    font-size: 1.55rem;
-    font-weight: 800;
-    margin-bottom: 0.5rem;
-    color: #0f172a;
-}
-.gi-home-pricing-section .gi-price-plan-desc {
-    font-size: 0.95rem;
-    color: #64748b;
-    margin-bottom: 1.8rem;
-    line-height: 1.5;
-    min-height: 44px;
-}
-.gi-home-pricing-section .gi-price-rate-box {
-    background: #f8fafc;
     border: 1px solid #e2e8f0;
     border-radius: 14px;
-    padding: 1.25rem 1.4rem;
-    margin-bottom: 2rem;
-    transition: all 0.3s ease;
-}
-.gi-home-pricing-section .gi-price-card:hover .gi-price-rate-box {
-    border-color: #22c55e;
-    background: #f0fdf4;
-}
-.gi-home-pricing-section .gi-price-rate-title {
-    font-size: 1.5rem;
-    font-weight: 800;
-    color: #0f172a;
-    line-height: 1.2;
-    margin-bottom: 0.35rem;
-    letter-spacing: -0.3px;
-}
-.gi-home-pricing-section .gi-price-rate-sub {
+    max-width: 820px;
+    margin: 0 auto;
+    box-shadow: 0 2px 10px rgba(15, 23, 42, 0.03);
     font-size: 0.92rem;
-    color: #16a34a;
-    font-weight: 700;
+    color: #475569;
+}
+.gi-home-pricing-section .gi-pricing-footer-item {
     display: flex;
     align-items: center;
-    gap: 6px;
-    margin-bottom: 0.5rem;
-}
-.gi-home-pricing-section .gi-price-rate-badge {
-    display: inline-block;
-    font-size: 0.72rem;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-    padding: 3px 8px;
-    border-radius: 6px;
-    background: rgba(42, 106, 238, 0.08);
-    color: #2563eb;
-    border: 1px solid rgba(42, 106, 238, 0.2);
-}
-.gi-home-pricing-section .gi-price-feature-list {
-    list-style: none;
-    padding: 0;
-    margin: 0 0 2.5rem 0;
-    display: flex;
-    flex-direction: column;
-    gap: 0.9rem;
-}
-.gi-home-pricing-section .gi-price-feature-list li {
-    display: flex;
-    align-items: flex-start;
-    font-size: 0.95rem;
-    color: #334155;
-    line-height: 1.45;
-}
-.gi-home-pricing-section .gi-price-feature-list li svg {
-    flex-shrink: 0;
-    width: 19px;
-    height: 19px;
-    color: #2563eb;
-    margin-right: 0.75rem;
-    margin-top: 2px;
-}
-.gi-home-pricing-section .gi-price-actions {
-    display: flex;
-    flex-direction: column;
-    gap: 0.75rem;
-    margin-top: auto;
-}
-.gi-home-pricing-section .gi-price-wa-btn {
-    display: flex;
-    align-items: center;
-    justify-content: center;
     gap: 8px;
-    background: linear-gradient(135deg, #25D366 0%, #128C7E 100%);
-    color: #ffffff !important;
-    border: none;
-    padding: 1.1rem 1.4rem;
-    border-radius: 12px;
-    font-size: 1.02rem;
+}
+.gi-home-pricing-section .gi-pricing-footer-item svg {
+    color: #2a6aee;
+    flex-shrink: 0;
+}
+.gi-home-pricing-section .gi-pricing-footer-link {
+    color: #2a6aee !important;
     font-weight: 700;
     text-decoration: none;
-    box-shadow: 0 8px 20px rgba(37, 211, 102, 0.35);
-    transition: all 0.3s ease;
+    transition: color 0.2s ease;
 }
-.gi-home-pricing-section .gi-price-wa-btn:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 12px 28px rgba(37, 211, 102, 0.55);
-    color: #ffffff !important;
+.gi-home-pricing-section .gi-pricing-footer-link:hover {
+    color: #1e40af !important;
+    text-decoration: underline;
 }
-.gi-home-pricing-section .gi-price-trial-btn {
-    display: block;
-    width: 100%;
-    text-align: center;
-    padding: 1rem 1.4rem;
-    border-radius: 12px;
-    font-size: 0.98rem;
-    font-weight: 600;
-    text-decoration: none;
-    background: #f8fafc;
-    color: #1e293b !important;
-    border: 1px solid #cbd5e1;
-    transition: all 0.25s ease;
-}
-.gi-home-pricing-section .gi-price-trial-btn:hover {
-    background: #0f172a;
-    border-color: #0f172a;
-    color: #ffffff !important;
-}
-.gi-home-pricing-section .gi-price-full-link-wrap {
-    text-align: center;
-    margin-top: 1rem;
-}
-.gi-home-pricing-section .gi-price-full-btn {
-    display: inline-flex;
-    align-items: center;
-    gap: 10px;
-    padding: 1.1rem 2.4rem;
-    background: #ffffff;
-    border: 1px solid #cbd5e1;
-    color: #0f172a !important;
-    box-shadow: 0 4px 15px rgba(15, 23, 42, 0.05);
-    border-radius: 50px;
-    font-size: 1rem;
-    font-weight: 700;
-    text-decoration: none;
-    transition: all 0.3s ease;
-}
-.gi-home-pricing-section .gi-price-full-btn:hover {
-    background: #2a6aee;
-    border-color: #2a6aee;
-    color: #ffffff !important;
-    transform: translateY(-2px);
-    box-shadow: 0 12px 28px rgba(42, 106, 238, 0.25);
+.gi-home-pricing-section .gi-pricing-footer-sep {
+    color: #cbd5e1;
 }
 
 @media (max-width: 992px) {
-    .gi-home-pricing-section .gi-price-card.is-popular {
-        transform: scale(1);
+    .gi-home-pricing-section .gi-pricing-cards-grid {
+        grid-template-columns: 1fr;
+        max-width: 460px;
     }
-    .gi-home-pricing-section .gi-price-card.is-popular:hover {
-        transform: scale(1) translateY(-8px);
+    .gi-home-pricing-section .gi-plan-tagline {
+        min-height: auto;
     }
-    .gi-home-pricing-section .gi-director-banner {
+    .gi-home-pricing-section .gi-pricing-footer-bar {
         flex-direction: column;
+        gap: 0.75rem;
         text-align: center;
-        padding: 2rem 1.5rem;
     }
-    .gi-home-pricing-section .gi-director-actions {
-        width: 100%;
-        min-width: unset;
-    }
-}
-@media (max-width: 600px) {
-    .gi-home-pricing-section .gi-director-title {
-        font-size: 1.35rem;
+    .gi-home-pricing-section .gi-pricing-footer-sep {
+        display: none;
     }
 }
 </style>
@@ -1077,146 +933,118 @@ $after_img_1  = $base_url . '/2022/12/shadow-masking-c.png'; // Example assumed 
         <?php gi_section_heading( 
             'Affordable Rates', 
             '<span class="gi-highlight-orange">Transparent</span> <span class="gi-highlight-blue">Pricing</span>', 
-            'No automated bots, no rigid middleman markups. Direct human production with wholesale bulk rates starting as low as $0.25/image.'
+            'Direct human retouching with wholesale bulk rates starting from $0.25/image. No hidden charges or middleman markups.'
         ); ?>
 
-        <div class="gi-hero-pills">
-            <span class="gi-hero-pill">
-                <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
-                Average WhatsApp Reply: &lt; 2 Mins
-            </span>
-            <span class="gi-hero-pill">
-                <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
-                100% Handcrafted by Senior Retouchers (0 AI Artifacts)
-            </span>
-            <span class="gi-hero-pill">
-                <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
-                Strict Non-Disclosure (NDA) Protected
-            </span>
-        </div>
-
-        <!-- Live Production Director Hotwire Banner -->
-        <div class="gi-director-banner" data-gi-animate="fade-up">
-            <div class="gi-director-content">
-                <div class="gi-director-badge">
-                    <span class="gi-pulse-dot"></span>
-                    Live Production Director On Duty
-                </div>
-                <h3 class="gi-director-title">Need a Custom Wholesale Rate for 50 to 5,000+ Images?</h3>
-                <p class="gi-director-desc">Skip the long email ticketing queue. Send sample photos or catalog guidelines directly to our lead production supervisor on WhatsApp for an instant, locked-in custom quote within 2–5 minutes.</p>
-            </div>
-            <div class="gi-director-actions">
-                <a href="https://wa.me/8801714516662?text=<?php echo rawurlencode('Hello Graphics Innovator! I have a batch of photos and need an instant custom volume rate.'); ?>" target="_blank" rel="noopener noreferrer" class="gi-director-btn-wa">
-                    <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91C2.13 13.66 2.59 15.36 3.45 16.86L2.05 22L7.3 20.62C8.75 21.41 10.38 21.83 12.04 21.83C17.5 21.83 21.95 17.38 21.95 11.92C21.95 9.27 20.92 6.78 19.05 4.91C17.18 3.03 14.69 2 12.04 2M12.05 3.67C14.25 3.67 16.31 4.53 17.87 6.09C19.42 7.65 20.28 9.72 20.28 11.92C20.28 16.46 16.58 20.15 12.04 20.15C10.56 20.15 9.11 19.76 7.85 19L7.55 18.83L4.43 19.65L5.26 16.61L5.06 16.29C4.24 14.99 3.8 13.47 3.8 11.91C3.81 7.37 7.5 3.67 12.05 3.67M9.53 7.08C9.33 7.08 9.14 7.15 8.98 7.39C8.78 7.63 8.24 8.14 8.24 9.18C8.24 10.22 9 11.22 9.12 11.38C9.24 11.54 10.61 13.65 12.7 14.55C14.44 15.3 14.79 15.15 15.17 15.12C15.56 15.08 16.42 14.61 16.6 14.1C16.78 13.59 16.78 13.16 16.72 13.06C16.67 12.96 16.53 12.9 16.33 12.8C16.12 12.7 15.12 12.21 14.93 12.14C14.75 12.07 14.61 12.04 14.47 12.24C14.33 12.45 13.94 12.9 13.82 13.04C13.7 13.18 13.58 13.2 13.38 13.1C13.17 13 12.5 12.78 11.71 12.07C11.09 11.52 10.67 10.84 10.55 10.63C10.43 10.43 10.54 10.31 10.64 10.21C10.74 10.12 10.85 9.98 10.96 9.86C11.06 9.74 11.1 9.65 11.16 9.51C11.23 9.38 11.19 9.25 11.14 9.15C11.09 9.05 10.68 8.04 10.51 7.63C10.35 7.23 10.18 7.28 10.05 7.27C9.93 7.27 9.79 7.27 9.64 7.27L9.53 7.08Z"/></svg>
-                    <span>Chat on WhatsApp</span>
-                </a>
-                <a href="<?php echo esc_url( home_url( '/free-trial/' ) ); ?>" class="gi-director-btn-trial">
-                    🧪 Test 2 Images For Free First
-                </a>
-            </div>
-        </div>
-
         <!-- Pricing Cards Grid -->
-        <div class="gi-price-cards-grid">
+        <div class="gi-pricing-cards-grid">
             
-            <!-- Tier 1: Essential Bulk Clipping -->
-            <div class="gi-price-card" data-gi-animate="fade-up">
-                <div class="gi-price-plan-name">Essential Bulk Clipping</div>
-                <div class="gi-price-plan-desc">High-speed background removal, multi-path clipping, and cutouts for eCommerce catalogs.</div>
+            <!-- Tier 1: Essential Clipping -->
+            <div class="gi-pricing-clean-card" data-gi-animate="fade-up">
+                <h3 class="gi-plan-title">Essential Clipping</h3>
+                <p class="gi-plan-tagline">Fast background removal and hand-drawn cutout paths for eCommerce catalogs.</p>
                 
-                <div class="gi-price-rate-box">
-                    <div class="gi-price-rate-title">Custom Volume Rate</div>
-                    <div class="gi-price-rate-sub">⚡ Starting from $0.25 / image</div>
-                    <span class="gi-price-rate-badge">Volume Tiered Pricing</span>
+                <div class="gi-price-figure-wrap">
+                    <div class="gi-price-figure">
+                        <span class="gi-price-currency">$</span>0.25
+                        <span class="gi-price-unit">/ image</span>
+                    </div>
+                    <div class="gi-price-subtext">
+                        <svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+                        <span>Starting bulk volume rate</span>
+                    </div>
                 </div>
 
-                <ul class="gi-price-feature-list">
-                    <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg> Hand-drawn pen clipping paths (100% human)</li>
-                    <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg> Pure white (RGB 255) &amp; transparent cutouts</li>
-                    <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg> Precision centering &amp; margin alignment</li>
-                    <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg> Amazon, eBay &amp; Shopify ready formats</li>
-                    <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg> Guaranteed 12–24h batch turnaround</li>
+                <ul class="gi-pricing-feature-list">
+                    <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg> Hand-drawn pen clipping paths (100% human)</li>
+                    <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg> Pure white &amp; transparent cutouts</li>
+                    <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg> Amazon, eBay &amp; Shopify ready</li>
+                    <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg> Guaranteed 12-24h turnaround</li>
                 </ul>
 
-                <div class="gi-price-actions">
-                    <a href="https://wa.me/8801714516662?text=<?php echo rawurlencode('Hello Graphics Innovator! I need a bulk volume rate for Essential Clipping & Background Removal.'); ?>" target="_blank" rel="noopener noreferrer" class="gi-price-wa-btn">
-                        <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91C2.13 13.66 2.59 15.36 3.45 16.86L2.05 22L7.3 20.62C8.75 21.41 10.38 21.83 12.04 21.83C17.5 21.83 21.95 17.38 21.95 11.92C21.95 9.27 20.92 6.78 19.05 4.91C17.18 3.03 14.69 2 12.04 2M12.05 3.67C14.25 3.67 16.31 4.53 17.87 6.09C19.42 7.65 20.28 9.72 20.28 11.92C20.28 16.46 16.58 20.15 12.04 20.15C10.56 20.15 9.11 19.76 7.85 19L7.55 18.83L4.43 19.65L5.26 16.61L5.06 16.29C4.24 14.99 3.8 13.47 3.8 11.91C3.81 7.37 7.5 3.67 12.05 3.67M9.53 7.08C9.33 7.08 9.14 7.15 8.98 7.39C8.78 7.63 8.24 8.14 8.24 9.18C8.24 10.22 9 11.22 9.12 11.38C9.24 11.54 10.61 13.65 12.7 14.55C14.44 15.3 14.79 15.15 15.17 15.12C15.56 15.08 16.42 14.61 16.6 14.1C16.78 13.59 16.78 13.16 16.72 13.06C16.67 12.96 16.53 12.9 16.33 12.8C16.12 12.7 15.12 12.21 14.93 12.14C14.75 12.07 14.61 12.04 14.47 12.24C14.33 12.45 13.94 12.9 13.82 13.04C13.7 13.18 13.58 13.2 13.38 13.1C13.17 13 12.5 12.78 11.71 12.07C11.09 11.52 10.67 10.84 10.55 10.63C10.43 10.43 10.54 10.31 10.64 10.21C10.74 10.12 10.85 9.98 10.96 9.86C11.06 9.74 11.1 9.65 11.16 9.51C11.23 9.38 11.19 9.25 11.14 9.15C11.09 9.05 10.68 8.04 10.51 7.63C10.35 7.23 10.18 7.28 10.05 7.27C9.93 7.27 9.79 7.27 9.64 7.27L9.53 7.08Z"/></svg>
-                        <span>Get Batch Quote on WhatsApp</span>
-                    </a>
-                    <a href="<?php echo esc_url( home_url( '/free-trial/' ) ); ?>" class="gi-price-trial-btn">Test 2 Images Free</a>
-                </div>
+                <a href="https://wa.me/8801714516662?text=<?php echo rawurlencode('Hello Graphics Innovator! I need a quote for Essential Clipping.'); ?>" target="_blank" rel="noopener noreferrer" class="gi-pricing-cta-btn gi-cta-outline">
+                    <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91C2.13 13.66 2.59 15.36 3.45 16.86L2.05 22L7.3 20.62C8.75 21.41 10.38 21.83 12.04 21.83C17.5 21.83 21.95 17.38 21.95 11.92C21.95 9.27 20.92 6.78 19.05 4.91C17.18 3.03 14.69 2 12.04 2M12.05 3.67C14.25 3.67 16.31 4.53 17.87 6.09C19.42 7.65 20.28 9.72 20.28 11.92C20.28 16.46 16.58 20.15 12.04 20.15C10.56 20.15 9.11 19.76 7.85 19L7.55 18.83L4.43 19.65L5.26 16.61L5.06 16.29C4.24 14.99 3.8 13.47 3.8 11.91C3.81 7.37 7.5 3.67 12.05 3.67M9.53 7.08C9.33 7.08 9.14 7.15 8.98 7.39C8.78 7.63 8.24 8.14 8.24 9.18C8.24 10.22 9 11.22 9.12 11.38C9.24 11.54 10.61 13.65 12.7 14.55C14.44 15.3 14.79 15.15 15.17 15.12C15.56 15.08 16.42 14.61 16.6 14.1C16.78 13.59 16.78 13.16 16.72 13.06C16.67 12.96 16.53 12.9 16.33 12.8C16.12 12.7 15.12 12.21 14.93 12.14C14.75 12.07 14.61 12.04 14.47 12.24C14.33 12.45 13.94 12.9 13.82 13.04C13.7 13.18 13.58 13.2 13.38 13.1C13.17 13 12.5 12.78 11.71 12.07C11.09 11.52 10.67 10.84 10.55 10.63C10.43 10.43 10.54 10.31 10.64 10.21C10.74 10.12 10.85 9.98 10.96 9.86C11.06 9.74 11.1 9.65 11.16 9.51C11.23 9.38 11.19 9.25 11.14 9.15C11.09 9.05 10.68 8.04 10.51 7.63C10.35 7.23 10.18 7.28 10.05 7.27C9.93 7.27 9.79 7.27 9.64 7.27L9.53 7.08Z"/></svg>
+                    <span>Get Instant Quote</span>
+                </a>
             </div>
 
             <!-- Tier 2: Commercial Retouching (Most Popular) -->
-            <div class="gi-price-card is-popular" data-gi-animate="fade-up" data-gi-delay="100">
-                <div class="gi-price-popular-pill">🔥 Most Popular</div>
-                <div class="gi-price-plan-name">Commercial Retouching</div>
-                <div class="gi-price-plan-desc">The industry standard for apparel, footwear, and consumer brand catalogs.</div>
+            <div class="gi-pricing-clean-card is-popular" data-gi-animate="fade-up" data-gi-delay="100">
+                <div class="gi-pricing-popular-badge">Most Popular</div>
+                <h3 class="gi-plan-title">Commercial Retouching</h3>
+                <p class="gi-plan-tagline">The industry standard for apparel, footwear, and consumer brand catalogs.</p>
                 
-                <div class="gi-price-rate-box">
-                    <div class="gi-price-rate-title">Tailored Catalog Rate</div>
-                    <div class="gi-price-rate-sub">⚡ Custom Quote • Save up to 45%</div>
-                    <span class="gi-price-rate-badge">Direct Supervisor Negotiation</span>
+                <div class="gi-price-figure-wrap">
+                    <div class="gi-price-figure">
+                        <span class="gi-price-currency">$</span>0.79
+                        <span class="gi-price-unit">/ image</span>
+                    </div>
+                    <div class="gi-price-subtext">
+                        <svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+                        <span>Save up to 45% on volume orders</span>
+                    </div>
                 </div>
 
-                <ul class="gi-price-feature-list">
-                    <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg> Everything in Essential Clipping</li>
-                    <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg> Invisible Ghost Mannequin &amp; Neck Joint 3D</li>
-                    <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg> Natural, drop &amp; realistic reflection shadows</li>
-                    <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg> Precision color matching to physical swatches</li>
-                    <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg> Dust, scratch, wrinkle &amp; blemish removal</li>
-                    <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg> Dedicated production supervisor assigned</li>
+                <ul class="gi-pricing-feature-list">
+                    <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg> Everything in Essential Clipping</li>
+                    <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg> Ghost mannequin &amp; neck joint</li>
+                    <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg> Natural &amp; drop reflection shadows</li>
+                    <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg> Dust, scratch &amp; wrinkle removal</li>
                 </ul>
 
-                <div class="gi-price-actions">
-                    <a href="https://wa.me/8801714516662?text=<?php echo rawurlencode('Hello Graphics Innovator! I need a custom catalog rate for Commercial Retouching & Ghost Mannequin.'); ?>" target="_blank" rel="noopener noreferrer" class="gi-price-wa-btn">
-                        <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91C2.13 13.66 2.59 15.36 3.45 16.86L2.05 22L7.3 20.62C8.75 21.41 10.38 21.83 12.04 21.83C17.5 21.83 21.95 17.38 21.95 11.92C21.95 9.27 20.92 6.78 19.05 4.91C17.18 3.03 14.69 2 12.04 2M12.05 3.67C14.25 3.67 16.31 4.53 17.87 6.09C19.42 7.65 20.28 9.72 20.28 11.92C20.28 16.46 16.58 20.15 12.04 20.15C10.56 20.15 9.11 19.76 7.85 19L7.55 18.83L4.43 19.65L5.26 16.61L5.06 16.29C4.24 14.99 3.8 13.47 3.8 11.91C3.81 7.37 7.5 3.67 12.05 3.67M9.53 7.08C9.33 7.08 9.14 7.15 8.98 7.39C8.78 7.63 8.24 8.14 8.24 9.18C8.24 10.22 9.12 11.38 9.24 11.54 10.61 13.65 12.7 14.55C14.44 15.3 14.79 15.15 15.17 15.12C15.56 15.08 16.42 14.61 16.6 14.1C16.78 13.59 16.78 13.16 16.72 13.06C16.67 12.96 16.53 12.9 16.33 12.8C16.12 12.7 15.12 12.21 14.93 12.14C14.75 12.07 14.61 12.04 14.47 12.24C14.33 12.45 13.94 12.9 13.82 13.04C13.7 13.18 13.58 13.2 13.38 13.1C13.17 13 12.5 12.78 11.71 12.07C11.09 11.52 10.67 10.84 10.55 10.63C10.43 10.43 10.54 10.31 10.64 10.21C10.74 10.12 10.85 9.98 10.96 9.86C11.06 9.74 11.1 9.65 11.16 9.51C11.23 9.38 11.19 9.25 11.14 9.15C11.09 9.05 10.68 8.04 10.51 7.63C10.35 7.23 10.18 7.28 10.05 7.27C9.93 7.27 9.79 7.27 9.64 7.27L9.53 7.08Z"/></svg>
-                        <span>Chat With Retouch Lead</span>
-                    </a>
-                    <a href="<?php echo esc_url( home_url( '/free-trial/' ) ); ?>" class="gi-price-trial-btn">Start Free Trial Test</a>
-                </div>
+                <a href="https://wa.me/8801714516662?text=<?php echo rawurlencode('Hello Graphics Innovator! I need a volume quote for Commercial Retouching.'); ?>" target="_blank" rel="noopener noreferrer" class="gi-pricing-cta-btn gi-cta-solid">
+                    <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91C2.13 13.66 2.59 15.36 3.45 16.86L2.05 22L7.3 20.62C8.75 21.41 10.38 21.83 12.04 21.83C17.5 21.83 21.95 17.38 21.95 11.92C21.95 9.27 20.92 6.78 19.05 4.91C17.18 3.03 14.69 2 12.04 2M12.05 3.67C14.25 3.67 16.31 4.53 17.87 6.09C19.42 7.65 20.28 9.72 20.28 11.92C20.28 16.46 16.58 20.15 12.04 20.15C10.56 20.15 9.11 19.76 7.85 19L7.55 18.83L4.43 19.65L5.26 16.61L5.06 16.29C4.24 14.99 3.8 13.47 3.8 11.91C3.81 7.37 7.5 3.67 12.05 3.67M9.53 7.08C9.33 7.08 9.14 7.15 8.98 7.39C8.78 7.63 8.24 8.14 8.24 9.18C8.24 10.22 9.12 11.38C9.24 11.54 10.61 13.65 12.7 14.55C14.44 15.3 14.79 15.15 15.17 15.12C15.56 15.08 16.42 14.61 16.6 14.1C16.78 13.59 16.78 13.16 16.72 13.06C16.67 12.96 16.53 12.9 16.33 12.8C16.12 12.7 15.12 12.21 14.93 12.14C14.75 12.07 14.61 12.04 14.47 12.24C14.33 12.45 13.94 12.9 13.82 13.04C13.7 13.18 13.58 13.2 13.38 13.1C13.17 13 12.5 12.78 11.71 12.07C11.09 11.52 10.67 10.84 10.55 10.63C10.43 10.43 10.54 10.31 10.64 10.21C10.74 10.12 10.85 9.98 10.96 9.86C11.06 9.74 11.1 9.65 11.16 9.51C11.23 9.38 11.19 9.25 11.14 9.15C11.09 9.05 10.68 8.04 10.51 7.63C10.35 7.23 10.18 7.28 10.05 7.27C9.93 7.27 9.79 7.27 9.64 7.27L9.53 7.08Z"/></svg>
+                    <span>Get Volume Quote</span>
+                </a>
             </div>
 
             <!-- Tier 3: High-End Editorial & Jewelry -->
-            <div class="gi-price-card" data-gi-animate="fade-up" data-gi-delay="200">
-                <div class="gi-price-plan-name">High-End Editorial &amp; Jewelry</div>
-                <div class="gi-price-plan-desc">Magazine-quality retouching for jewelry, cosmetics, luxury goods, and fashion models.</div>
+            <div class="gi-pricing-clean-card" data-gi-animate="fade-up" data-gi-delay="200">
+                <h3 class="gi-plan-title">Editorial &amp; Jewelry</h3>
+                <p class="gi-plan-tagline">Magazine-quality retouching for jewelry, luxury goods, cosmetics, and models.</p>
                 
-                <div class="gi-price-rate-box">
-                    <div class="gi-price-rate-title">Enterprise Studio Scope</div>
-                    <div class="gi-price-rate-sub">⚡ Bespoke Scope • 1-on-1 Direction</div>
-                    <span class="gi-price-rate-badge">Senior Art Director Lead</span>
+                <div class="gi-price-figure-wrap">
+                    <div class="gi-price-figure-custom">
+                        Custom <span class="gi-price-unit" style="font-size: 1rem; color: #64748b; font-weight: 500;">Quote</span>
+                    </div>
+                    <div class="gi-price-subtext">
+                        <svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+                        <span>Bespoke scope &amp; dedicated lead</span>
+                    </div>
                 </div>
 
-                <ul class="gi-price-feature-list">
-                    <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg> Everything in Commercial Retouching</li>
-                    <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg> Non-destructive Dodge &amp; Burn skin treatment</li>
-                    <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg> High-end jewelry diamond sparkle &amp; metal polish</li>
-                    <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg> Stray hair, texture &amp; anatomical contouring</li>
-                    <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg> Multi-layer PSD delivery with masks intact</li>
-                    <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg> Unlimited revisions until 100% sign-off</li>
+                <ul class="gi-pricing-feature-list">
+                    <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg> Everything in Commercial Retouching</li>
+                    <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg> Non-destructive Dodge &amp; Burn skin</li>
+                    <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg> Diamond sparkle &amp; metal polish</li>
+                    <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg> Multi-layer PSD delivery with masks</li>
                 </ul>
 
-                <div class="gi-price-actions">
-                    <a href="https://wa.me/8801714516662?text=<?php echo rawurlencode('Hello Graphics Innovator! I need a consultation with your Senior Art Director for High-End Editorial Retouching.'); ?>" target="_blank" rel="noopener noreferrer" class="gi-price-wa-btn">
-                        <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91C2.13 13.66 2.59 15.36 3.45 16.86L2.05 22L7.3 20.62C8.75 21.41 10.38 21.83 12.04 21.83C17.5 21.83 21.95 17.38 21.95 11.92C21.95 9.27 20.92 6.78 19.05 4.91C17.18 3.03 14.69 2 12.04 2M12.05 3.67C14.25 3.67 16.31 4.53 17.87 6.09C19.42 7.65 20.28 9.72 20.28 11.92C20.28 16.46 16.58 20.15 12.04 20.15C10.56 20.15 9.11 19.76 7.85 19L7.55 18.83L4.43 19.65L5.26 16.61L5.06 16.29C4.24 14.99 3.8 13.47 3.8 11.91C3.81 7.37 7.5 3.67 12.05 3.67M9.53 7.08C9.33 7.08 9.14 7.15 8.98 7.39C8.78 7.63 8.24 8.14 8.24 9.18C8.24 10.22 9 11.22 9.12 11.38C9.24 11.54 10.61 13.65 12.7 14.55C14.44 15.3 14.79 15.15 15.17 15.12C15.56 15.08 16.42 14.61 16.6 14.1C16.78 13.59 16.78 13.16 16.72 13.06C16.67 12.96 16.53 12.9 16.33 12.8C16.12 12.7 15.12 12.21 14.93 12.14C14.75 12.07 14.61 12.04 14.47 12.24C14.33 12.45 13.94 12.9 13.82 13.04C13.7 13.18 13.58 13.2 13.38 13.1C13.17 13 12.5 12.78 11.71 12.07C11.09 11.52 10.67 10.84 10.55 10.63C10.43 10.43 10.54 10.31 10.64 10.21C10.74 10.12 10.85 9.98 10.96 9.86C11.06 9.74 11.1 9.65 11.16 9.51C11.23 9.38 11.19 9.25 11.14 9.15C11.09 9.05 10.68 8.04 10.51 7.63C10.35 7.23 10.18 7.28 10.05 7.27C9.93 7.27 9.79 7.27 9.64 7.27L9.53 7.08Z"/></svg>
-                        <span>Consult Senior Art Director</span>
-                    </a>
-                    <a href="<?php echo esc_url( home_url( '/contact-us/' ) ); ?>" class="gi-price-trial-btn">Book Consultation</a>
-                </div>
+                <a href="https://wa.me/8801714516662?text=<?php echo rawurlencode('Hello Graphics Innovator! I need a custom quote for High-End Editorial & Jewelry Retouching.'); ?>" target="_blank" rel="noopener noreferrer" class="gi-pricing-cta-btn gi-cta-outline">
+                    <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91C2.13 13.66 2.59 15.36 3.45 16.86L2.05 22L7.3 20.62C8.75 21.41 10.38 21.83 12.04 21.83C17.5 21.83 21.95 17.38 21.95 11.92C21.95 9.27 20.92 6.78 19.05 4.91C17.18 3.03 14.69 2 12.04 2M12.05 3.67C14.25 3.67 16.31 4.53 17.87 6.09C19.42 7.65 20.28 9.72 20.28 11.92C20.28 16.46 16.58 20.15 12.04 20.15C10.56 20.15 9.11 19.76 7.85 19L7.55 18.83L4.43 19.65L5.26 16.61L5.06 16.29C4.24 14.99 3.8 13.47 3.8 11.91C3.81 7.37 7.5 3.67 12.05 3.67M9.53 7.08C9.33 7.08 9.14 7.15 8.98 7.39C8.78 7.63 8.24 8.14 8.24 9.18C8.24 10.22 9 11.22 9.12 11.38C9.24 11.54 10.61 13.65 12.7 14.55C14.44 15.3 14.79 15.15 15.17 15.12C15.56 15.08 16.42 14.61 16.6 14.1C16.78 13.59 16.78 13.16 16.72 13.06C16.67 12.96 16.53 12.9 16.33 12.8C16.12 12.7 15.12 12.21 14.93 12.14C14.75 12.07 14.61 12.04 14.47 12.24C14.33 12.45 13.94 12.9 13.82 13.04C13.7 13.18 13.58 13.2 13.38 13.1C13.17 13 12.5 12.78 11.71 12.07C11.09 11.52 10.67 10.84 10.55 10.63C10.43 10.43 10.54 10.31 10.64 10.21C10.74 10.12 10.85 9.98 10.96 9.86C11.06 9.74 11.1 9.65 11.16 9.51C11.23 9.38 11.19 9.25 11.14 9.15C11.09 9.05 10.68 8.04 10.51 7.63C10.35 7.23 10.18 7.28 10.05 7.27C9.93 7.27 9.79 7.27 9.64 7.27L9.53 7.08Z"/></svg>
+                    <span>Request Custom Quote</span>
+                </a>
             </div>
 
         </div>
 
-        <!-- Link to Full Enterprise Pricing Page -->
-        <div class="gi-price-full-link-wrap">
-            <a href="<?php echo esc_url( home_url( '/pricing-3/' ) ); ?>" class="gi-price-full-btn">
-                <span>View Full Enterprise Pricing Table &amp; SLA Details</span>
-                <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
-            </a>
+        <!-- Clean Bottom Support Bar -->
+        <div class="gi-pricing-footer-bar" data-gi-animate="fade-up">
+            <div class="gi-pricing-footer-item">
+                <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+                <span>Want to test our quality first?</span>
+                <a href="<?php echo esc_url( home_url( '/free-trial/' ) ); ?>" class="gi-pricing-footer-link">Test 2 Images Free &rarr;</a>
+            </div>
+            <span class="gi-pricing-footer-sep">&bull;</span>
+            <div class="gi-pricing-footer-item">
+                <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><line x1="3" y1="9" x2="21" y2="9"></line><line x1="9" y1="21" x2="9" y2="9"></line></svg>
+                <span>Need wholesale SLA details?</span>
+                <a href="<?php echo esc_url( home_url( '/pricing-3/' ) ); ?>" class="gi-pricing-footer-link">View Full Enterprise Pricing Table &rarr;</a>
+            </div>
         </div>
     </div>
 </section>
+
 
 <!-- ==========================================
      ACHIEVEMENTS / STATS

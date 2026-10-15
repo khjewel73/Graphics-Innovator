@@ -661,13 +661,18 @@ $after_img_1  = $base_url . '/2022/12/shadow-masking-c.png'; // Example assumed 
      PRICING PREVIEW (ENTERPRISE DARK MODE)
      ========================================== -->
 <style>
-/* ── Enterprise Pricing Showcase (Home Page) ────── */
+/* ── Enterprise Pricing Showcase (Home Page — Crisp Light Edition) ────── */
 .gi-home-pricing-section {
     position: relative;
-    background: #030811;
-    color: #ffffff;
+    background:
+        radial-gradient(circle at 14% 12%, rgba(255, 106, 26, 0.05) 0%, transparent 35%),
+        radial-gradient(circle at 88% 75%, rgba(42, 106, 238, 0.06) 0%, transparent 38%),
+        linear-gradient(180deg, #f8fafc 0%, #ffffff 45%, #f1f5f9 100%);
+    color: #0f172a;
     padding: 6.5rem 0 7.5rem 0;
     overflow: hidden;
+    border-top: 1px solid rgba(15, 23, 42, 0.06);
+    border-bottom: 1px solid rgba(15, 23, 42, 0.06);
 }
 .gi-home-pricing-section::before {
     content: '';
@@ -676,8 +681,8 @@ $after_img_1  = $base_url . '/2022/12/shadow-masking-c.png'; // Example assumed 
     left: -100px;
     width: 500px;
     height: 500px;
-    background: radial-gradient(circle, rgba(42, 106, 238, 0.22) 0%, transparent 70%);
-    filter: blur(80px);
+    background: radial-gradient(circle, rgba(42, 106, 238, 0.10) 0%, transparent 70%);
+    filter: blur(90px);
     opacity: 0.6;
     pointer-events: none;
     z-index: 0;
@@ -689,8 +694,8 @@ $after_img_1  = $base_url . '/2022/12/shadow-masking-c.png'; // Example assumed 
     right: -100px;
     width: 500px;
     height: 500px;
-    background: radial-gradient(circle, rgba(139, 92, 246, 0.18) 0%, transparent 70%);
-    filter: blur(80px);
+    background: radial-gradient(circle, rgba(234, 88, 12, 0.08) 0%, transparent 70%);
+    filter: blur(90px);
     opacity: 0.5;
     pointer-events: none;
     z-index: 0;
@@ -698,6 +703,14 @@ $after_img_1  = $base_url . '/2022/12/shadow-masking-c.png'; // Example assumed 
 .gi-home-pricing-section .gi-container {
     position: relative;
     z-index: 1;
+}
+
+/* Headings in light section */
+.gi-home-pricing-section .gi-section-title {
+    color: #0f172a !important;
+}
+.gi-home-pricing-section .gi-section-subtitle {
+    color: #475569 !important;
 }
 
 /* Pills */
@@ -714,22 +727,23 @@ $after_img_1  = $base_url . '/2022/12/shadow-masking-c.png'; // Example assumed 
     display: inline-flex;
     align-items: center;
     gap: 8px;
-    background: rgba(255, 255, 255, 0.05);
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    box-shadow: 0 2px 8px rgba(15, 23, 42, 0.04);
     padding: 7px 16px;
     border-radius: 50px;
     font-size: 0.85rem;
-    color: rgba(255, 255, 255, 0.9);
-    font-weight: 500;
+    color: #334155;
+    font-weight: 600;
 }
 .gi-home-pricing-section .gi-hero-pill svg {
-    color: #25D366;
+    color: #16a34a;
 }
 
 /* Director Hotwire Banner */
 .gi-home-pricing-section .gi-director-banner {
-    background: linear-gradient(135deg, rgba(15, 43, 36, 0.95) 0%, rgba(8, 17, 30, 0.98) 100%);
-    border: 1px solid rgba(37, 211, 102, 0.35);
+    background: linear-gradient(135deg, #ffffff 0%, #f0fdf4 100%);
+    border: 1.5px solid #86efac;
     border-radius: 20px;
     padding: 2.2rem 2.8rem;
     margin-bottom: 3.5rem;
@@ -737,7 +751,7 @@ $after_img_1  = $base_url . '/2022/12/shadow-masking-c.png'; // Example assumed 
     align-items: center;
     justify-content: space-between;
     gap: 2.5rem;
-    box-shadow: 0 20px 45px rgba(0, 0, 0, 0.5), 0 0 35px rgba(37, 211, 102, 0.12);
+    box-shadow: 0 15px 35px rgba(16, 185, 129, 0.08), 0 4px 12px rgba(15, 23, 42, 0.03);
 }
 .gi-home-pricing-section .gi-director-content {
     flex: 1;
@@ -750,9 +764,9 @@ $after_img_1  = $base_url . '/2022/12/shadow-masking-c.png'; // Example assumed 
     font-weight: 800;
     text-transform: uppercase;
     letter-spacing: 0.8px;
-    color: #25D366;
-    background: rgba(37, 211, 102, 0.12);
-    border: 1px solid rgba(37, 211, 102, 0.3);
+    color: #15803d;
+    background: #dcfce7;
+    border: 1px solid #86efac;
     padding: 5px 12px;
     border-radius: 50px;
     margin-bottom: 0.8rem;
@@ -760,9 +774,9 @@ $after_img_1  = $base_url . '/2022/12/shadow-masking-c.png'; // Example assumed 
 .gi-home-pricing-section .gi-pulse-dot {
     width: 8px;
     height: 8px;
-    background: #25D366;
+    background: #16a34a;
     border-radius: 50%;
-    box-shadow: 0 0 8px #25D366;
+    box-shadow: 0 0 8px #16a34a;
     animation: giPulseHome 1.8s infinite;
 }
 @keyframes giPulseHome {
@@ -773,13 +787,13 @@ $after_img_1  = $base_url . '/2022/12/shadow-masking-c.png'; // Example assumed 
 .gi-home-pricing-section .gi-director-title {
     font-size: 1.65rem;
     font-weight: 800;
-    color: #ffffff;
+    color: #0f172a;
     margin: 0 0 0.5rem 0;
     line-height: 1.25;
 }
 .gi-home-pricing-section .gi-director-desc {
     font-size: 0.98rem;
-    color: rgba(255, 255, 255, 0.78);
+    color: #475569;
     margin: 0;
     line-height: 1.55;
     max-width: 680px;
@@ -804,21 +818,22 @@ $after_img_1  = $base_url . '/2022/12/shadow-masking-c.png'; // Example assumed 
     font-size: 1.02rem;
     font-weight: 700;
     text-decoration: none;
-    box-shadow: 0 8px 22px rgba(37, 211, 102, 0.45);
+    box-shadow: 0 8px 22px rgba(37, 211, 102, 0.35);
     transition: all 0.3s ease;
 }
 .gi-home-pricing-section .gi-director-btn-wa:hover {
     transform: translateY(-2px);
-    box-shadow: 0 12px 30px rgba(37, 211, 102, 0.6);
+    box-shadow: 0 12px 30px rgba(37, 211, 102, 0.5);
+    color: #ffffff !important;
 }
 .gi-home-pricing-section .gi-director-btn-trial {
     display: flex;
     align-items: center;
     justify-content: center;
     gap: 8px;
-    background: transparent;
-    color: #ffffff !important;
-    border: 1px solid rgba(255, 255, 255, 0.25);
+    background: #ffffff;
+    color: #1e293b !important;
+    border: 1px solid #cbd5e1;
     padding: 0.8rem 1.4rem;
     border-radius: 12px;
     font-size: 0.92rem;
@@ -827,8 +842,9 @@ $after_img_1  = $base_url . '/2022/12/shadow-masking-c.png'; // Example assumed 
     transition: all 0.25s ease;
 }
 .gi-home-pricing-section .gi-director-btn-trial:hover {
-    background: rgba(255, 255, 255, 0.08);
-    border-color: #ffffff;
+    background: #0f172a;
+    border-color: #0f172a;
+    color: #ffffff !important;
 }
 
 /* Pricing Cards Grid */
@@ -840,12 +856,11 @@ $after_img_1  = $base_url . '/2022/12/shadow-masking-c.png'; // Example assumed 
     margin-bottom: 3.5rem;
 }
 .gi-home-pricing-section .gi-price-card {
-    background: rgba(255, 255, 255, 0.025);
-    border: 1px solid rgba(255, 255, 255, 0.06);
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
     border-radius: 24px;
     padding: 3rem 2.2rem 2.5rem 2.2rem;
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
+    box-shadow: 0 10px 25px -5px rgba(15, 23, 42, 0.06), 0 4px 6px -2px rgba(15, 23, 42, 0.02);
     transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
     position: relative;
     overflow: hidden;
@@ -854,19 +869,19 @@ $after_img_1  = $base_url . '/2022/12/shadow-masking-c.png'; // Example assumed 
 }
 .gi-home-pricing-section .gi-price-card:hover {
     transform: translateY(-8px);
-    border-color: rgba(42, 106, 238, 0.35);
-    box-shadow: 0 20px 45px rgba(0, 0, 0, 0.45);
+    border-color: #2a6aee;
+    box-shadow: 0 25px 50px -12px rgba(42, 106, 238, 0.16), 0 0 25px rgba(42, 106, 238, 0.06);
 }
 .gi-home-pricing-section .gi-price-card.is-popular {
-    background: rgba(255, 255, 255, 0.045);
-    border-color: rgba(42, 106, 238, 0.4);
-    box-shadow: 0 0 40px rgba(42, 106, 238, 0.12);
+    background: #ffffff;
+    border: 2px solid #2a6aee;
+    box-shadow: 0 20px 45px rgba(42, 106, 238, 0.12), 0 0 20px rgba(42, 106, 238, 0.05);
     transform: scale(1.03);
 }
 .gi-home-pricing-section .gi-price-card.is-popular:hover {
     transform: scale(1.03) translateY(-8px);
-    border-color: rgba(42, 106, 238, 0.6);
-    box-shadow: 0 20px 45px rgba(42, 106, 238, 0.22);
+    border-color: #1e50b5;
+    box-shadow: 0 25px 55px rgba(42, 106, 238, 0.22);
 }
 .gi-home-pricing-section .gi-price-popular-pill {
     position: absolute;
@@ -881,45 +896,45 @@ $after_img_1  = $base_url . '/2022/12/shadow-masking-c.png'; // Example assumed 
     letter-spacing: 0.1em;
     padding: 0.5rem 1.5rem;
     border-radius: 0 0 12px 12px;
-    box-shadow: 0 5px 15px rgba(42, 106, 238, 0.4);
+    box-shadow: 0 4px 12px rgba(42, 106, 238, 0.3);
 }
 .gi-home-pricing-section .gi-price-plan-name {
     font-size: 1.55rem;
     font-weight: 800;
     margin-bottom: 0.5rem;
-    color: #ffffff;
+    color: #0f172a;
 }
 .gi-home-pricing-section .gi-price-plan-desc {
     font-size: 0.95rem;
-    color: rgba(255, 255, 255, 0.58);
+    color: #64748b;
     margin-bottom: 1.8rem;
     line-height: 1.5;
     min-height: 44px;
 }
 .gi-home-pricing-section .gi-price-rate-box {
-    background: rgba(255, 255, 255, 0.03);
-    border: 1px solid rgba(255, 255, 255, 0.08);
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
     border-radius: 14px;
     padding: 1.25rem 1.4rem;
     margin-bottom: 2rem;
     transition: all 0.3s ease;
 }
 .gi-home-pricing-section .gi-price-card:hover .gi-price-rate-box {
-    border-color: rgba(37, 211, 102, 0.4);
-    background: rgba(37, 211, 102, 0.04);
+    border-color: #22c55e;
+    background: #f0fdf4;
 }
 .gi-home-pricing-section .gi-price-rate-title {
     font-size: 1.5rem;
     font-weight: 800;
-    color: #ffffff;
+    color: #0f172a;
     line-height: 1.2;
     margin-bottom: 0.35rem;
     letter-spacing: -0.3px;
 }
 .gi-home-pricing-section .gi-price-rate-sub {
     font-size: 0.92rem;
-    color: #25D366;
-    font-weight: 600;
+    color: #16a34a;
+    font-weight: 700;
     display: flex;
     align-items: center;
     gap: 6px;
@@ -933,9 +948,9 @@ $after_img_1  = $base_url . '/2022/12/shadow-masking-c.png'; // Example assumed 
     letter-spacing: 0.5px;
     padding: 3px 8px;
     border-radius: 6px;
-    background: rgba(42, 106, 238, 0.15);
-    color: #60a5fa;
-    border: 1px solid rgba(42, 106, 238, 0.3);
+    background: rgba(42, 106, 238, 0.08);
+    color: #2563eb;
+    border: 1px solid rgba(42, 106, 238, 0.2);
 }
 .gi-home-pricing-section .gi-price-feature-list {
     list-style: none;
@@ -949,14 +964,14 @@ $after_img_1  = $base_url . '/2022/12/shadow-masking-c.png'; // Example assumed 
     display: flex;
     align-items: flex-start;
     font-size: 0.95rem;
-    color: rgba(255, 255, 255, 0.85);
+    color: #334155;
     line-height: 1.45;
 }
 .gi-home-pricing-section .gi-price-feature-list li svg {
     flex-shrink: 0;
     width: 19px;
     height: 19px;
-    color: #2a6aee;
+    color: #2563eb;
     margin-right: 0.75rem;
     margin-top: 2px;
 }
@@ -996,14 +1011,14 @@ $after_img_1  = $base_url . '/2022/12/shadow-masking-c.png'; // Example assumed 
     font-size: 0.98rem;
     font-weight: 600;
     text-decoration: none;
-    background: transparent;
-    color: #ffffff !important;
-    border: 1px solid rgba(255, 255, 255, 0.22);
+    background: #f8fafc;
+    color: #1e293b !important;
+    border: 1px solid #cbd5e1;
     transition: all 0.25s ease;
 }
 .gi-home-pricing-section .gi-price-trial-btn:hover {
-    background: rgba(255, 255, 255, 0.08);
-    border-color: #ffffff;
+    background: #0f172a;
+    border-color: #0f172a;
     color: #ffffff !important;
 }
 .gi-home-pricing-section .gi-price-full-link-wrap {
@@ -1015,9 +1030,10 @@ $after_img_1  = $base_url . '/2022/12/shadow-masking-c.png'; // Example assumed 
     align-items: center;
     gap: 10px;
     padding: 1.1rem 2.4rem;
-    background: rgba(42, 106, 238, 0.1);
-    border: 1px solid rgba(42, 106, 238, 0.3);
-    color: #ffffff !important;
+    background: #ffffff;
+    border: 1px solid #cbd5e1;
+    color: #0f172a !important;
+    box-shadow: 0 4px 15px rgba(15, 23, 42, 0.05);
     border-radius: 50px;
     font-size: 1rem;
     font-weight: 700;
@@ -1025,11 +1041,11 @@ $after_img_1  = $base_url . '/2022/12/shadow-masking-c.png'; // Example assumed 
     transition: all 0.3s ease;
 }
 .gi-home-pricing-section .gi-price-full-btn:hover {
-    background: rgba(42, 106, 238, 0.22);
+    background: #2a6aee;
     border-color: #2a6aee;
+    color: #ffffff !important;
     transform: translateY(-2px);
     box-shadow: 0 12px 28px rgba(42, 106, 238, 0.25);
-    color: #ffffff !important;
 }
 
 @media (max-width: 992px) {
@@ -1056,7 +1072,7 @@ $after_img_1  = $base_url . '/2022/12/shadow-masking-c.png'; // Example assumed 
 }
 </style>
 
-<section class="gi-section gi-section--dark gi-home-pricing-section">
+<section class="gi-section gi-home-pricing-section">
     <div class="gi-container">
         <?php gi_section_heading( 
             'Affordable Rates', 

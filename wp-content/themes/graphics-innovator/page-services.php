@@ -396,6 +396,19 @@ $base_url   = $upload_dir['baseurl'];
                 <p>Natural bridal skin smoothing, flyaway hair cleanup, romantic tone grading, and background stranger eradication for unforgettable wedding albums.</p>
             </a>
 
+            <!-- Service 10 -->
+            <a href="<?php echo esc_url( home_url('/car-photo-editing/') ); ?>" class="gi-srv-card">
+                <div class="gi-srv-media">
+                    <img src="<?php echo esc_url( get_template_directory_uri() . '/car-work-sq-01.webp' ); ?>" alt="Car Photo Editing example" loading="lazy">
+                    <span>Showroom Gloss</span>
+                </div>
+                <div class="gi-srv-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="3" width="15" height="13"></rect><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"></polygon><circle cx="5.5" cy="18.5" r="2.5"></circle><circle cx="18.5" cy="18.5" r="2.5"></circle></svg>
+                </div>
+                <h3>Car Photo Editing</h3>
+                <p>Virtual dealership showroom background replacement, glare and reflection control, window tinting, and high-gloss paint polish for auto dealers and marketplaces.</p>
+            </a>
+
         </div>
         </div>
     </section>

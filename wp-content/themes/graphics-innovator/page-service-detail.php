@@ -206,6 +206,58 @@ $service_data = [
         'f2_title' => 'Venue & Background Cleanup',
         'f2_desc' => 'We seamlessly remove photo-bombers, venue clutter, power cables, and ground debris to keep the focus purely on the bride and groom.',
     ],
+    'car-photo-editing' => [
+        'hero_title' => 'Showroom-Grade Car Photo Editing & Automotive Retouching.',
+        'hero_desc' => 'Dealership showroom background replacement, reflection control, window tint enhancement, dust & scratch removal, and high-gloss paint polish for automotive dealers and commercial photographers.',
+        'split_title' => 'Dealership Speed.',
+        'split_highlight' => 'Showroom Perfection.',
+        'split_desc1' => 'Automotive buyers make decisions in milliseconds based on image quality. Harsh lot shadows, cloudy windshields, distracting background clutter, and uneven lot pavement lower perceived vehicle value and buyer inquiries.',
+        'split_desc2' => 'Graphics Innovator transforms ordinary vehicle lot snapshots into pristine, multi-million dollar showroom presentations. We replace cluttered dealership backdrops with sleek architectural or branded studio floors, eliminate glare and body reflections, polish paint finishes to mirror-like luster, and add realistic grounding shadows that drive inventory turnover.',
+        'img' => get_template_directory_uri() . '/car-work-01.webp',
+        'f1_title' => 'Virtual Showroom Replacement',
+        'f1_desc' => 'We isolate vehicles with precision hand-drawn clipping paths and place them onto clean, photorealistic virtual dealer showrooms with consistent corporate branding.',
+        'f2_title' => 'Reflection & Glare Eradication',
+        'f2_desc' => 'We remove camera tripods, lot poles, and surrounding cars reflected in the vehicle bodywork and windows while enhancing paint depth and metallic fleck.',
+    ],
+    'car-photo-editing-service' => [
+        'hero_title' => 'Showroom-Grade Car Photo Editing & Automotive Retouching.',
+        'hero_desc' => 'Dealership showroom background replacement, reflection control, window tint enhancement, dust & scratch removal, and high-gloss paint polish for automotive dealers and commercial photographers.',
+        'split_title' => 'Dealership Speed.',
+        'split_highlight' => 'Showroom Perfection.',
+        'split_desc1' => 'Automotive buyers make decisions in milliseconds based on image quality. Harsh lot shadows, cloudy windshields, distracting background clutter, and uneven lot pavement lower perceived vehicle value and buyer inquiries.',
+        'split_desc2' => 'Graphics Innovator transforms ordinary vehicle lot snapshots into pristine, multi-million dollar showroom presentations. We replace cluttered dealership backdrops with sleek architectural or branded studio floors, eliminate glare and body reflections, polish paint finishes to mirror-like luster, and add realistic grounding shadows that drive inventory turnover.',
+        'img' => get_template_directory_uri() . '/car-work-01.webp',
+        'f1_title' => 'Virtual Showroom Replacement',
+        'f1_desc' => 'We isolate vehicles with precision hand-drawn clipping paths and place them onto clean, photorealistic virtual dealer showrooms with consistent corporate branding.',
+        'f2_title' => 'Reflection & Glare Eradication',
+        'f2_desc' => 'We remove camera tripods, lot poles, and surrounding cars reflected in the vehicle bodywork and windows while enhancing paint depth and metallic fleck.',
+    ],
+    'car-editing' => [
+        'hero_title' => 'Showroom-Grade Car Photo Editing & Automotive Retouching.',
+        'hero_desc' => 'Dealership showroom background replacement, reflection control, window tint enhancement, dust & scratch removal, and high-gloss paint polish for automotive dealers and commercial photographers.',
+        'split_title' => 'Dealership Speed.',
+        'split_highlight' => 'Showroom Perfection.',
+        'split_desc1' => 'Automotive buyers make decisions in milliseconds based on image quality. Harsh lot shadows, cloudy windshields, distracting background clutter, and uneven lot pavement lower perceived vehicle value and buyer inquiries.',
+        'split_desc2' => 'Graphics Innovator transforms ordinary vehicle lot snapshots into pristine, multi-million dollar showroom presentations. We replace cluttered dealership backdrops with sleek architectural or branded studio floors, eliminate glare and body reflections, polish paint finishes to mirror-like luster, and add realistic grounding shadows that drive inventory turnover.',
+        'img' => get_template_directory_uri() . '/car-work-01.webp',
+        'f1_title' => 'Virtual Showroom Replacement',
+        'f1_desc' => 'We isolate vehicles with precision hand-drawn clipping paths and place them onto clean, photorealistic virtual dealer showrooms with consistent corporate branding.',
+        'f2_title' => 'Reflection & Glare Eradication',
+        'f2_desc' => 'We remove camera tripods, lot poles, and surrounding cars reflected in the vehicle bodywork and windows while enhancing paint depth and metallic fleck.',
+    ],
+    'car-retouching' => [
+        'hero_title' => 'Showroom-Grade Car Photo Editing & Automotive Retouching.',
+        'hero_desc' => 'Dealership showroom background replacement, reflection control, window tint enhancement, dust & scratch removal, and high-gloss paint polish for automotive dealers and commercial photographers.',
+        'split_title' => 'Dealership Speed.',
+        'split_highlight' => 'Showroom Perfection.',
+        'split_desc1' => 'Automotive buyers make decisions in milliseconds based on image quality. Harsh lot shadows, cloudy windshields, distracting background clutter, and uneven lot pavement lower perceived vehicle value and buyer inquiries.',
+        'split_desc2' => 'Graphics Innovator transforms ordinary vehicle lot snapshots into pristine, multi-million dollar showroom presentations. We replace cluttered dealership backdrops with sleek architectural or branded studio floors, eliminate glare and body reflections, polish paint finishes to mirror-like luster, and add realistic grounding shadows that drive inventory turnover.',
+        'img' => get_template_directory_uri() . '/car-work-01.webp',
+        'f1_title' => 'Virtual Showroom Replacement',
+        'f1_desc' => 'We isolate vehicles with precision hand-drawn clipping paths and place them onto clean, photorealistic virtual dealer showrooms with consistent corporate branding.',
+        'f2_title' => 'Reflection & Glare Eradication',
+        'f2_desc' => 'We remove camera tripods, lot poles, and surrounding cars reflected in the vehicle bodywork and windows while enhancing paint depth and metallic fleck.',
+    ],
 ];
 
 // Default fallback if not found
@@ -1504,6 +1556,58 @@ get_header(); ?>
                     <div class="gi-work-card-caption">
                         <span class="gi-gm-card-tag">Sample 03</span>
                         <span class="gi-gm-card-title">Couple Embrace &bull; Ring Sparkle &amp; Attire Harmony</span>
+                    </div>
+                </article>
+
+            </div>
+        </div>
+    </section>
+    <?php endif; ?>
+
+    <?php if ( $slug === 'car-photo-editing' || $slug === 'car-photo-editing-service' || $slug === 'car-editing' || $slug === 'car-retouching' || $slug === 'automotive-photo-editing' ) : ?>
+    <!-- ==========================================
+         CAR PHOTO EDITING SHOWCASE
+         ========================================== -->
+    <section class="gi-rhythm-block gi-rhythm-charcoal gi-gm-showcase-section">
+        <div class="gi-cp-container">
+            <div class="gi-gm-header">
+                <span class="gi-gm-pill-tag">Automotive Excellence &bull; Virtual Showroom Mastery</span>
+                <h2 class="gi-gm-title">Car Photo Editing Showcase</h2>
+                <p class="gi-gm-subtitle">Explore our automotive photo editing and retouching portfolio. From virtual dealership floor replacements and multi-angle reflection control to tire dressing and custom license plate branding, we deliver high-impact inventory visuals that sell cars faster.</p>
+            </div>
+
+            <div class="gi-gm-grid">
+                
+                <!-- Sample 01: Luxury Sports Coupe Showroom Floor -->
+                <article class="gi-work-card" data-gi-animate="fade-up">
+                    <div class="gi-work-card-media">
+                        <img src="<?php echo esc_url( get_template_directory_uri() . '/car-work-01.webp' ); ?>" alt="Luxury Sports Car Showroom Background Replacement" loading="lazy">
+                    </div>
+                    <div class="gi-work-card-caption">
+                        <span class="gi-gm-card-tag">Sample 01</span>
+                        <span class="gi-gm-card-title">Sports Coupe &bull; Virtual Showroom Replacement &amp; Reflection Polish</span>
+                    </div>
+                </article>
+
+                <!-- Sample 02: Dealership Lot to Architectural Studio -->
+                <article class="gi-work-card" data-gi-animate="fade-up" data-gi-delay="100">
+                    <div class="gi-work-card-media">
+                        <img src="<?php echo esc_url( get_template_directory_uri() . '/car-work-02.webp' ); ?>" alt="SUV Automotive Paint Enhancement and Window Tinting" loading="lazy">
+                    </div>
+                    <div class="gi-work-card-caption">
+                        <span class="gi-gm-card-tag">Sample 02</span>
+                        <span class="gi-gm-card-title">Performance SUV &bull; Paint Gloss &amp; Privacy Glass Tinting</span>
+                    </div>
+                </article>
+
+                <!-- Sample 03: Alloy Wheel & Caliper Detail -->
+                <article class="gi-work-card" data-gi-animate="fade-up" data-gi-delay="150">
+                    <div class="gi-work-card-media">
+                        <img src="<?php echo esc_url( get_template_directory_uri() . '/car-work-03.webp' ); ?>" alt="Sport Alloy Wheel, Brake Caliper, and Tire Dressing Polish" loading="lazy">
+                    </div>
+                    <div class="gi-work-card-caption">
+                        <span class="gi-gm-card-tag">Sample 03</span>
+                        <span class="gi-gm-card-title">Wheel Detail &bull; Rim Polish, Caliper Color &amp; Tire Dressing</span>
                     </div>
                 </article>
 

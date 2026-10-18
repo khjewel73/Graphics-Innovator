@@ -665,8 +665,8 @@ $after_img_1  = $base_url . '/2022/12/shadow-masking-c.png'; // Example assumed 
 .gi-home-pricing-section {
     position: relative;
     background:
-        radial-gradient(circle at 10% 15%, rgba(255, 106, 26, 0.04) 0%, transparent 40%),
-        radial-gradient(circle at 90% 80%, rgba(42, 106, 238, 0.05) 0%, transparent 45%),
+        radial-gradient(circle at 15% 10%, rgba(255, 106, 26, 0.04) 0%, transparent 45%),
+        radial-gradient(circle at 85% 90%, rgba(42, 106, 238, 0.05) 0%, transparent 45%),
         linear-gradient(180deg, #f8fafc 0%, #ffffff 50%, #f1f5f9 100%);
     color: #0f172a;
     padding: 6.5rem 0 6rem 0;
@@ -695,7 +695,7 @@ $after_img_1  = $base_url . '/2022/12/shadow-masking-c.png'; // Example assumed 
     grid-template-columns: repeat(3, 1fr);
     gap: 2rem;
     align-items: stretch;
-    max-width: 1160px;
+    max-width: 1180px;
     margin: 0 auto 3rem auto;
 }
 
@@ -703,28 +703,28 @@ $after_img_1  = $base_url . '/2022/12/shadow-masking-c.png'; // Example assumed 
 .gi-home-pricing-section .gi-pricing-clean-card {
     background: #ffffff;
     border: 1px solid #e2e8f0;
-    border-radius: 20px;
-    padding: 2.8rem 2.2rem 2.2rem 2.2rem;
-    box-shadow: 0 4px 20px rgba(15, 23, 42, 0.04);
-    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    border-radius: 24px;
+    padding: 3rem 2.25rem 2.25rem 2.25rem;
+    box-shadow: 0 4px 20px -2px rgba(15, 23, 42, 0.04), 0 2px 6px -1px rgba(15, 23, 42, 0.02);
+    transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
     position: relative;
     display: flex;
     flex-direction: column;
 }
 .gi-home-pricing-section .gi-pricing-clean-card:hover {
-    transform: translateY(-6px);
-    box-shadow: 0 20px 40px rgba(15, 23, 42, 0.08);
+    transform: translateY(-8px);
+    box-shadow: 0 24px 48px -12px rgba(15, 23, 42, 0.09), 0 0 0 1px #cbd5e1;
     border-color: #cbd5e1;
 }
 
 /* Featured / Popular Card */
 .gi-home-pricing-section .gi-pricing-clean-card.is-popular {
     border: 2px solid #2a6aee;
-    box-shadow: 0 12px 36px rgba(42, 106, 238, 0.12);
+    box-shadow: 0 14px 40px -6px rgba(42, 106, 238, 0.15), 0 4px 16px -2px rgba(42, 106, 238, 0.06);
 }
 .gi-home-pricing-section .gi-pricing-clean-card.is-popular:hover {
-    box-shadow: 0 22px 48px rgba(42, 106, 238, 0.18);
-    transform: translateY(-6px);
+    box-shadow: 0 26px 52px -10px rgba(42, 106, 238, 0.24), 0 0 0 2px #1d4ed8;
+    transform: translateY(-8px);
 }
 .gi-home-pricing-section .gi-pricing-popular-badge {
     position: absolute;
@@ -733,39 +733,39 @@ $after_img_1  = $base_url . '/2022/12/shadow-masking-c.png'; // Example assumed 
     transform: translateX(-50%);
     background: linear-gradient(135deg, #2a6aee 0%, #1d4ed8 100%);
     color: #ffffff;
-    font-size: 0.72rem;
-    font-weight: 700;
+    font-size: 0.74rem;
+    font-weight: 800;
     text-transform: uppercase;
     letter-spacing: 0.08em;
-    padding: 5px 16px;
-    border-radius: 0 0 10px 10px;
-    box-shadow: 0 4px 10px rgba(42, 106, 238, 0.25);
+    padding: 6px 18px;
+    border-radius: 0 0 12px 12px;
+    box-shadow: 0 4px 12px rgba(42, 106, 238, 0.3);
 }
 
 /* Card Headers */
 .gi-home-pricing-section .gi-plan-title {
-    font-size: 1.4rem;
+    font-size: 1.45rem;
     font-weight: 800;
     color: #0f172a;
-    margin: 0 0 0.4rem 0;
+    margin: 0 0 0.45rem 0;
     letter-spacing: -0.3px;
 }
 .gi-home-pricing-section .gi-plan-tagline {
-    font-size: 0.9rem;
+    font-size: 0.92rem;
     color: #64748b;
     line-height: 1.5;
     margin: 0 0 1.6rem 0;
-    min-height: 42px;
+    min-height: 44px;
 }
 
 /* Price Value Display */
 .gi-home-pricing-section .gi-price-figure-wrap {
-    padding-bottom: 1.4rem;
+    padding-bottom: 1.5rem;
     border-bottom: 1px solid #f1f5f9;
-    margin-bottom: 1.5rem;
+    margin-bottom: 1.6rem;
 }
 .gi-home-pricing-section .gi-price-figure {
-    font-size: 2.5rem;
+    font-size: 2.6rem;
     font-weight: 800;
     color: #0f172a;
     line-height: 1;
@@ -775,19 +775,19 @@ $after_img_1  = $base_url . '/2022/12/shadow-masking-c.png'; // Example assumed 
     letter-spacing: -1px;
 }
 .gi-home-pricing-section .gi-price-figure .gi-price-currency {
-    font-size: 1.5rem;
+    font-size: 1.55rem;
     font-weight: 700;
     color: #2a6aee;
 }
 .gi-home-pricing-section .gi-price-figure .gi-price-unit {
     font-size: 0.95rem;
-    font-weight: 500;
+    font-weight: 600;
     color: #64748b;
     letter-spacing: 0;
     margin-left: 2px;
 }
 .gi-home-pricing-section .gi-price-figure-custom {
-    font-size: 2.1rem;
+    font-size: 2.15rem;
     font-weight: 800;
     color: #0f172a;
     letter-spacing: -0.5px;
@@ -797,35 +797,45 @@ $after_img_1  = $base_url . '/2022/12/shadow-masking-c.png'; // Example assumed 
     font-size: 0.82rem;
     color: #16a34a;
     font-weight: 600;
-    margin-top: 0.45rem;
+    margin-top: 0.5rem;
     display: flex;
     align-items: center;
-    gap: 4px;
+    gap: 5px;
 }
 
 /* Features List */
 .gi-home-pricing-section .gi-pricing-feature-list {
     list-style: none;
     padding: 0;
-    margin: 0 0 2rem 0;
+    margin: 0 0 2.2rem 0;
     display: flex;
     flex-direction: column;
-    gap: 0.85rem;
+    gap: 0.9rem;
     flex: 1;
 }
 .gi-home-pricing-section .gi-pricing-feature-list li {
     display: flex;
     align-items: center;
-    gap: 10px;
+    gap: 12px;
     font-size: 0.92rem;
     color: #334155;
     line-height: 1.4;
 }
-.gi-home-pricing-section .gi-pricing-feature-list li svg {
-    flex-shrink: 0;
-    width: 18px;
-    height: 18px;
+.gi-home-pricing-section .gi-feature-check {
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    background: rgba(42, 106, 238, 0.09);
     color: #2a6aee;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+.gi-home-pricing-section .gi-feature-check svg {
+    width: 12px;
+    height: 12px;
+    stroke-width: 3;
 }
 
 /* CTA Buttons */
@@ -833,14 +843,14 @@ $after_img_1  = $base_url . '/2022/12/shadow-masking-c.png'; // Example assumed 
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 8px;
+    gap: 10px;
     width: 100%;
-    padding: 0.95rem 1.4rem;
-    border-radius: 12px;
-    font-size: 0.95rem;
+    padding: 1rem 1.5rem;
+    border-radius: 14px;
+    font-size: 0.96rem;
     font-weight: 700;
     text-decoration: none;
-    transition: all 0.25s ease;
+    transition: all 0.28s ease;
     margin-top: auto;
 }
 .gi-home-pricing-section .gi-cta-outline {
@@ -853,20 +863,25 @@ $after_img_1  = $base_url . '/2022/12/shadow-masking-c.png'; // Example assumed 
     border-color: #0f172a;
     color: #ffffff !important;
     transform: translateY(-2px);
-    box-shadow: 0 8px 20px rgba(15, 23, 42, 0.12);
+    box-shadow: 0 8px 22px rgba(15, 23, 42, 0.15);
 }
 .gi-home-pricing-section .gi-cta-solid {
-    background: #2a6aee;
+    background: linear-gradient(135deg, #2a6aee 0%, #1d4ed8 100%);
     color: #ffffff !important;
-    border: 1px solid #2a6aee;
-    box-shadow: 0 6px 18px rgba(42, 106, 238, 0.28);
+    border: none;
+    box-shadow: 0 6px 20px rgba(42, 106, 238, 0.32);
 }
 .gi-home-pricing-section .gi-cta-solid:hover {
-    background: #1e50b5;
-    border-color: #1e50b5;
+    background: linear-gradient(135deg, #1d4ed8 0%, #1e40af 100%);
     color: #ffffff !important;
     transform: translateY(-2px);
-    box-shadow: 0 10px 24px rgba(42, 106, 238, 0.4);
+    box-shadow: 0 10px 28px rgba(42, 106, 238, 0.45);
+}
+.gi-home-pricing-section .gi-cta-arrow {
+    transition: transform 0.25s ease;
+}
+.gi-home-pricing-section .gi-pricing-cta-btn:hover .gi-cta-arrow {
+    transform: translateX(4px);
 }
 
 /* Bottom Footer Bar */
@@ -876,13 +891,13 @@ $after_img_1  = $base_url . '/2022/12/shadow-masking-c.png'; // Example assumed 
     justify-content: center;
     flex-wrap: wrap;
     gap: 1.5rem;
-    padding: 1.1rem 2rem;
+    padding: 1.15rem 2.2rem;
     background: #ffffff;
     border: 1px solid #e2e8f0;
-    border-radius: 14px;
-    max-width: 820px;
+    border-radius: 16px;
+    max-width: 860px;
     margin: 0 auto;
-    box-shadow: 0 2px 10px rgba(15, 23, 42, 0.03);
+    box-shadow: 0 4px 16px rgba(15, 23, 42, 0.04);
     font-size: 0.92rem;
     color: #475569;
 }
@@ -912,14 +927,14 @@ $after_img_1  = $base_url . '/2022/12/shadow-masking-c.png'; // Example assumed 
 @media (max-width: 992px) {
     .gi-home-pricing-section .gi-pricing-cards-grid {
         grid-template-columns: 1fr;
-        max-width: 460px;
+        max-width: 480px;
     }
     .gi-home-pricing-section .gi-plan-tagline {
         min-height: auto;
     }
     .gi-home-pricing-section .gi-pricing-footer-bar {
         flex-direction: column;
-        gap: 0.75rem;
+        gap: 0.85rem;
         text-align: center;
     }
     .gi-home-pricing-section .gi-pricing-footer-sep {
@@ -956,20 +971,21 @@ $after_img_1  = $base_url . '/2022/12/shadow-masking-c.png'; // Example assumed 
                 </div>
 
                 <ul class="gi-pricing-feature-list">
-                    <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg> Hand-drawn pen clipping paths (100% human)</li>
-                    <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg> Pure white &amp; transparent cutouts</li>
-                    <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg> Amazon, eBay &amp; Shopify ready</li>
-                    <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg> Guaranteed 12-24h turnaround</li>
+                    <li><span class="gi-feature-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><polyline points="20 6 9 17 4 12"></polyline></svg></span> Hand-drawn pen clipping paths (100% human)</li>
+                    <li><span class="gi-feature-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><polyline points="20 6 9 17 4 12"></polyline></svg></span> Pure white &amp; transparent cutouts</li>
+                    <li><span class="gi-feature-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><polyline points="20 6 9 17 4 12"></polyline></svg></span> Amazon, eBay &amp; Shopify ready</li>
+                    <li><span class="gi-feature-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><polyline points="20 6 9 17 4 12"></polyline></svg></span> Guaranteed 12-24h turnaround</li>
                 </ul>
 
                 <a href="https://wa.me/8801714516662?text=<?php echo rawurlencode('Hello Graphics Innovator! I need a quote for Essential Clipping.'); ?>" target="_blank" rel="noopener noreferrer" class="gi-pricing-cta-btn gi-cta-outline">
                     <span>Let's Start Chat</span>
+                    <svg class="gi-cta-arrow" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
                 </a>
             </div>
 
             <!-- Tier 2: Commercial Retouching (Most Popular) -->
             <div class="gi-pricing-clean-card is-popular" data-gi-animate="fade-up" data-gi-delay="100">
-                <div class="gi-pricing-popular-badge">Most Popular</div>
+                <div class="gi-pricing-popular-badge">⭐ Most Popular</div>
                 <h3 class="gi-plan-title">Commercial Retouching</h3>
                 <p class="gi-plan-tagline">The industry standard for apparel, footwear, and consumer brand catalogs.</p>
                 
@@ -984,14 +1000,15 @@ $after_img_1  = $base_url . '/2022/12/shadow-masking-c.png'; // Example assumed 
                 </div>
 
                 <ul class="gi-pricing-feature-list">
-                    <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg> Everything in Essential Clipping</li>
-                    <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg> Ghost mannequin &amp; neck joint</li>
-                    <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg> Natural &amp; drop reflection shadows</li>
-                    <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg> Dust, scratch &amp; wrinkle removal</li>
+                    <li><span class="gi-feature-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><polyline points="20 6 9 17 4 12"></polyline></svg></span> Everything in Essential Clipping</li>
+                    <li><span class="gi-feature-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><polyline points="20 6 9 17 4 12"></polyline></svg></span> Ghost mannequin &amp; neck joint</li>
+                    <li><span class="gi-feature-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><polyline points="20 6 9 17 4 12"></polyline></svg></span> Natural &amp; drop reflection shadows</li>
+                    <li><span class="gi-feature-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><polyline points="20 6 9 17 4 12"></polyline></svg></span> Dust, scratch &amp; wrinkle removal</li>
                 </ul>
 
                 <a href="https://wa.me/8801714516662?text=<?php echo rawurlencode('Hello Graphics Innovator! I need a volume quote for Commercial Retouching.'); ?>" target="_blank" rel="noopener noreferrer" class="gi-pricing-cta-btn gi-cta-solid">
                     <span>Let's Start Chat</span>
+                    <svg class="gi-cta-arrow" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
                 </a>
             </div>
 
@@ -1011,14 +1028,15 @@ $after_img_1  = $base_url . '/2022/12/shadow-masking-c.png'; // Example assumed 
                 </div>
 
                 <ul class="gi-pricing-feature-list">
-                    <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg> Everything in Commercial Retouching</li>
-                    <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg> Non-destructive Dodge &amp; Burn skin</li>
-                    <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg> Diamond sparkle &amp; metal polish</li>
-                    <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg> Multi-layer PSD delivery with masks</li>
+                    <li><span class="gi-feature-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><polyline points="20 6 9 17 4 12"></polyline></svg></span> Everything in Commercial Retouching</li>
+                    <li><span class="gi-feature-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><polyline points="20 6 9 17 4 12"></polyline></svg></span> Non-destructive Dodge &amp; Burn skin</li>
+                    <li><span class="gi-feature-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><polyline points="20 6 9 17 4 12"></polyline></svg></span> Diamond sparkle &amp; metal polish</li>
+                    <li><span class="gi-feature-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><polyline points="20 6 9 17 4 12"></polyline></svg></span> Multi-layer PSD delivery with masks</li>
                 </ul>
 
                 <a href="https://wa.me/8801714516662?text=<?php echo rawurlencode('Hello Graphics Innovator! I need a custom quote for High-End Editorial & Jewelry Retouching.'); ?>" target="_blank" rel="noopener noreferrer" class="gi-pricing-cta-btn gi-cta-outline">
                     <span>Let's Start Chat</span>
+                    <svg class="gi-cta-arrow" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
                 </a>
             </div>
 

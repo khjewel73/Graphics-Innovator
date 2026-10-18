@@ -51,7 +51,7 @@ get_header(); ?>
         radial-gradient(circle at 85% 20%, rgba(255, 106, 26, 0.16) 0%, transparent 45%),
         linear-gradient(180deg, #02050c 0%, #060e1d 100%);
     color: #ffffff;
-    padding: 5.5rem 0 4.5rem 0;
+    padding: calc(var(--gi-header-height, 96px) + 3rem) 0 4.5rem 0;
     position: relative;
     text-align: center;
 }

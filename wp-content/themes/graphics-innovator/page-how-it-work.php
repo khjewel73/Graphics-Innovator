@@ -54,7 +54,7 @@ $shoe_after  = $base_url . '/2023/08/Clipping-Path_B.jpg';
     font-family: var(--gi-font-sans), 'Outfit', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
     position: relative;
     overflow: hidden;
-    padding: 4.5rem 0 6.5rem 0;
+    padding: calc(var(--gi-header-height, 96px) + 3.25rem) 0 6.5rem 0;
 }
 
 /* Technical Perspective Grid Overlay */
@@ -730,7 +730,7 @@ $shoe_after  = $base_url . '/2023/08/Clipping-Path_B.jpg';
 }
 @media (max-width: 768px) {
     .gi-hw-main {
-        padding: 3rem 0 5rem 0;
+        padding: calc(var(--gi-header-height, 78px) + 2rem) 0 5rem 0;
     }
     .gi-hw-container {
         padding: 0 1.25rem;

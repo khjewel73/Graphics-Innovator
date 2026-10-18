@@ -16,6 +16,16 @@
   box-shadow: 0 10px 34px rgba(0, 0, 0, 0.22);
 }
 
+/* WordPress Admin Bar Compatibility */
+.admin-bar .gi-header {
+  top: 32px;
+}
+@media screen and (max-width: 782px) {
+  .admin-bar .gi-header {
+    top: 46px;
+  }
+}
+
 /* On scroll: darker & with shadow */
 .gi-header.gi-sticky {
   background: rgba(5, 12, 24, 0.98);

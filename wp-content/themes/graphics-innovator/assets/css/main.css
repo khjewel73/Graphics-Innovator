@@ -1993,6 +1993,10 @@ p { margin-bottom: 0; }
   transform: translateY(0) !important;
 }
 
-/* Fix WP Admin Bar overlap with sticky header */
+/* Fix WP Admin Bar overlap with header */
+.admin-bar .gi-header,
 .admin-bar .gi-header.gi-sticky { top: 32px; }
-@media screen and (max-width: 782px) { .admin-bar .gi-header.gi-sticky { top: 46px; } }
+@media screen and (max-width: 782px) {
+  .admin-bar .gi-header,
+  .admin-bar .gi-header.gi-sticky { top: 46px; }
+}

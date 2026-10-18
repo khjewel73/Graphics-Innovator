@@ -416,3 +416,25 @@ add_action( 'init', function() {
     update_option( 'gi_car_photo_editing_setup_v1', 1 );
 } );
 
+/**
+ * Auto-provision CF7 Free Trial form 910 file upload flexibility
+ */
+add_action( 'init', function() {
+    if ( get_option( 'gi_cf7_free_trial_fix_v1' ) ) {
+        return;
+    }
+    $form = get_post( 910 );
+    if ( $form && ! empty( $form->post_content ) ) {
+        $content = $form->post_content;
+        $updated = str_replace( '[file* file-245]', '[file file-245]', $content );
+        $updated = str_replace( '[file* file-246]', '[file file-246]', $updated );
+        if ( $updated !== $content ) {
+            wp_update_post( [
+                'ID'           => 910,
+                'post_content' => $updated,
+            ] );
+        }
+    }
+    update_option( 'gi_cf7_free_trial_fix_v1', 1 );
+} );
+

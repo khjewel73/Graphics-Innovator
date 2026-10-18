@@ -16,7 +16,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 // ─────────────────────────────────────────────
 //  THEME CONSTANTS
 // ─────────────────────────────────────────────
-define( 'GI_VERSION',  '1.0.25' );
+define( 'GI_VERSION',  '1.0.26' );
 define( 'GI_ROOT',     get_template_directory() );
 define( 'GI_ROOT_URI', get_template_directory_uri() );
 define( 'GI_ASSETS',   GI_ROOT_URI . '/assets' );
@@ -44,6 +44,7 @@ $gi_modules = [
     '/inc/customizer.php',     // WP Customizer panels & settings
     '/inc/nav-walker.php',     // Custom nav menu walker
     '/inc/performance.php',    // Performance hooks & asset cleanup
+    '/inc/quote-handler.php',   // Request a Quote AJAX form processing
 ];
 
 foreach ( $gi_modules as $module ) {

@@ -211,7 +211,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
         container.addEventListener('mousemove', (e) => {
             if (isDragging) return;
-            if (e.target && e.target.closest && e.target.closest('.gi-ba-label')) return;
             slide(e.clientX);
         });
 
@@ -231,38 +230,7 @@ document.addEventListener('DOMContentLoaded', () => {
             }, 450);
         });
 
-        // Hovering directly over "Before" label slides to reveal 100% of the Before image
-        const labelBefore = container.querySelector('.gi-ba-label--before');
-        const labelAfter  = container.querySelector('.gi-ba-label--after');
-
-        if (labelBefore) {
-            labelBefore.style.cursor = 'pointer';
-            labelBefore.addEventListener('mouseenter', () => {
-                beforeImg.style.transition = 'width 0.35s ease';
-                handle.style.transition = 'left 0.35s ease';
-                beforeImg.style.width = '100%';
-                handle.style.left = 'calc(100% - 2px)';
-            });
-            labelBefore.addEventListener('mouseleave', () => {
-                beforeImg.style.transition = '';
-                handle.style.transition = '';
-            });
-        }
-
-        // Hovering directly over "After" label slides to reveal 100% of the After image
-        if (labelAfter) {
-            labelAfter.style.cursor = 'pointer';
-            labelAfter.addEventListener('mouseenter', () => {
-                beforeImg.style.transition = 'width 0.35s ease';
-                handle.style.transition = 'left 0.35s ease';
-                beforeImg.style.width = '0%';
-                handle.style.left = '-2px';
-            });
-            labelAfter.addEventListener('mouseleave', () => {
-                beforeImg.style.transition = '';
-                handle.style.transition = '';
-            });
-        }
+        // Direct smooth cursor tracking across image
 
         // Mouse drag events
         handle.addEventListener('mousedown', (e) => {
@@ -301,7 +269,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
         // Container click / touch drag
         container.addEventListener('mousedown', (e) => {
-            if (e.target && e.target.closest && e.target.closest('.gi-ba-label')) return;
             isDragging = true;
             handle.classList.add('gi-dragging');
             beforeImg.style.transition = 'none';
@@ -309,7 +276,6 @@ document.addEventListener('DOMContentLoaded', () => {
             slide(e.clientX);
         });
         container.addEventListener('touchstart', (e) => {
-            if (e.target && e.target.closest && e.target.closest('.gi-ba-label')) return;
             isDragging = true;
             beforeImg.style.transition = 'none';
             handle.style.transition = 'none';

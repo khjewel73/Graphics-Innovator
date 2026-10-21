@@ -225,20 +225,15 @@ $after_img_1  = $base_url . '/2022/12/shadow-masking-c.png'; // Example assumed 
 }
 .gi-feature-list li svg { color: var(--gi-orange, #ea580c); width: 20px; height: 20px; flex-shrink: 0; }
 
-/* ---- Parallax glass frame ---- */
+/* ---- Service visual glass frame ---- */
 .gi-service-visual { flex: 1; position: relative; }
 .gi-glass-frame {
     background: rgba(255,255,255,0.02);
     border: 1px solid rgba(255,255,255,0.06);
     border-radius: 24px;
     padding: 16px;
-    box-shadow: 0 40px 80px rgba(0,0,0,0.5);
-    transition: transform 0.1s ease, box-shadow 0.3s ease;
-    transform-style: preserve-3d;
-    will-change: transform;
-}
-.gi-glass-frame:hover {
-    box-shadow: 0 60px 100px rgba(0,0,0,0.7), 0 0 40px rgba(234,88,12,0.1);
+    box-shadow: 0 30px 60px rgba(0,0,0,0.5);
+    transform: none !important;
 }
 
 /* ---- Stats — Counter ---- */
@@ -1486,23 +1481,6 @@ const statObs = new IntersectionObserver((entries) => {
 }, { threshold: 0.4 });
 
 document.querySelectorAll('.gi-stat-item').forEach(el => statObs.observe(el));
-
-/* ============================================================
-   5. PARALLAX TILT ENGINE (Glass Frames)
-   ============================================================ */
-document.querySelectorAll('.gi-glass-frame').forEach(frame => {
-    frame.addEventListener('mousemove', e => {
-        const rect = frame.getBoundingClientRect();
-        const cx = rect.left + rect.width / 2;
-        const cy = rect.top + rect.height / 2;
-        const dx = (e.clientX - cx) / (rect.width / 2);
-        const dy = (e.clientY - cy) / (rect.height / 2);
-        frame.style.transform = `perspective(1000px) rotateY(${dx * 6}deg) rotateX(${-dy * 4}deg) scale(1.02)`;
-    });
-    frame.addEventListener('mouseleave', () => {
-        frame.style.transform = 'perspective(1000px) rotateY(0deg) rotateX(0deg) scale(1)';
-    });
-});
 
 }); // end DOMContentLoaded
 </script>

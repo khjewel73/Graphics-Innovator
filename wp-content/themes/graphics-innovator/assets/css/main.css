@@ -996,16 +996,14 @@ p { margin-bottom: 0; }
 
 /* Service Row (homepage alternating layout) */
 .gi-service-row {
-  transition: transform 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+  /* Stable, professional layout without jumping */
 }
 .gi-glass-frame {
-  transition: all 0.5s cubic-bezier(0.165, 0.84, 0.44, 1);
+  transform: none !important;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
 }
 .gi-service-row:hover .gi-glass-frame {
-  transform: translateY(-10px) scale(1.02);
-  box-shadow: 0 30px 60px rgba(42, 106, 238, 0.15), 0 0 40px rgba(42, 106, 238, 0.1);
-  border-color: rgba(42, 106, 238, 0.3);
-  background: rgba(255, 255, 255, 0.04);
+  transform: none !important;
 }
 
 /* ============================================================
@@ -1053,29 +1051,20 @@ p { margin-bottom: 0; }
   padding: var(--gi-space-1) var(--gi-space-3);
   border-radius: var(--gi-radius-full);
   z-index: 5;
-  transition: transform 0.25s ease, background 0.25s ease, box-shadow 0.25s ease;
   user-select: none;
+  pointer-events: none;
+  transition: opacity 0.25s ease;
 }
 .gi-ba-label--after {
   right: var(--gi-space-3);
   background: rgba(243,112,33,0.9);
   color: var(--gi-white);
 }
-.gi-ba-label--after:hover {
-  transform: scale(1.08);
-  background: rgba(243,112,33,1);
-  box-shadow: 0 4px 14px rgba(243,112,33,0.45);
-}
 .gi-ba-label--before {
   left: var(--gi-space-3);
   background: rgba(0,0,0,0.65);
   color: var(--gi-white);
   border: 1px solid rgba(255,255,255,0.18);
-}
-.gi-ba-label--before:hover {
-  transform: scale(1.08);
-  background: rgba(0,0,0,0.9);
-  box-shadow: 0 4px 14px rgba(0,0,0,0.6);
 }
 .gi-ba-handle {
   position: absolute;

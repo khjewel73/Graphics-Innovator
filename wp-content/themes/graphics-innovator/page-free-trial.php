@@ -1167,7 +1167,7 @@ $shoe_after  = $base_url . '/2023/08/Clipping-Path_B.jpg';
                         <div class="gi-ft-field-group">
                             <label class="gi-ft-label" for="gi-website">WEBSITE</label>
                             <span class="wpcf7-form-control-wrap" data-name="url-409">
-                                <input type="url" name="url-409" id="gi-website" class="gi-ft-input wpcf7-url" placeholder="https://yourwebsite.com">
+                                <input type="text" name="url-409" id="gi-website" class="gi-ft-input wpcf7-url" placeholder="yourwebsite.com (optional)">
                             </span>
                         </div>
 

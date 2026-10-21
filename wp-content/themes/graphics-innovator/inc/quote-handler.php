@@ -36,7 +36,11 @@ function gi_handle_ajax_quote() {
     $name         = isset( $_POST['quote_name'] ) ? sanitize_text_field( wp_unslash( $_POST['quote_name'] ) ) : '';
     $email        = isset( $_POST['quote_email'] ) ? sanitize_email( wp_unslash( $_POST['quote_email'] ) ) : '';
     $company      = isset( $_POST['quote_company'] ) ? sanitize_text_field( wp_unslash( $_POST['quote_company'] ) ) : '';
-    $website      = isset( $_POST['quote_website'] ) ? esc_url_raw( wp_unslash( $_POST['quote_website'] ) ) : '';
+    $raw_website  = isset( $_POST['quote_website'] ) ? sanitize_text_field( wp_unslash( $_POST['quote_website'] ) ) : '';
+    $website_link = '';
+    if ( ! empty( $raw_website ) ) {
+        $website_link = preg_match( '#^https?://#i', $raw_website ) ? $raw_website : 'https://' . $raw_website;
+    }
     $phone        = isset( $_POST['quote_phone'] ) ? sanitize_text_field( wp_unslash( $_POST['quote_phone'] ) ) : '';
     $address      = isset( $_POST['quote_address'] ) ? sanitize_text_field( wp_unslash( $_POST['quote_address'] ) ) : '';
     $instructions = isset( $_POST['quote_instructions'] ) ? sanitize_textarea_field( wp_unslash( $_POST['quote_instructions'] ) ) : '';
@@ -128,7 +132,7 @@ function gi_handle_ajax_quote() {
                 </tr>
                 <tr>
                     <td style='padding:10px 0; border-bottom:1px solid #f1f5f9; font-weight:600; color:#64748b;'>Website:</td>
-                    <td style='padding:10px 0; border-bottom:1px solid #f1f5f9;'>" . ( ! empty( $website ) ? "<a href='" . esc_url( $website ) . "' target='_blank' style='color:#2563eb;'>" . esc_html( $website ) . "</a>" : '<span style="color:#94a3b8;">Not specified</span>' ) . "</td>
+                    <td style='padding:10px 0; border-bottom:1px solid #f1f5f9;'>" . ( ! empty( $raw_website ) ? "<a href='" . esc_url( $website_link ) . "' target='_blank' style='color:#2563eb;'>" . esc_html( $raw_website ) . "</a>" : '<span style="color:#94a3b8;">Not specified</span>' ) . "</td>
                 </tr>
                 <tr>
                     <td style='padding:10px 0; border-bottom:1px solid #f1f5f9; font-weight:600; color:#64748b;'>Phone:</td>

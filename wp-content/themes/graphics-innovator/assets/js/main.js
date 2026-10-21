@@ -142,8 +142,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // ─────────────────────────────────────────────
-    // 5. BEFORE/AFTER SLIDER
-    // FIX: was using pageX (offset by scroll position) — changed to clientX
+    // 5. BEFORE/AFTER SLIDER (SSP-ELITE KINETIC PHYSICS ENGINE)
     // ─────────────────────────────────────────────
     const sliders = document.querySelectorAll('[data-gi-ba]');
 
@@ -151,7 +150,15 @@ document.addEventListener('DOMContentLoaded', () => {
         const container = slider.querySelector('.gi-ba-container');
         const beforeImg = slider.querySelector('.gi-ba-before');
         const handle    = slider.querySelector('.gi-ba-handle');
+        const labelB    = slider.querySelector('.gi-ba-label--before');
+        const labelA    = slider.querySelector('.gi-ba-label--after');
         if (!container || !beforeImg || !handle) return;
+
+        let currentPos = 50; // in percent
+        let targetPos  = 50; // in percent
+        let isHovering = false;
+        let isDragging = false;
+        let rafId      = null;
 
         const syncImgDimensions = () => {
             const bImg = beforeImg.querySelector('img');
@@ -169,14 +176,63 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         };
 
-        const slide = (clientX) => {
+        const applyPosition = (pos) => {
+            pos = Math.max(0, Math.min(100, pos));
+            beforeImg.style.width = `${pos}%`;
+            handle.style.left     = `calc(${pos}% - 22px)`;
+
+            // Intelligent dynamic fading for pill labels so handle never collides
+            if (labelB) {
+                if (pos < 20) {
+                    labelB.style.opacity = Math.max(0, (pos - 6) / 14);
+                    labelB.style.transform = `scale(${Math.max(0.85, pos / 20)})`;
+                } else {
+                    labelB.style.opacity = '1';
+                    labelB.style.transform = 'scale(1)';
+                }
+            }
+            if (labelA) {
+                if (pos > 80) {
+                    labelA.style.opacity = Math.max(0, (94 - pos) / 14);
+                    labelA.style.transform = `scale(${Math.max(0.85, (100 - pos) / 20)})`;
+                } else {
+                    labelA.style.opacity = '1';
+                    labelA.style.transform = 'scale(1)';
+                }
+            }
+        };
+
+        const updatePhysics = () => {
+            // When dragging: tight responsive factor (0.45)
+            // When hovering: buttery fluid momentum (0.22)
+            // When settling back to 50%: calm luxury deceleration (0.12)
+            const easeFactor = isDragging ? 0.45 : (isHovering ? 0.22 : 0.12);
+            const delta = targetPos - currentPos;
+
+            if (Math.abs(delta) > 0.04) {
+                currentPos += delta * easeFactor;
+                applyPosition(currentPos);
+                rafId = requestAnimationFrame(updatePhysics);
+            } else {
+                currentPos = targetPos;
+                applyPosition(currentPos);
+                rafId = null;
+            }
+        };
+
+        const requestUpdate = () => {
+            if (!rafId) {
+                rafId = requestAnimationFrame(updatePhysics);
+            }
+        };
+
+        const setTargetFromClientX = (clientX) => {
             const rect = container.getBoundingClientRect();
             if (rect.width <= 0) return;
-            let position = ((clientX - rect.left) / rect.width) * 100;
-            position = Math.max(0, Math.min(100, position));  // Clamp 0–100
-
-            beforeImg.style.width = `${position}%`;
-            handle.style.left     = `calc(${position}% - 2px)`;
+            let pct = ((clientX - rect.left) / rect.width) * 100;
+            pct = Math.max(0, Math.min(100, pct));
+            targetPos = pct;
+            requestUpdate();
         };
 
         syncImgDimensions();
@@ -194,94 +250,89 @@ document.addEventListener('DOMContentLoaded', () => {
             bImg.addEventListener('load', syncImgDimensions, { once: true });
         }
 
-        window.addEventListener('resize', syncImgDimensions, { passive: true });
+        window.addEventListener('resize', () => {
+            syncImgDimensions();
+            applyPosition(currentPos);
+        }, { passive: true });
 
-        // Hover tracking: Moving cursor over the image smoothly reveals Before & After without needing click & drag
-        let isHovering = false;
-
+        // Smooth Mouse Tracking on Hover
         container.addEventListener('mouseenter', (e) => {
             isHovering = true;
             syncImgDimensions();
-            beforeImg.style.transition = 'none';
-            handle.style.transition = 'none';
             if (e && typeof e.clientX === 'number') {
-                slide(e.clientX);
+                setTargetFromClientX(e.clientX);
             }
         });
 
         container.addEventListener('mousemove', (e) => {
             if (isDragging) return;
-            slide(e.clientX);
+            setTargetFromClientX(e.clientX);
         });
 
         container.addEventListener('mouseleave', () => {
             if (isDragging) return;
             isHovering = false;
-            // Smoothly glide back to balanced 50% split on mouse leave
-            beforeImg.style.transition = 'width 0.45s cubic-bezier(0.16, 1, 0.3, 1)';
-            handle.style.transition = 'left 0.45s cubic-bezier(0.16, 1, 0.3, 1)';
-            beforeImg.style.width = '50%';
-            handle.style.left = 'calc(50% - 2px)';
-            setTimeout(() => {
-                if (!isHovering) {
-                    beforeImg.style.transition = '';
-                    handle.style.transition = '';
-                }
-            }, 450);
+            // Smoothly glide back to center 50%
+            targetPos = 50;
+            requestUpdate();
         });
 
-        // Direct smooth cursor tracking across image
-
-        // Mouse drag events
-        handle.addEventListener('mousedown', (e) => {
+        // Touch & Drag Support
+        const startDrag = (clientX) => {
             isDragging = true;
             handle.classList.add('gi-dragging');
-            beforeImg.style.transition = 'none';
-            handle.style.transition = 'none';
-            e.preventDefault(); // Prevent text selection while dragging
-        });
-        window.addEventListener('mouseup', () => {
+            syncImgDimensions();
+            setTargetFromClientX(clientX);
+        };
+
+        const moveDrag = (clientX) => {
+            if (!isDragging) return;
+            setTargetFromClientX(clientX);
+        };
+
+        const endDrag = () => {
             if (!isDragging) return;
             isDragging = false;
             handle.classList.remove('gi-dragging');
+            if (!isHovering) {
+                targetPos = 50;
+                requestUpdate();
+            }
+        };
+
+        handle.addEventListener('mousedown', (e) => {
+            e.preventDefault();
+            startDrag(e.clientX);
         });
+
+        container.addEventListener('mousedown', (e) => {
+            startDrag(e.clientX);
+        });
+
         window.addEventListener('mousemove', (e) => {
             if (!isDragging) return;
-            slide(e.clientX);
+            moveDrag(e.clientX);
         });
 
-        // Touch events
-        handle.addEventListener('touchstart', () => {
-            isDragging = true;
-            handle.classList.add('gi-dragging');
-            beforeImg.style.transition = 'none';
-            handle.style.transition = 'none';
-            syncImgDimensions();
-        }, { passive: true });
-        window.addEventListener('touchend', () => {
-            isDragging = false;
-            handle.classList.remove('gi-dragging');
-        });
-        window.addEventListener('touchmove', (e) => {
-            if (!isDragging) return;
-            slide(e.touches[0].clientX);
+        window.addEventListener('mouseup', endDrag);
+
+        // Touch Events
+        handle.addEventListener('touchstart', (e) => {
+            if (e.touches.length > 0) startDrag(e.touches[0].clientX);
         }, { passive: true });
 
-        // Container click / touch drag
-        container.addEventListener('mousedown', (e) => {
-            isDragging = true;
-            handle.classList.add('gi-dragging');
-            beforeImg.style.transition = 'none';
-            handle.style.transition = 'none';
-            slide(e.clientX);
-        });
         container.addEventListener('touchstart', (e) => {
-            isDragging = true;
-            beforeImg.style.transition = 'none';
-            handle.style.transition = 'none';
-            syncImgDimensions();
-            slide(e.touches[0].clientX);
+            if (e.touches.length > 0) startDrag(e.touches[0].clientX);
         }, { passive: true });
+
+        window.addEventListener('touchmove', (e) => {
+            if (isDragging && e.touches.length > 0) {
+                moveDrag(e.touches[0].clientX);
+            }
+        }, { passive: true });
+
+        window.addEventListener('touchend', endDrag);
+        window.addEventListener('touchcancel', endDrag);
     });
 
     // ─────────────────────────────────────────────

@@ -268,8 +268,8 @@ $base_url   = $upload_dir['baseurl'];
         <div class="gi-srv-container">
         <!-- Hero -->
         <div class="gi-srv-hero">
-            <h1>Professional eCommerce Photo Editing Solutions.</h1>
-            <p>We provide pixel-perfect retouching, hand-drawn vector paths, and true-to-life color correction for high-volume enterprise brands and eCommerce studios worldwide.</p>
+            <h1><?php echo esc_html( gi_get_field( 'srv_hero_title', 'Professional eCommerce Photo Editing Solutions.' ) ); ?></h1>
+            <p><?php echo esc_html( gi_get_field( 'srv_hero_desc', 'We provide pixel-perfect retouching, hand-drawn vector paths, and true-to-life color correction for high-volume enterprise brands and eCommerce studios worldwide.' ) ); ?></p>
         </div>
         </div>
     </section>
@@ -417,9 +417,9 @@ $base_url   = $upload_dir['baseurl'];
         <div class="gi-srv-container">
         <!-- CTA -->
         <div class="gi-how-cta">
-            <h2>Ready to Test the Engine?</h2>
-            <p>Upload up to 3 images right now. We will edit them flawlessly and return them in under 12 hours for absolutely no cost.</p>
-            <a href="<?php echo site_url('/free-trial/'); ?>" class="gi-cta-button">Start Your Free Trial Now</a>
+            <h2><?php echo esc_html( gi_get_field( 'srv_cta_title', 'Ready to Test the Engine?' ) ); ?></h2>
+            <p><?php echo esc_html( gi_get_field( 'srv_cta_desc', 'Upload up to 3 images right now. We will edit them flawlessly and return them in under 12 hours for absolutely no cost.' ) ); ?></p>
+            <a href="<?php echo esc_url( gi_get_field( 'srv_cta_btn_url', site_url( '/free-trial/' ) ) ); ?>" class="gi-cta-button"><?php echo esc_html( gi_get_field( 'srv_cta_btn_text', 'Start Your Free Trial Now' ) ); ?></a>
         </div>
         </div>
     </section>

@@ -258,6 +258,45 @@ $service_data = [
         'f2_title' => 'Reflection & Glare Eradication',
         'f2_desc' => 'We remove camera tripods, lot poles, and surrounding cars reflected in the vehicle bodywork and windows while enhancing paint depth and metallic fleck.',
     ],
+    'clippingpath' => [
+        'hero_title' => 'Enterprise-Grade Clipping Path Services.',
+        'hero_desc' => 'Perfectly isolated images for your eCommerce store, digital catalog, or print materials. We guarantee pixel-perfect edges using 100% manual vector paths.',
+        'split_title' => 'Flawless Extractions.',
+        'split_highlight' => 'Zero AI.',
+        'split_desc1' => 'In the competitive world of online shopping, automated AI background removal leaves jagged edges and destroys fine details like hair or translucent fabrics.',
+        'split_desc2' => 'At Graphics Innovator, our senior editors manually draw every single clipping path using the Photoshop Pen Tool. This ensures absolute precision and a distraction-free product display that builds trust and drives conversions.',
+        'img' => 'https://graphicsinnovator.com/wp-content/uploads/2023/09/Clipping-Path.jpg',
+        'f1_title' => '100% Hand-Drawn',
+        'f1_desc' => 'We strictly use the Photoshop Pen Tool. No magic wands, no quick selections, and absolutely zero AI shortcuts.',
+        'f2_title' => 'Complex Multi-Pathing',
+        'f2_desc' => 'We handle complex shapes, intricate cutouts, and multiple isolation paths for individual component color manipulation.',
+    ],
+    'clipping-path' => [
+        'hero_title' => 'Enterprise-Grade Clipping Path Services.',
+        'hero_desc' => 'Perfectly isolated images for your eCommerce store, digital catalog, or print materials. We guarantee pixel-perfect edges using 100% manual vector paths.',
+        'split_title' => 'Flawless Extractions.',
+        'split_highlight' => 'Zero AI.',
+        'split_desc1' => 'In the competitive world of online shopping, automated AI background removal leaves jagged edges and destroys fine details like hair or translucent fabrics.',
+        'split_desc2' => 'At Graphics Innovator, our senior editors manually draw every single clipping path using the Photoshop Pen Tool. This ensures absolute precision and a distraction-free product display that builds trust and drives conversions.',
+        'img' => 'https://graphicsinnovator.com/wp-content/uploads/2023/09/Clipping-Path.jpg',
+        'f1_title' => '100% Hand-Drawn',
+        'f1_desc' => 'We strictly use the Photoshop Pen Tool. No magic wands, no quick selections, and absolutely zero AI shortcuts.',
+        'f2_title' => 'Complex Multi-Pathing',
+        'f2_desc' => 'We handle complex shapes, intricate cutouts, and multiple isolation paths for individual component color manipulation.',
+    ],
+    'clipping-path-service' => [
+        'hero_title' => 'Enterprise-Grade Clipping Path Services.',
+        'hero_desc' => 'Perfectly isolated images for your eCommerce store, digital catalog, or print materials. We guarantee pixel-perfect edges using 100% manual vector paths.',
+        'split_title' => 'Flawless Extractions.',
+        'split_highlight' => 'Zero AI.',
+        'split_desc1' => 'In the competitive world of online shopping, automated AI background removal leaves jagged edges and destroys fine details like hair or translucent fabrics.',
+        'split_desc2' => 'At Graphics Innovator, our senior editors manually draw every single clipping path using the Photoshop Pen Tool. This ensures absolute precision and a distraction-free product display that builds trust and drives conversions.',
+        'img' => 'https://graphicsinnovator.com/wp-content/uploads/2023/09/Clipping-Path.jpg',
+        'f1_title' => '100% Hand-Drawn',
+        'f1_desc' => 'We strictly use the Photoshop Pen Tool. No magic wands, no quick selections, and absolutely zero AI shortcuts.',
+        'f2_title' => 'Complex Multi-Pathing',
+        'f2_desc' => 'We handle complex shapes, intricate cutouts, and multiple isolation paths for individual component color manipulation.',
+    ],
 ];
 
 // Default fallback if not found
@@ -274,6 +313,21 @@ $data = isset($service_data[$slug]) ? $service_data[$slug] : [
     'f2_title' => 'Expert Team',
     'f2_desc' => 'Our senior editors have years of experience in high-end photo retouching.',
 ];
+
+// Dynamic ACF Engine Overrides (100% fail-safe fallback to hardcoded defaults)
+if ( function_exists( 'gi_get_field' ) ) {
+    $data['hero_title']      = gi_get_field( 'sd_hero_title', $data['hero_title'] );
+    $data['hero_desc']       = gi_get_field( 'sd_hero_desc', $data['hero_desc'] );
+    $data['split_title']     = gi_get_field( 'sd_split_title', $data['split_title'] );
+    $data['split_highlight'] = gi_get_field( 'sd_split_highlight', $data['split_highlight'] );
+    $data['split_desc1']     = gi_get_field( 'sd_split_desc1', $data['split_desc1'] );
+    $data['split_desc2']     = gi_get_field( 'sd_split_desc2', $data['split_desc2'] );
+    $data['img']             = gi_get_image_url( gi_get_field( 'sd_showcase_img' ), 'full', $data['img'] );
+    $data['f1_title']        = gi_get_field( 'sd_f1_title', $data['f1_title'] );
+    $data['f1_desc']         = gi_get_field( 'sd_f1_desc', $data['f1_desc'] );
+    $data['f2_title']        = gi_get_field( 'sd_f2_title', $data['f2_title'] );
+    $data['f2_desc']         = gi_get_field( 'sd_f2_desc', $data['f2_desc'] );
+}
 
 get_header(); ?>
 
@@ -1620,9 +1674,9 @@ get_header(); ?>
         <div class="gi-cp-container">
         <!-- CTA -->
         <div class="gi-how-cta">
-            <h2>Ready to Test the Engine?</h2>
-            <p>Upload up to 3 images right now. We will edit them flawlessly and return them in under 12 hours for absolutely no cost.</p>
-            <a href="<?php echo site_url('/free-trial/'); ?>" class="gi-cta-button">Start Your Free Trial Now</a>
+            <h2><?php echo esc_html( gi_get_field( 'sd_cta_title', 'Ready to Test the Engine?' ) ); ?></h2>
+            <p><?php echo esc_html( gi_get_field( 'sd_cta_desc', 'Upload up to 3 images right now. We will edit them flawlessly and return them in under 12 hours for absolutely no cost.' ) ); ?></p>
+            <a href="<?php echo esc_url( gi_get_field( 'sd_cta_url', site_url( '/free-trial/' ) ) ); ?>" class="gi-cta-button"><?php echo esc_html( gi_get_field( 'sd_cta_btn_text', 'Start Your Free Trial Now' ) ); ?></a>
         </div>
         </div>
     </section>

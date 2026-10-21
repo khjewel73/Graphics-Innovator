@@ -416,8 +416,8 @@ get_header(); ?>
         <div class="gi-cp-container">
         <!-- Hero -->
         <div class="gi-cp-hero">
-            <h1>Enterprise-Grade Clipping Path Services.</h1>
-            <p>Perfectly isolated images for your eCommerce store, digital catalog, or print materials. We guarantee pixel-perfect edges using 100% manual vector paths.</p>
+            <h1><?php echo esc_html( gi_get_field( 'sd_hero_title', 'Enterprise-Grade Clipping Path Services.' ) ); ?></h1>
+            <p><?php echo esc_html( gi_get_field( 'sd_hero_desc', 'Perfectly isolated images for your eCommerce store, digital catalog, or print materials. We guarantee pixel-perfect edges using 100% manual vector paths.' ) ); ?></p>
         </div>
         </div>
     </section>
@@ -427,9 +427,9 @@ get_header(); ?>
         <!-- Split Showcase -->
         <div class="gi-cp-showcase">
             <div class="gi-cp-showcase-text">
-                <h2>Flawless Extractions. <span>Zero AI.</span></h2>
-                <p>In the competitive world of online shopping, automated AI background removal leaves jagged edges and destroys fine details like hair or translucent fabrics.</p>
-                <p>At Graphics Innovator, our senior editors manually draw every single clipping path using the Photoshop Pen Tool. This ensures absolute precision and a distraction-free product display that builds trust and drives conversions.</p>
+                <h2><?php echo esc_html( gi_get_field( 'sd_split_title', 'Flawless Extractions.' ) ); ?> <span><?php echo esc_html( gi_get_field( 'sd_split_highlight', 'Zero AI.' ) ); ?></span></h2>
+                <p><?php echo esc_html( gi_get_field( 'sd_split_desc1', 'In the competitive world of online shopping, automated AI background removal leaves jagged edges and destroys fine details like hair or translucent fabrics.' ) ); ?></p>
+                <p><?php echo esc_html( gi_get_field( 'sd_split_desc2', 'At Graphics Innovator, our senior editors manually draw every single clipping path using the Photoshop Pen Tool. This ensures absolute precision and a distraction-free product display that builds trust and drives conversions.' ) ); ?></p>
                 <ul class="gi-cp-showcase-list">
                     <li>
                         <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
@@ -446,7 +446,7 @@ get_header(); ?>
                 </ul>
             </div>
             <div class="gi-cp-showcase-img">
-                <img src="https://graphicsinnovator.com/wp-content/uploads/2023/09/Clipping-Path.jpg" alt="Clipping Path Example">
+                <img src="<?php echo esc_url( gi_get_image_url( gi_get_field( 'sd_showcase_img' ), 'full', 'https://graphicsinnovator.com/wp-content/uploads/2023/09/Clipping-Path.jpg' ) ); ?>" alt="Clipping Path Example">
             </div>
         </div>
         </div>
@@ -464,8 +464,8 @@ get_header(); ?>
                 <div class="gi-cp-icon">
                     <svg viewBox="0 0 24 24"><path d="M12 2L2 22l10-4 10 4L12 2z"></path></svg>
                 </div>
-                <h3>100% Hand-Drawn</h3>
-                <p>We strictly use the Photoshop Pen Tool. No magic wands, no quick selections, and absolutely zero AI shortcuts.</p>
+                <h3><?php echo esc_html( gi_get_field( 'sd_f1_title', '100% Hand-Drawn' ) ); ?></h3>
+                <p><?php echo esc_html( gi_get_field( 'sd_f1_desc', 'We strictly use the Photoshop Pen Tool. No magic wands, no quick selections, and absolutely zero AI shortcuts.' ) ); ?></p>
             </div>
 
             <!-- Feature 2 -->
@@ -473,8 +473,8 @@ get_header(); ?>
                 <div class="gi-cp-icon">
                     <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
                 </div>
-                <h3>Quick Turnaround</h3>
-                <p>We offer secure next-day service, and for urgent projects, we provide express delivery options to hit your deadlines.</p>
+                <h3><?php echo esc_html( gi_get_field( 'sd_f2_title', 'Quick Turnaround' ) ); ?></h3>
+                <p><?php echo esc_html( gi_get_field( 'sd_f2_desc', 'We offer secure next-day service, and for urgent projects, we provide express delivery options to hit your deadlines.' ) ); ?></p>
             </div>
 
             <!-- Feature 3 -->
@@ -635,9 +635,9 @@ get_header(); ?>
         <div class="gi-cp-container">
         <!-- CTA -->
         <div class="gi-how-cta">
-            <h2>Ready to Test the Engine?</h2>
-            <p>Upload up to 3 images right now. We will edit them flawlessly and return them in under 12 hours for absolutely no cost.</p>
-            <a href="<?php echo site_url('/free-trial/'); ?>" class="gi-cta-button">Start Your Free Trial Now</a>
+            <h2><?php echo esc_html( gi_get_field( 'sd_cta_title', 'Ready to Test the Engine?' ) ); ?></h2>
+            <p><?php echo esc_html( gi_get_field( 'sd_cta_desc', 'Upload up to 3 images right now. We will edit them flawlessly and return them in under 12 hours for absolutely no cost.' ) ); ?></p>
+            <a href="<?php echo esc_url( gi_get_field( 'sd_cta_url', site_url( '/free-trial/' ) ) ); ?>" class="gi-cta-button"><?php echo esc_html( gi_get_field( 'sd_cta_btn_text', 'Start Your Free Trial Now' ) ); ?></a>
         </div>
         </div>
     </section>

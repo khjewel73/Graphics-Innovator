@@ -355,45 +355,57 @@ $after_img_1  = $base_url . '/2022/12/shadow-masking-c.png'; // Example assumed 
     
     <div class="gi-container gi-hero-inner">
         
+<?php
+$hero_badge     = gi_get_field( 'hero_badge', '24-Hour Turnaround Available' );
+$hero_title     = gi_get_field( 'hero_title', "Pixel-Perfect <br>\n<span class=\"gi-highlight gi-typewriter\" id=\"gi-typewriter-text\">Photo Editing</span> <br>\nfor eCommerce" );
+$hero_subtitle  = gi_get_field( 'hero_subtitle', 'Transform your product images with our 100% handmade manual clipping path and retouching services. Starting at just $0.25/image.' );
+$hero_pill_1    = gi_get_field( 'hero_pill_1', 'NDA Guaranteed' );
+$hero_pill_2    = gi_get_field( 'hero_pill_2', 'Pixel-Perfect Quality' );
+$hero_pill_3    = gi_get_field( 'hero_pill_3', 'Free Revisions' );
+$hero_btn1_text = gi_get_field( 'hero_btn1_text', 'Start Free Trial' );
+$hero_btn1_url  = gi_get_field( 'hero_btn1_url', home_url( '/free-trial' ) );
+$hero_btn2_text = gi_get_field( 'hero_btn2_text', 'Get A Quote' );
+$hero_btn2_url  = gi_get_field( 'hero_btn2_url', home_url( '/contact-us/' ) );
+$hero_note      = gi_get_field( 'hero_note', 'No credit card required. Get your trial images back in 45 minutes.' );
+$hero_banner    = gi_get_image_url( gi_get_field( 'hero_banner_img' ), 'full', get_template_directory_uri() . '/Home-Banner.webp' );
+?>
         <div class="gi-hero-content" data-gi-animate="fade-up">
             <div class="gi-hero-badge">
                 <span class="gi-hero-badge-dot"></span>
-                <?php esc_html_e( '24-Hour Turnaround Available', 'graphics-innovator' ); ?>
+                <?php echo esc_html( $hero_badge ); ?>
             </div>
             
             <h1 class="gi-hero-title">
-                Pixel-Perfect <br>
-                <span class="gi-highlight gi-typewriter" id="gi-typewriter-text">Photo Editing</span> <br>
-                for eCommerce
+                <?php echo wp_kses_post( $hero_title ); ?>
             </h1>
             
             <p class="gi-hero-subtitle">
-                Transform your product images with our 100% handmade manual clipping path and retouching services. Starting at just $0.25/image.
+                <?php echo esc_html( $hero_subtitle ); ?>
             </p>
             
             <div class="gi-hero-pills">
-                <span class="gi-hero-pill"><?php echo gi_icon( 'check', 16 ); ?> NDA Guaranteed</span>
-                <span class="gi-hero-pill"><?php echo gi_icon( 'check', 16 ); ?> Pixel-Perfect Quality</span>
-                <span class="gi-hero-pill"><?php echo gi_icon( 'check', 16 ); ?> Free Revisions</span>
+                <?php if ( ! empty( $hero_pill_1 ) ) : ?><span class="gi-hero-pill"><?php echo gi_icon( 'check', 16 ); ?> <?php echo esc_html( $hero_pill_1 ); ?></span><?php endif; ?>
+                <?php if ( ! empty( $hero_pill_2 ) ) : ?><span class="gi-hero-pill"><?php echo gi_icon( 'check', 16 ); ?> <?php echo esc_html( $hero_pill_2 ); ?></span><?php endif; ?>
+                <?php if ( ! empty( $hero_pill_3 ) ) : ?><span class="gi-hero-pill"><?php echo gi_icon( 'check', 16 ); ?> <?php echo esc_html( $hero_pill_3 ); ?></span><?php endif; ?>
             </div>
             
             <div class="gi-hero-actions">
-                <a href="<?php echo esc_url( home_url( '/free-trial' ) ); ?>" class="gi-btn gi-btn-primary gi-btn-xl gi-btn-glow">
-                    Start Free Trial
+                <a href="<?php echo esc_url( $hero_btn1_url ); ?>" class="gi-btn gi-btn-primary gi-btn-xl gi-btn-glow">
+                    <?php echo esc_html( $hero_btn1_text ); ?>
                 </a>
-                <a href="<?php echo esc_url( home_url( '/contact-us/' ) ); ?>" class="gi-btn gi-btn-outline gi-btn-xl">
-                    Get A Quote
+                <a href="<?php echo esc_url( $hero_btn2_url ); ?>" class="gi-btn gi-btn-outline gi-btn-xl">
+                    <?php echo esc_html( $hero_btn2_text ); ?>
                 </a>
             </div>
-            <p class="gi-hero-note">No credit card required. Get your trial images back in 45 minutes.</p>
+            <?php if ( ! empty( $hero_note ) ) : ?><p class="gi-hero-note"><?php echo esc_html( $hero_note ); ?></p><?php endif; ?>
         </div>
 
         <div class="gi-hero-visual" data-gi-animate="fade-in" data-gi-delay="300">
             <!-- Hero Banner Graphic -->
             <div class="gi-hero-banner-wrap">
                 <picture>
-                    <source srcset="<?php echo esc_url( get_template_directory_uri() . '/Home-Banner.webp' ); ?>" type="image/webp">
-                    <img src="<?php echo esc_url( get_template_directory_uri() . '/Home-Banner.png' ); ?>" 
+                    <source srcset="<?php echo esc_url( $hero_banner ); ?>" type="image/webp">
+                    <img src="<?php echo esc_url( $hero_banner ); ?>" 
                          alt="<?php esc_attr_e( 'Graphics Innovator Photo Editing Services', 'graphics-innovator' ); ?>" 
                          class="gi-hero-banner-img"
                          width="1040"
@@ -420,38 +432,48 @@ $after_img_1  = $base_url . '/2022/12/shadow-masking-c.png'; // Example assumed 
 <!-- ==========================================
      TRUST BAR
      ========================================== -->
+<?php
+$trust_1_num = gi_get_field( 'trust_1_num', '5/5' );
+$trust_1_lbl = gi_get_field( 'trust_1_lbl', 'TrustPilot Rating' );
+$trust_2_num = gi_get_field( 'trust_2_num', '10k+' );
+$trust_2_lbl = gi_get_field( 'trust_2_lbl', 'Projects Completed' );
+$trust_3_num = gi_get_field( 'trust_3_num', '24/7' );
+$trust_3_lbl = gi_get_field( 'trust_3_lbl', 'Production House' );
+$trust_4_num = gi_get_field( 'trust_4_num', '100%' );
+$trust_4_lbl = gi_get_field( 'trust_4_lbl', 'Data Security (NDA)' );
+?>
 <div class="gi-trust-bar">
     <div class="gi-container">
         <div class="gi-trust-inner">
             <div class="gi-trust-item" data-gi-animate="fade-up">
                 <?php echo gi_icon( 'star', 32 ); ?>
                 <div class="gi-trust-text-wrap">
-                    <div class="gi-trust-number">5/5</div>
-                    <div class="gi-trust-label">TrustPilot Rating</div>
+                    <div class="gi-trust-number"><?php echo esc_html( $trust_1_num ); ?></div>
+                    <div class="gi-trust-label"><?php echo esc_html( $trust_1_lbl ); ?></div>
                 </div>
             </div>
             <div class="gi-trust-divider"></div>
             <div class="gi-trust-item" data-gi-animate="fade-up" data-gi-delay="100">
                 <?php echo gi_icon( 'check', 32 ); ?>
                 <div class="gi-trust-text-wrap">
-                    <div class="gi-trust-number">10k+</div>
-                    <div class="gi-trust-label">Projects Completed</div>
+                    <div class="gi-trust-number"><?php echo esc_html( $trust_2_num ); ?></div>
+                    <div class="gi-trust-label"><?php echo esc_html( $trust_2_lbl ); ?></div>
                 </div>
             </div>
             <div class="gi-trust-divider"></div>
             <div class="gi-trust-item" data-gi-animate="fade-up" data-gi-delay="200">
                 <?php echo gi_icon( 'clock', 32 ); ?>
                 <div class="gi-trust-text-wrap">
-                    <div class="gi-trust-number">24/7</div>
-                    <div class="gi-trust-label">Production House</div>
+                    <div class="gi-trust-number"><?php echo esc_html( $trust_3_num ); ?></div>
+                    <div class="gi-trust-label"><?php echo esc_html( $trust_3_lbl ); ?></div>
                 </div>
             </div>
             <div class="gi-trust-divider"></div>
             <div class="gi-trust-item" data-gi-animate="fade-up" data-gi-delay="300">
                 <?php echo gi_icon( 'shield', 32 ); ?>
                 <div class="gi-trust-text-wrap">
-                    <div class="gi-trust-number">100%</div>
-                    <div class="gi-trust-label">Data Security (NDA)</div>
+                    <div class="gi-trust-number"><?php echo esc_html( $trust_4_num ); ?></div>
+                    <div class="gi-trust-label"><?php echo esc_html( $trust_4_lbl ); ?></div>
                 </div>
             </div>
         </div>

@@ -14,16 +14,17 @@ $copyright  = get_theme_mod( 'gi_copyright_text', '© ' . date('Y') . ' Graphics
 
 // Social links
 $socials = [
-    'facebook'  => get_theme_mod( 'gi_social_facebook', 'https://facebook.com' ),
-    'twitter'   => get_theme_mod( 'gi_social_twitter', '' ),
-    'linkedin'  => get_theme_mod( 'gi_social_linkedin', '' ),
-    'instagram' => get_theme_mod( 'gi_social_instagram', '' ),
+    'facebook'  => gi_get_option( 'gi_social_facebook', 'https://facebook.com' ),
+    'twitter'   => gi_get_option( 'gi_social_twitter', '' ),
+    'linkedin'  => gi_get_option( 'gi_social_linkedin', '' ),
+    'instagram' => gi_get_option( 'gi_social_instagram', '' ),
 ];
 
 // Contact Info
-$phone_bd = get_theme_mod( 'gi_phone_bd', '+88 01714 516 662' );
-$phone_cy = get_theme_mod( 'gi_phone_cy', '+357 96 341 452' );
-$email    = get_theme_mod( 'gi_email', 'info@graphicsinnovator.com' );
+$phone_bd   = gi_get_option( 'gi_phone_bd', '+88 01714 516 662' );
+$phone_cy   = gi_get_option( 'gi_phone_cy', '+357 96 341 452' );
+$email      = gi_get_option( 'gi_email', 'info@graphicsinnovator.com' );
+$address_cy = gi_get_option( 'gi_address_cy', 'ALKEUS 22, STROVOLOS, 2064 Nicosia, Cyprus' );
 ?>
 
 </main><!-- #main -->
@@ -112,7 +113,7 @@ $email    = get_theme_mod( 'gi_email', 'info@graphicsinnovator.com' );
                     </div>
                     <div class="gi-footer-contact-item">
                         <?php echo gi_icon( 'location', 20 ); ?>
-                        <span>ALKEUS 22, STROVOLOS, 2064 Nicosia, Cyprus</span>
+                        <span><?php echo esc_html( $address_cy ); ?></span>
                     </div>
                 </div>
             </div>

@@ -479,144 +479,140 @@ $after_img_1  = $base_url . '/2022/12/shadow-masking-c.png'; // Example assumed 
     </div>
 </section>
 
-<div class="gi-home-section-blue">
-    <!-- Row 1: Clipping Path -->
-    <div class="gi-service-row">
+<?php
+// Dynamic ACF Services Data with 100% exact fallbacks to current hardcoded design
+$services_data = [
+    1 => [
+        'bg_class'  => 'gi-home-section-blue',
+        'reverse'   => false,
+        'uid'       => 's_clip',
+        'title'     => gi_get_field( 's1_title', '<span class="gi-highlight-orange">Clipping</span> Path' ),
+        'sub'       => gi_get_field( 's1_sub', 'Increase your sales by obtaining the best precise image cutting' ),
+        'desc'      => gi_get_field( 's1_desc', 'To use our clipping path services, remove unwanted parts, separate parts of an image to create a new image and remove the unwanted background. Our team is dedicated to providing handmade clipping path services with maximum accuracy in a relatively minimum cost. We will save your precious time and reduce your cost.' ),
+        'features'  => gi_parse_features( gi_get_field( 's1_features' ), [
+            'Reasonable Pricing',
+            'Quick Turnaround',
+            'Pixel Perfect Quality',
+            'Customized Image Clipping',
+        ] ),
+        'before'    => gi_get_image_url( gi_get_field( 's1_before_img' ), 'full', $base_url . '/2023/08/Clipping-Path_A.jpg' ),
+        'after'     => gi_get_image_url( gi_get_field( 's1_after_img' ), 'full', $base_url . '/2023/08/Clipping-Path_B.jpg' ),
+        'btn_url'   => gi_get_field( 's1_btn_url', home_url( '/clippingpath/' ) ),
+    ],
+    2 => [
+        'bg_class'  => 'gi-home-section-charcoal',
+        'reverse'   => true,
+        'uid'       => 's_retouch',
+        'title'     => gi_get_field( 's2_title', 'Photo <span class="gi-highlight-blue">Retouching</span>' ),
+        'sub'       => gi_get_field( 's2_sub', 'Make incredible photos with your photography and increase your sales to the next level' ),
+        'desc'      => gi_get_field( 's2_desc', 'Photo retouching services are the ideal kind of digital marketing. If you\'re going after a high-end market, it\'s challenging to make your image flawless right out of the camera, regardless of how talented a photographer you are. Complete product photo editing is available through our expert photo retouching service, and our goal is to provide product photos with gorgeous finishes.' ),
+        'features'  => gi_parse_features( gi_get_field( 's2_features' ), [
+            'Remove imperfections',
+            'Improve image quality',
+            'Apply Unique Techniques',
+            'High-end Skin Retouching',
+            'Fix framing and lighting issues',
+        ] ),
+        'before'    => gi_get_image_url( gi_get_field( 's2_before_img' ), 'full', $base_url . '/2023/09/Retouching_1_A.jpg' ),
+        'after'     => gi_get_image_url( gi_get_field( 's2_after_img' ), 'full', $base_url . '/2023/09/Retouching_1_B.jpg' ),
+        'btn_url'   => gi_get_field( 's2_btn_url', home_url( '/photo-retouching-service/' ) ),
+    ],
+    3 => [
+        'bg_class'  => 'gi-home-section-blue',
+        'reverse'   => false,
+        'uid'       => 's_ecom',
+        'title'     => gi_get_field( 's3_title', '<span class="gi-highlight-teal">E-commerce</span> Image <span class="gi-highlight-blue">Editing</span>' ),
+        'sub'       => gi_get_field( 's3_sub', 'Make your product photos as a professional look and increase online sales' ),
+        'desc'      => gi_get_field( 's3_desc', 'Ecommerce photo retouching services appear to be the vital element in effective eCommerce marketing. You must get your images professionally retouched if you want to increase your product sales. With the help of our eCommerce product photo editing, you can create better product photos to boost sales. Take use of the best product retouching and cutting edge features for your product image and increase your sales to the next level.' ),
+        'features'  => gi_parse_features( gi_get_field( 's3_features' ), [
+            'Can Handle large-scale projects',
+            'Providing accurate quality image',
+            'Understanding product specifications',
+            'Adhering to online image specifications',
+        ] ),
+        'before'    => gi_get_image_url( gi_get_field( 's3_before_img' ), 'full', $base_url . '/2023/09/Ecommerce_1_A-1.jpg' ),
+        'after'     => gi_get_image_url( gi_get_field( 's3_after_img' ), 'full', $base_url . '/2023/09/Ecommerce_1_B.jpg' ),
+        'btn_url'   => gi_get_field( 's3_btn_url', home_url( '/product-photo-editing-service/' ) ),
+    ],
+    4 => [
+        'bg_class'  => 'gi-home-section-charcoal',
+        'reverse'   => true,
+        'uid'       => 's_ghost',
+        'title'     => gi_get_field( 's4_title', '<span class="gi-highlight-teal">Ghost</span> <span class="gi-highlight-orange">Mannequin</span>' ),
+        'sub'       => gi_get_field( 's4_sub', '' ),
+        'desc'      => gi_get_field( 's4_desc', 'Using the ghost mannequin retouching service, which improves the product images, is the best way to display your clothing items. This will allow the vendors to make more money than they did with the models. An age-old marketing strategy used to make the clothing product images look amazing is using models and having individuals pose in chic ways and it also increases your cost.' ),
+        'features'  => gi_parse_features( gi_get_field( 's4_features' ), [
+            'Maintain 100% Accuracy',
+            'Neck Joint on clothes',
+            'Bottom Joint on Ghost Mannequin',
+            'Sleeves Joint on Ghost Mannequin',
+            '3D or 360° Ghost Mannequin Retouch',
+        ] ),
+        'before'    => gi_get_image_url( gi_get_field( 's4_before_img' ), 'full', $base_url . '/2023/09/Ghost_A-1.jpg' ),
+        'after'     => gi_get_image_url( gi_get_field( 's4_after_img' ), 'full', $base_url . '/2023/09/Ghost_B.jpg' ),
+        'btn_url'   => gi_get_field( 's4_btn_url', home_url( '/ghost-mannequin-service/' ) ),
+    ],
+    5 => [
+        'bg_class'  => 'gi-home-section-blue',
+        'reverse'   => false,
+        'uid'       => 's_mask',
+        'title'     => gi_get_field( 's5_title', '<span class="gi-highlight-orange">Image</span> <span class="gi-highlight-blue">Masking</span>' ),
+        'sub'       => gi_get_field( 's5_sub', '' ),
+        'desc'      => gi_get_field( 's5_desc', 'Masking is necessary to pick and erase the backdrop when the edges are unclear, hairy, furry or fuzzy. By giving professionals a chance to concentrate on the unattainable details, it improves viewers\' watching experiences. We offer different kinds of masking services eg Soft Mask, Layer Mask, Alpha Mask, Channel Mask, Transparency Mask etc.' ),
+        'features'  => gi_parse_features( gi_get_field( 's5_features' ), [
+            'Fastest Delivery',
+            'Competitive Price',
+            'Specific Edge Detection',
+            'Maintain 100% Accuracy',
+        ] ),
+        'before'    => gi_get_image_url( gi_get_field( 's5_before_img' ), 'full', $base_url . '/2023/09/Image-Masking_A.jpg' ),
+        'after'     => gi_get_image_url( gi_get_field( 's5_after_img' ), 'full', $base_url . '/2023/09/Image-Masking_B.jpg' ),
+        'btn_url'   => gi_get_field( 's5_btn_url', home_url( '/image-masking-service/' ) ),
+    ],
+    6 => [
+        'bg_class'  => 'gi-home-section-charcoal',
+        'reverse'   => true,
+        'uid'       => 's_shadow',
+        'title'     => gi_get_field( 's6_title', '<span class="gi-highlight-blue">Shadow</span> <span class="gi-highlight-teal">Creation</span>' ),
+        'sub'       => gi_get_field( 's6_sub', '' ),
+        'desc'      => gi_get_field( 's6_desc', 'Leaving your customers speechless and convincing them that your products are real based on the images, is the sole option for them. After removing the background from product shots with white backgrounds, the Photoshop shadow creation service makes the images realistic rather than fake.' ),
+        'features'  => gi_parse_features( gi_get_field( 's6_features' ), [
+            'Drop Shadowing',
+            'Natural Shadowing',
+            'Reflection Shadowing',
+            'Pickup Original Shadow',
+        ] ),
+        'before'    => gi_get_image_url( gi_get_field( 's6_before_img' ), 'full', $base_url . '/2023/09/Shadowing_A.jpg' ),
+        'after'     => gi_get_image_url( gi_get_field( 's6_after_img' ), 'full', $base_url . '/2023/09/Shadowing_B.jpg' ),
+        'btn_url'   => gi_get_field( 's6_btn_url', home_url( '/shadow-creation-service/' ) ),
+    ],
+];
+?>
+
+<?php foreach ( $services_data as $s ) : ?>
+<div class="<?php echo esc_attr( $s['bg_class'] ); ?>">
+    <div class="gi-service-row<?php echo $s['reverse'] ? ' gi-reverse' : ''; ?>">
         <div class="gi-service-visual">
             <div class="gi-glass-frame">
-                <?php gi_before_after($base_url . '/2023/08/Clipping-Path_A.jpg', $base_url . '/2023/08/Clipping-Path_B.jpg', '', '', 's_clip'); ?>
+                <?php gi_before_after( $s['before'], $s['after'], '', '', $s['uid'] ); ?>
             </div>
         </div>
         <div class="gi-service-content" data-gi-animate="fade-up">
-            <h3><span class="gi-highlight-orange">Clipping</span> Path</h3>
-            <h5>Increase your sales by obtaining the best precise image cutting</h5>
-            <p>To use our clipping path services, remove unwanted parts, separate parts of an image to create a new image and remove the unwanted background. Our team is dedicated to providing handmade clipping path services with maximum accuracy in a relatively minimum cost. We will save your precious time and reduce your cost.</p>
+            <h3><?php echo wp_kses_post( $s['title'] ); ?></h3>
+            <?php if ( ! empty( $s['sub'] ) ) : ?>
+                <h5><?php echo esc_html( $s['sub'] ); ?></h5>
+            <?php endif; ?>
+            <p><?php echo wp_kses_post( $s['desc'] ); ?></p>
             <ul class="gi-feature-list">
-                <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg> Reasonable Pricing</li>
-                <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg> Quick Turnaround</li>
-                <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg> Pixel Perfect Quality</li>
-                <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg> Customized Image Clipping</li>
+                <?php foreach ( $s['features'] as $item ) : ?>
+                    <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg> <?php echo esc_html( $item ); ?></li>
+                <?php endforeach; ?>
             </ul>
-            <a href="<?php echo esc_url( home_url('/clippingpath/') ); ?>" class="gi-btn gi-btn-primary gi-btn-glow">Learn More &rarr;</a>
+            <a href="<?php echo esc_url( $s['btn_url'] ); ?>" class="gi-btn gi-btn-primary gi-btn-glow">Learn More &rarr;</a>
         </div>
     </div>
 </div>
-
-<div class="gi-home-section-charcoal">
-    <!-- Row 2: Photo Retouching -->
-    <div class="gi-service-row gi-reverse">
-        <div class="gi-service-visual">
-            <div class="gi-glass-frame">
-                <?php gi_before_after($base_url . '/2023/09/Retouching_1_A.jpg', $base_url . '/2023/09/Retouching_1_B.jpg', '', '', 's_retouch'); ?>
-            </div>
-        </div>
-        <div class="gi-service-content" data-gi-animate="fade-up">
-            <h3>Photo <span class="gi-highlight-blue">Retouching</span></h3>
-            <h5>Make incredible photos with your photography and increase your sales to the next level</h5>
-            <p>Photo retouching services are the ideal kind of digital marketing. If you're going after a high-end market, it's challenging to make your image flawless right out of the camera, regardless of how talented a photographer you are. Complete product photo editing is available through our expert photo retouching service, and our goal is to provide product photos with gorgeous finishes.</p>
-            <ul class="gi-feature-list">
-                <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg> Remove imperfections</li>
-                <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg> Improve image quality</li>
-                <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg> Apply Unique Techniques</li>
-                <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg> High-end Skin Retouching</li>
-                <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg> Fix framing and lighting issues</li>
-            </ul>
-            <a href="<?php echo esc_url( home_url('/photo-retouching-service/') ); ?>" class="gi-btn gi-btn-primary gi-btn-glow">Learn More &rarr;</a>
-        </div>
-    </div>
-</div>
-
-<div class="gi-home-section-blue">
-    <!-- Row 3: E-commerce -->
-    <div class="gi-service-row">
-        <div class="gi-service-visual">
-            <div class="gi-glass-frame">
-                <?php gi_before_after($base_url . '/2023/09/Ecommerce_1_A-1.jpg', $base_url . '/2023/09/Ecommerce_1_B.jpg', '', '', 's_ecom'); ?>
-            </div>
-        </div>
-        <div class="gi-service-content" data-gi-animate="fade-up">
-            <h3><span class="gi-highlight-teal">E-commerce</span> Image <span class="gi-highlight-blue">Editing</span></h3>
-            <h5>Make your product photos as a professional look and increase online sales</h5>
-            <p>Ecommerce photo retouching services appear to be the vital element in effective eCommerce marketing. You must get your images professionally retouched if you want to increase your product sales. With the help of our eCommerce product photo editing, you can create better product photos to boost sales. Take use of the best product retouching and cutting edge features for your product image and increase your sales to the next level.</p>
-            <ul class="gi-feature-list">
-                <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg> Can Handle large-scale projects</li>
-                <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg> Providing accurate quality image</li>
-                <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg> Understanding product specifications</li>
-                <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg> Adhering to online image specifications</li>
-            </ul>
-            <a href="<?php echo esc_url( home_url('/product-photo-editing-service/') ); ?>" class="gi-btn gi-btn-primary gi-btn-glow">Learn More &rarr;</a>
-        </div>
-    </div>
-</div>
-
-<div class="gi-home-section-charcoal">
-    <!-- Row 4: Ghost Mannequin -->
-    <div class="gi-service-row gi-reverse">
-        <div class="gi-service-visual">
-            <div class="gi-glass-frame">
-                <?php gi_before_after($base_url . '/2023/09/Ghost_A-1.jpg', $base_url . '/2023/09/Ghost_B.jpg', '', '', 's_ghost'); ?>
-            </div>
-        </div>
-        <div class="gi-service-content" data-gi-animate="fade-up">
-            <h3><span class="gi-highlight-teal">Ghost</span> <span class="gi-highlight-orange">Mannequin</span></h3>
-            <p>Using the ghost mannequin retouching service, which improves the product images, is the best way to display your clothing items. This will allow the vendors to make more money than they did with the models. An age-old marketing strategy used to make the clothing product images look amazing is using models and having individuals pose in chic ways and it also increases your cost.</p>
-            <ul class="gi-feature-list">
-                <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg> Maintain 100% Accuracy</li>
-                <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg> Neck Joint on clothes</li>
-                <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg> Bottom Joint on Ghost Mannequin</li>
-                <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg> Sleeves Joint on Ghost Mannequin</li>
-                <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg> 3D or 360&deg; Ghost Mannequin Retouch</li>
-            </ul>
-            <a href="<?php echo esc_url( home_url('/ghost-mannequin-service/') ); ?>" class="gi-btn gi-btn-primary gi-btn-glow">Learn More &rarr;</a>
-        </div>
-    </div>
-</div>
-
-<div class="gi-home-section-blue">
-    <!-- Row 5: Image Masking -->
-    <div class="gi-service-row">
-        <div class="gi-service-visual">
-            <div class="gi-glass-frame">
-                <?php gi_before_after($base_url . '/2023/09/Image-Masking_A.jpg', $base_url . '/2023/09/Image-Masking_B.jpg', '', '', 's_mask'); ?>
-            </div>
-        </div>
-        <div class="gi-service-content" data-gi-animate="fade-up">
-            <h3><span class="gi-highlight-orange">Image</span> <span class="gi-highlight-blue">Masking</span></h3>
-            <p>Masking is necessary to pick and erase the backdrop when the edges are unclear, hairy, furry or fuzzy. By giving professionals a chance to concentrate on the unattainable details, it improves viewers' watching experiences. We offer different kinds of masking services eg Soft Mask, Layer Mask, Alpha Mask, Channel Mask, Transparency Mask etc.</p>
-            <ul class="gi-feature-list">
-                <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg> Fastest Delivery</li>
-                <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg> Competitive Price</li>
-                <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg> Specific Edge Detection</li>
-                <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg> Maintain 100% Accuracy</li>
-            </ul>
-            <a href="<?php echo esc_url( home_url('/image-masking-service/') ); ?>" class="gi-btn gi-btn-primary gi-btn-glow">Learn More &rarr;</a>
-        </div>
-    </div>
-</div>
-
-<div class="gi-home-section-charcoal">
-    <!-- Row 6: Shadow Creation -->
-    <div class="gi-service-row gi-reverse">
-        <div class="gi-service-visual">
-            <div class="gi-glass-frame">
-                <?php gi_before_after($base_url . '/2023/09/Shadowing_A.jpg', $base_url . '/2023/09/Shadowing_B.jpg', '', '', 's_shadow'); ?>
-            </div>
-        </div>
-        <div class="gi-service-content" data-gi-animate="fade-up">
-            <h3><span class="gi-highlight-blue">Shadow</span> <span class="gi-highlight-teal">Creation</span></h3>
-            <p>Leaving your customers speechless and convincing them that your products are real based on the images, is the sole option for them. After removing the background from product shots with white backgrounds, the Photoshop shadow creation service makes the images realistic rather than fake.</p>
-            <ul class="gi-feature-list">
-                <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg> Drop Shadowing</li>
-                <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg> Natural Shadowing</li>
-                <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg> Reflection Shadowing</li>
-                <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg> Pickup Original Shadow</li>
-            </ul>
-            <a href="<?php echo esc_url( home_url('/shadow-creation-service/') ); ?>" class="gi-btn gi-btn-primary gi-btn-glow">Learn More &rarr;</a>
-        </div>
-    </div>
-</div>
-
-
+<?php endforeach; ?>
 
 <!-- ==========================================
      HOW IT WORKS

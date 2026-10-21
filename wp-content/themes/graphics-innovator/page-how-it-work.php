@@ -22,8 +22,8 @@ get_header();
 $upload_dir = wp_upload_dir();
 $base_url   = $upload_dir['baseurl'];
 
-$shoe_before = $base_url . '/2023/08/Clipping-Path_A.jpg';
-$shoe_after  = $base_url . '/2023/08/Clipping-Path_B.jpg';
+$shoe_before = gi_get_image_url( gi_get_field( 'hw_step1_before_img' ), 'full', $base_url . '/2023/08/Clipping-Path_A.jpg' );
+$shoe_after  = gi_get_image_url( gi_get_field( 'hw_step1_after_img' ), 'full', $base_url . '/2023/08/Clipping-Path_B.jpg' );
 ?>
 
 <style>
@@ -774,13 +774,13 @@ $shoe_after  = $base_url . '/2023/08/Clipping-Path_B.jpg';
         <!-- Header Section -->
         <div class="gi-hw-header">
             <div class="gi-hw-pill">
-                <span>OUR WORKFLOW</span>
+                <span><?php echo esc_html( gi_get_field( 'hw_badge', 'OUR WORKFLOW' ) ); ?></span>
             </div>
             <h1 class="gi-hw-title">
-                The Pipeline for Pixel-Perfect <br><span class="gi-hw-text-cyan">Retouching.</span>
+                <?php echo wp_kses_post( gi_get_field( 'hw_title', "The Pipeline for Pixel-Perfect <br><span class=\"gi-hw-text-cyan\">Retouching.</span>" ) ); ?>
             </h1>
             <p class="gi-hw-desc">
-                For enterprise clients handling thousands of product images, you need a workflow that guarantees absolute precision, 100% security, and strict deadlines. Here is how our production engine works.
+                <?php echo esc_html( gi_get_field( 'hw_desc', 'For enterprise clients handling thousands of product images, you need a workflow that guarantees absolute precision, 100% security, and strict deadlines. Here is how our production engine works.' ) ); ?>
             </p>
         </div>
 
@@ -796,10 +796,10 @@ $shoe_after  = $base_url . '/2023/08/Clipping-Path_B.jpg';
                 <article class="gi-hw-card">
                     <!-- Left Sub-Column -->
                     <div class="gi-hw-card-info">
-                        <span class="gi-hw-card-kicker">STEP 01</span>
-                        <h2 class="gi-hw-card-title">Secure Upload &amp; Briefing</h2>
+                        <span class="gi-hw-card-kicker"><?php echo esc_html( gi_get_field( 'hw_step1_kicker', 'STEP 01' ) ); ?></span>
+                        <h2 class="gi-hw-card-title"><?php echo esc_html( gi_get_field( 'hw_step1_title', 'Secure Upload & Briefing' ) ); ?></h2>
                         <p class="gi-hw-card-desc">
-                            We accept large file batches through our secure portal, Google Drive, Dropbox, or enterprise FTP. Every file you upload is protected under a strict Non-Disclosure Agreement (NDA) ensuring your pre-release products never leak.
+                            <?php echo esc_html( gi_get_field( 'hw_step1_desc', 'We accept large file batches through our secure portal, Google Drive, Dropbox, or enterprise FTP. Every file you upload is protected under a strict Non-Disclosure Agreement (NDA) ensuring your pre-release products never leak.' ) ); ?>
                         </p>
 
                         <!-- 3 Feature Badges Row -->
@@ -810,8 +810,8 @@ $shoe_after  = $base_url . '/2023/08/Clipping-Path_B.jpg';
                                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
                                 </div>
                                 <div class="gi-hw-badge-text">
-                                    <strong>100% secure</strong>
-                                    <span>file transfer</span>
+                                    <strong><?php echo esc_html( gi_get_field( 'hw_step1_b1_title', '100% secure' ) ); ?></strong>
+                                    <span><?php echo esc_html( gi_get_field( 'hw_step1_b1_desc', 'file transfer' ) ); ?></span>
                                 </div>
                             </div>
 
@@ -821,8 +821,8 @@ $shoe_after  = $base_url . '/2023/08/Clipping-Path_B.jpg';
                                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 2 7 12 12 22 7 12 2"></polygon><polyline points="2 17 12 22 22 17"></polyline><polyline points="2 12 12 17 22 12"></polyline></svg>
                                 </div>
                                 <div class="gi-hw-badge-text">
-                                    <strong>Support for RAW,</strong>
-                                    <span>TIFF, PSD, JPG</span>
+                                    <strong><?php echo esc_html( gi_get_field( 'hw_step1_b2_title', 'Support for RAW,' ) ); ?></strong>
+                                    <span><?php echo esc_html( gi_get_field( 'hw_step1_b2_desc', 'TIFF, PSD, JPG' ) ); ?></span>
                                 </div>
                             </div>
 
@@ -832,8 +832,8 @@ $shoe_after  = $base_url . '/2023/08/Clipping-Path_B.jpg';
                                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17.5 19H9a7 7 0 1 1 6.71-9h1.79a4.5 4.5 0 1 1 0 9Z"></path></svg>
                                 </div>
                                 <div class="gi-hw-badge-text">
-                                    <strong>Google Drive, Dropbox</strong>
-                                    <span>or enterprise FTP</span>
+                                    <strong><?php echo esc_html( gi_get_field( 'hw_step1_b3_title', 'Google Drive, Dropbox' ) ); ?></strong>
+                                    <span><?php echo esc_html( gi_get_field( 'hw_step1_b3_desc', 'or enterprise FTP' ) ); ?></span>
                                 </div>
                             </div>
                         </div>
@@ -857,10 +857,10 @@ $shoe_after  = $base_url . '/2023/08/Clipping-Path_B.jpg';
                 <article class="gi-hw-card">
                     <!-- Left Sub-Column -->
                     <div class="gi-hw-card-info">
-                        <span class="gi-hw-card-kicker">STEP 02</span>
-                        <h2 class="gi-hw-card-title">Manual Execution &amp; 3-Tier QA</h2>
+                        <span class="gi-hw-card-kicker"><?php echo esc_html( gi_get_field( 'hw_step2_kicker', 'STEP 02' ) ); ?></span>
+                        <h2 class="gi-hw-card-title"><?php echo esc_html( gi_get_field( 'hw_step2_title', 'Manual Execution & 3-Tier QA' ) ); ?></h2>
                         <p class="gi-hw-card-desc">
-                            Our senior editors manually draw clipping paths using the Photoshop Pen Tool and refine every detail. Each image goes through a rigorous 3-Tier Quality Assurance check by a dedicated Art Director.
+                            <?php echo esc_html( gi_get_field( 'hw_step2_desc', 'Our senior editors manually draw clipping paths using the Photoshop Pen Tool and refine every detail. Each image goes through a rigorous 3-Tier Quality Assurance check by a dedicated Art Director.' ) ); ?>
                         </p>
 
                         <!-- 3 Feature Badges Row -->
@@ -871,8 +871,8 @@ $shoe_after  = $base_url . '/2023/08/Clipping-Path_B.jpg';
                                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
                                 </div>
                                 <div class="gi-hw-badge-text">
-                                    <strong>Skilled professional</strong>
-                                    <span>photo editors</span>
+                                    <strong><?php echo esc_html( gi_get_field( 'hw_step2_b1_title', 'Skilled professional' ) ); ?></strong>
+                                    <span><?php echo esc_html( gi_get_field( 'hw_step2_b1_desc', 'photo editors' ) ); ?></span>
                                 </div>
                             </div>
 
@@ -882,8 +882,8 @@ $shoe_after  = $base_url . '/2023/08/Clipping-Path_B.jpg';
                                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 20h9"></path><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"></path></svg>
                                 </div>
                                 <div class="gi-hw-badge-text">
-                                    <strong>Zero AI shortcuts</strong>
-                                    <span>100% human-drawn</span>
+                                    <strong><?php echo esc_html( gi_get_field( 'hw_step2_b2_title', 'Zero AI shortcuts' ) ); ?></strong>
+                                    <span><?php echo esc_html( gi_get_field( 'hw_step2_b2_desc', '100% human-drawn' ) ); ?></span>
                                 </div>
                             </div>
 
@@ -893,8 +893,8 @@ $shoe_after  = $base_url . '/2023/08/Clipping-Path_B.jpg';
                                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
                                 </div>
                                 <div class="gi-hw-badge-text">
-                                    <strong>3-Tier QA by</strong>
-                                    <span>Art Director</span>
+                                    <strong><?php echo esc_html( gi_get_field( 'hw_step2_b3_title', '3-Tier QA by' ) ); ?></strong>
+                                    <span><?php echo esc_html( gi_get_field( 'hw_step2_b3_desc', 'Art Director' ) ); ?></span>
                                 </div>
                             </div>
                         </div>
@@ -962,10 +962,10 @@ $shoe_after  = $base_url . '/2023/08/Clipping-Path_B.jpg';
                 <article class="gi-hw-card">
                     <!-- Left Sub-Column -->
                     <div class="gi-hw-card-info">
-                        <span class="gi-hw-card-kicker">STEP 03</span>
-                        <h2 class="gi-hw-card-title">Rapid Review &amp; Delivery</h2>
+                        <span class="gi-hw-card-kicker"><?php echo esc_html( gi_get_field( 'hw_step3_kicker', 'STEP 03' ) ); ?></span>
+                        <h2 class="gi-hw-card-title"><?php echo esc_html( gi_get_field( 'hw_step3_title', 'Rapid Review & Delivery' ) ); ?></h2>
                         <p class="gi-hw-card-desc">
-                            Your polished images are delivered back to you perfectly formatted, optimized, and ready for your eCommerce store or print catalog. If you spot any details that need adjustment, we provide immediate priority revisions until you are 100% satisfied.
+                            <?php echo esc_html( gi_get_field( 'hw_step3_desc', 'Your polished images are delivered back to you perfectly formatted, optimized, and ready for your eCommerce store or print catalog. If you spot any details that need adjustment, we provide immediate priority revisions until you are 100% satisfied.' ) ); ?>
                         </p>
 
                         <!-- 3 Feature Badges Row -->
@@ -976,8 +976,8 @@ $shoe_after  = $base_url . '/2023/08/Clipping-Path_B.jpg';
                                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg>
                                 </div>
                                 <div class="gi-hw-badge-text">
-                                    <strong>Extremely fast</strong>
-                                    <span>delivery turnaround</span>
+                                    <strong><?php echo esc_html( gi_get_field( 'hw_step3_b1_title', 'Extremely fast' ) ); ?></strong>
+                                    <span><?php echo esc_html( gi_get_field( 'hw_step3_b1_desc', 'delivery turnaround' ) ); ?></span>
                                 </div>
                             </div>
 
@@ -987,8 +987,8 @@ $shoe_after  = $base_url . '/2023/08/Clipping-Path_B.jpg';
                                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18.178 8c5.096 0 5.096 8 0 8-2.695 0-4.758-2.613-6.178-4-1.42 1.387-3.483 4-6.178 4-5.096 0-5.096-8 0-8 2.695 0 4.758 2.613 6.178 4 1.42-1.387 3.483-4 6.178-4z"></path></svg>
                                 </div>
                                 <div class="gi-hw-badge-text">
-                                    <strong>Unlimited revisions</strong>
-                                    <span>until satisfaction</span>
+                                    <strong><?php echo esc_html( gi_get_field( 'hw_step3_b2_title', 'Unlimited revisions' ) ); ?></strong>
+                                    <span><?php echo esc_html( gi_get_field( 'hw_step3_b2_desc', 'until satisfaction' ) ); ?></span>
                                 </div>
                             </div>
 
@@ -998,8 +998,8 @@ $shoe_after  = $base_url . '/2023/08/Clipping-Path_B.jpg';
                                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path><polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline><line x1="12" y1="22.08" x2="12" y2="12"></line></svg>
                                 </div>
                                 <div class="gi-hw-badge-text">
-                                    <strong>Ready for web,</strong>
-                                    <span>print &amp; marketplace</span>
+                                    <strong><?php echo esc_html( gi_get_field( 'hw_step3_b3_title', 'Ready for web,' ) ); ?></strong>
+                                    <span><?php echo esc_html( gi_get_field( 'hw_step3_b3_desc', 'print & marketplace' ) ); ?></span>
                                 </div>
                             </div>
                         </div>
@@ -1043,14 +1043,14 @@ $shoe_after  = $base_url . '/2023/08/Clipping-Path_B.jpg';
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><circle cx="8.5" cy="8.5" r="1.5"></circle><polyline points="21 15 16 10 5 21"></polyline></svg>
                     </div>
                     <div>
-                        <h2 class="gi-hw-cta-heading">Ready to Test the Engine?</h2>
-                        <p class="gi-hw-cta-sub">Upload up to 3 images right now. We will edit them flawlessly and return them in under 12 hours for absolutely no cost.</p>
+                        <h2 class="gi-hw-cta-heading"><?php echo esc_html( gi_get_field( 'hw_cta_title', 'Ready to Test the Engine?' ) ); ?></h2>
+                        <p class="gi-hw-cta-sub"><?php echo esc_html( gi_get_field( 'hw_cta_desc', 'Upload up to 3 images right now. We will edit them flawlessly and return them in under 12 hours for absolutely no cost.' ) ); ?></p>
                     </div>
                 </div>
 
                 <!-- Right Action Button -->
-                <a href="<?php echo esc_url( home_url( '/free-trial/' ) ); ?>" class="gi-hw-cta-btn">
-                    <span>Start Your Free Trial Now</span>
+                <a href="<?php echo esc_url( gi_get_field( 'hw_cta_btn_url', home_url( '/free-trial/' ) ) ); ?>" class="gi-hw-cta-btn">
+                    <span><?php echo esc_html( gi_get_field( 'hw_cta_btn_text', 'Start Your Free Trial Now' ) ); ?></span>
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
                 </a>
             </div>

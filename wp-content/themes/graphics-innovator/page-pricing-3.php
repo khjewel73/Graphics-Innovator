@@ -865,27 +865,27 @@ get_header(); ?>
         <div class="gi-pr-container">
             <div class="gi-pr-hero-badge">
                 <svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
-                Wholesale Volume Rates &bull; 100% Handcrafted
+                <?php echo esc_html( gi_get_field( 'pr_badge', 'Wholesale Volume Rates • 100% Handcrafted' ) ); ?>
             </div>
-            <h1>Transparent &amp; Predictable <span class="gi-cyan-text">Pricing</span></h1>
-            <p>Direct human production with wholesale bulk rates starting from $0.25/image. No hidden charges, no AI distortions, and zero middleman markups.</p>
+            <h1><?php echo wp_kses_post( gi_get_field( 'pr_title', "Transparent &amp; Predictable <span class=\"gi-cyan-text\">Pricing</span>" ) ); ?></h1>
+            <p><?php echo esc_html( gi_get_field( 'pr_desc', 'Direct human production with wholesale bulk rates starting from $0.25/image. No hidden charges, no AI distortions, and zero middleman markups.' ) ); ?></p>
             
             <div class="gi-pr-hero-pills-row">
                 <span class="gi-pr-hero-pill-item">
                     <svg viewBox="0 0 24 24" width="15" height="15" fill="currentColor"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
-                    12-Hour Batch Turnaround
+                    <?php echo esc_html( gi_get_field( 'pr_pill_1', '12-Hour Batch Turnaround' ) ); ?>
                 </span>
                 <span class="gi-pr-hero-pill-item">
                     <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
-                    Strict NDA Protected
+                    <?php echo esc_html( gi_get_field( 'pr_pill_2', 'Strict NDA Protected' ) ); ?>
                 </span>
                 <span class="gi-pr-hero-pill-item">
                     <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle></svg>
-                    500+ Active Brands
+                    <?php echo esc_html( gi_get_field( 'pr_pill_3', '500+ Active Brands' ) ); ?>
                 </span>
                 <span class="gi-pr-hero-pill-item">
                     <svg viewBox="0 0 24 24" width="15" height="15" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
-                    99% Satisfaction Rate
+                    <?php echo esc_html( gi_get_field( 'pr_pill_4', '99% Satisfaction Rate' ) ); ?>
                 </span>
             </div>
         </div>
@@ -906,92 +906,133 @@ get_header(); ?>
             <div class="gi-pr-cards-grid">
                 
                 <!-- Tier 1: Essential Clipping -->
+                <?php
+                $t1_title    = gi_get_field( 'pr_t1_title', 'Essential Clipping' );
+                $t1_tagline  = gi_get_field( 'pr_t1_tagline', 'Fast background removal and hand-drawn cutout paths for eCommerce catalogs.' );
+                $t1_price    = gi_get_field( 'pr_t1_price', '0.25' );
+                $t1_unit     = gi_get_field( 'pr_t1_unit', '/ image' );
+                $t1_subtext  = gi_get_field( 'pr_t1_subtext', 'Starting bulk volume rate' );
+                $t1_features = gi_parse_features( gi_get_field( 'pr_t1_features' ), [
+                    'Hand-drawn pen clipping paths (100% human)',
+                    'Pure white & transparent cutouts',
+                    'Precision centering & margin alignment',
+                    'Amazon, eBay & Shopify ready formats',
+                    'Guaranteed 12-24h turnaround'
+                ] );
+                $t1_btn_text = gi_get_field( 'pr_t1_btn_text', "Let's Start Chat" );
+                $t1_btn_url  = gi_get_field( 'pr_t1_btn_url', 'https://wa.me/8801714516662?text=' . rawurlencode('Hello Graphics Innovator! I need a volume rate for Essential Clipping & Background Removal.') );
+                ?>
                 <div class="gi-pr-clean-card" data-gi-animate="fade-up">
-                    <h3 class="gi-pr-plan-title">Essential Clipping</h3>
-                    <p class="gi-pr-plan-tagline">Fast background removal and hand-drawn cutout paths for eCommerce catalogs.</p>
+                    <h3 class="gi-pr-plan-title"><?php echo esc_html( $t1_title ); ?></h3>
+                    <p class="gi-pr-plan-tagline"><?php echo esc_html( $t1_tagline ); ?></p>
                     
                     <div class="gi-pr-price-wrap">
                         <div class="gi-pr-figure">
-                            <span class="gi-pr-currency">$</span>0.25
-                            <span class="gi-pr-unit">/ image</span>
+                            <span class="gi-pr-currency">$</span><?php echo esc_html( $t1_price ); ?>
+                            <span class="gi-pr-unit"><?php echo esc_html( $t1_unit ); ?></span>
                         </div>
                         <div class="gi-pr-subtext">
                             <svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
-                            <span>Starting bulk volume rate</span>
+                            <span><?php echo esc_html( $t1_subtext ); ?></span>
                         </div>
                     </div>
 
                     <ul class="gi-pr-features-list">
-                        <li><span class="gi-pr-check-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><polyline points="20 6 9 17 4 12"></polyline></svg></span> Hand-drawn pen clipping paths (100% human)</li>
-                        <li><span class="gi-pr-check-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><polyline points="20 6 9 17 4 12"></polyline></svg></span> Pure white &amp; transparent cutouts</li>
-                        <li><span class="gi-pr-check-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><polyline points="20 6 9 17 4 12"></polyline></svg></span> Precision centering &amp; margin alignment</li>
-                        <li><span class="gi-pr-check-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><polyline points="20 6 9 17 4 12"></polyline></svg></span> Amazon, eBay &amp; Shopify ready formats</li>
-                        <li><span class="gi-pr-check-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><polyline points="20 6 9 17 4 12"></polyline></svg></span> Guaranteed 12-24h turnaround</li>
+                        <?php foreach ( $t1_features as $feat ) : ?>
+                            <li><span class="gi-pr-check-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><polyline points="20 6 9 17 4 12"></polyline></svg></span> <?php echo esc_html( $feat ); ?></li>
+                        <?php endforeach; ?>
                     </ul>
 
-                    <a href="https://wa.me/8801714516662?text=<?php echo rawurlencode('Hello Graphics Innovator! I need a volume rate for Essential Clipping & Background Removal.'); ?>" target="_blank" rel="noopener noreferrer" class="gi-pr-btn gi-pr-btn-outline">
-                        <span>Let's Start Chat</span>
+                    <a href="<?php echo esc_url( $t1_btn_url ); ?>" target="_blank" rel="noopener noreferrer" class="gi-pr-btn gi-pr-btn-outline">
+                        <span><?php echo esc_html( $t1_btn_text ); ?></span>
                         <svg class="gi-pr-arrow" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
                     </a>
                 </div>
 
                 <!-- Tier 2: Commercial Retouching (Most Popular) -->
+                <?php
+                $t2_badge    = gi_get_field( 'pr_t2_badge', '⭐ Most Popular' );
+                $t2_title    = gi_get_field( 'pr_t2_title', 'Commercial Retouching' );
+                $t2_tagline  = gi_get_field( 'pr_t2_tagline', 'The industry standard for apparel, footwear, and consumer brand catalogs.' );
+                $t2_price    = gi_get_field( 'pr_t2_price_text', 'Custom Volume Rate' );
+                $t2_subtext  = gi_get_field( 'pr_t2_subtext', 'Save up to 45% on volume orders' );
+                $t2_features = gi_parse_features( gi_get_field( 'pr_t2_features' ), [
+                    'Everything in Essential Clipping',
+                    'Ghost mannequin & 3D neck joint',
+                    'Natural & reflection drop shadows',
+                    'Precision color matching to swatches',
+                    'Dust, scratch & wrinkle removal',
+                    'Dedicated production supervisor assigned'
+                ] );
+                $t2_btn_text = gi_get_field( 'pr_t2_btn_text', "Let's Start Chat" );
+                $t2_btn_url  = gi_get_field( 'pr_t2_btn_url', 'https://wa.me/8801714516662?text=' . rawurlencode('Hello Graphics Innovator! I need a custom quote for Commercial Retouching & Ghost Mannequin.') );
+                ?>
                 <div class="gi-pr-clean-card is-popular" data-gi-animate="fade-up" data-gi-delay="100">
-                    <div class="gi-pr-popular-badge">⭐ Most Popular</div>
-                    <h3 class="gi-pr-plan-title">Commercial Retouching</h3>
-                    <p class="gi-pr-plan-tagline">The industry standard for apparel, footwear, and consumer brand catalogs.</p>
+                    <?php if ( ! empty( $t2_badge ) ) : ?><div class="gi-pr-popular-badge"><?php echo esc_html( $t2_badge ); ?></div><?php endif; ?>
+                    <h3 class="gi-pr-plan-title"><?php echo esc_html( $t2_title ); ?></h3>
+                    <p class="gi-pr-plan-tagline"><?php echo esc_html( $t2_tagline ); ?></p>
                     
                     <div class="gi-pr-price-wrap">
                         <div class="gi-pr-figure-custom">
-                            Custom Volume Rate
+                            <?php echo esc_html( $t2_price ); ?>
                         </div>
                         <div class="gi-pr-subtext">
                             <svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
-                            <span>Save up to 45% on volume orders</span>
+                            <span><?php echo esc_html( $t2_subtext ); ?></span>
                         </div>
                     </div>
 
                     <ul class="gi-pr-features-list">
-                        <li><span class="gi-pr-check-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><polyline points="20 6 9 17 4 12"></polyline></svg></span> Everything in Essential Clipping</li>
-                        <li><span class="gi-pr-check-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><polyline points="20 6 9 17 4 12"></polyline></svg></span> Ghost mannequin &amp; 3D neck joint</li>
-                        <li><span class="gi-pr-check-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><polyline points="20 6 9 17 4 12"></polyline></svg></span> Natural &amp; reflection drop shadows</li>
-                        <li><span class="gi-pr-check-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><polyline points="20 6 9 17 4 12"></polyline></svg></span> Precision color matching to swatches</li>
-                        <li><span class="gi-pr-check-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><polyline points="20 6 9 17 4 12"></polyline></svg></span> Dust, scratch &amp; wrinkle removal</li>
-                        <li><span class="gi-pr-check-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><polyline points="20 6 9 17 4 12"></polyline></svg></span> Dedicated production supervisor assigned</li>
+                        <?php foreach ( $t2_features as $feat ) : ?>
+                            <li><span class="gi-pr-check-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><polyline points="20 6 9 17 4 12"></polyline></svg></span> <?php echo esc_html( $feat ); ?></li>
+                        <?php endforeach; ?>
                     </ul>
 
-                    <a href="https://wa.me/8801714516662?text=<?php echo rawurlencode('Hello Graphics Innovator! I need a custom quote for Commercial Retouching & Ghost Mannequin.'); ?>" target="_blank" rel="noopener noreferrer" class="gi-pr-btn gi-pr-btn-solid">
-                        <span>Let's Start Chat</span>
+                    <a href="<?php echo esc_url( $t2_btn_url ); ?>" target="_blank" rel="noopener noreferrer" class="gi-pr-btn gi-pr-btn-solid">
+                        <span><?php echo esc_html( $t2_btn_text ); ?></span>
                         <svg class="gi-pr-arrow" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
                     </a>
                 </div>
 
                 <!-- Tier 3: High-End Editorial & Jewelry -->
+                <?php
+                $t3_title    = gi_get_field( 'pr_t3_title', 'Editorial & Jewelry' );
+                $t3_tagline  = gi_get_field( 'pr_t3_tagline', 'Magazine-quality retouching for jewelry, luxury goods, cosmetics, and models.' );
+                $t3_price    = gi_get_field( 'pr_t3_price_text', 'Custom Quote' );
+                $t3_subtext  = gi_get_field( 'pr_t3_subtext', 'Bespoke scope & dedicated lead' );
+                $t3_features = gi_parse_features( gi_get_field( 'pr_t3_features' ), [
+                    'Everything in Commercial Retouching',
+                    'Non-destructive Dodge & Burn skin',
+                    'Diamond sparkle & metal polish',
+                    'Stray hair & anatomical contouring',
+                    'Multi-layer PSD delivery with masks',
+                    'Direct senior art director review'
+                ] );
+                $t3_btn_text = gi_get_field( 'pr_t3_btn_text', "Let's Start Chat" );
+                $t3_btn_url  = gi_get_field( 'pr_t3_btn_url', 'https://wa.me/8801714516662?text=' . rawurlencode('Hello Graphics Innovator! I need a consultation for High-End Editorial & Jewelry Retouching.') );
+                ?>
                 <div class="gi-pr-clean-card" data-gi-animate="fade-up" data-gi-delay="200">
-                    <h3 class="gi-pr-plan-title">Editorial &amp; Jewelry</h3>
-                    <p class="gi-pr-plan-tagline">Magazine-quality retouching for jewelry, luxury goods, cosmetics, and models.</p>
+                    <h3 class="gi-pr-plan-title"><?php echo esc_html( $t3_title ); ?></h3>
+                    <p class="gi-pr-plan-tagline"><?php echo esc_html( $t3_tagline ); ?></p>
                     
                     <div class="gi-pr-price-wrap">
                         <div class="gi-pr-figure-custom">
-                            Custom Quote
+                            <?php echo esc_html( $t3_price ); ?>
                         </div>
                         <div class="gi-pr-subtext">
                             <svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
-                            <span>Bespoke scope &amp; dedicated lead</span>
+                            <span><?php echo esc_html( $t3_subtext ); ?></span>
                         </div>
                     </div>
 
                     <ul class="gi-pr-features-list">
-                        <li><span class="gi-pr-check-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><polyline points="20 6 9 17 4 12"></polyline></svg></span> Everything in Commercial Retouching</li>
-                        <li><span class="gi-pr-check-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><polyline points="20 6 9 17 4 12"></polyline></svg></span> Non-destructive Dodge &amp; Burn skin</li>
-                        <li><span class="gi-pr-check-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><polyline points="20 6 9 17 4 12"></polyline></svg></span> Diamond sparkle &amp; metal polish</li>
-                        <li><span class="gi-pr-check-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><polyline points="20 6 9 17 4 12"></polyline></svg></span> Stray hair &amp; anatomical contouring</li>
-                        <li><span class="gi-pr-check-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><polyline points="20 6 9 17 4 12"></polyline></svg></span> Multi-layer PSD delivery with masks</li>
-                        <li><span class="gi-pr-check-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><polyline points="20 6 9 17 4 12"></polyline></svg></span> Direct senior art director review</li>
+                        <?php foreach ( $t3_features as $feat ) : ?>
+                            <li><span class="gi-pr-check-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><polyline points="20 6 9 17 4 12"></polyline></svg></span> <?php echo esc_html( $feat ); ?></li>
+                        <?php endforeach; ?>
                     </ul>
 
-                    <a href="https://wa.me/8801714516662?text=<?php echo rawurlencode('Hello Graphics Innovator! I need a consultation for High-End Editorial & Jewelry Retouching.'); ?>" target="_blank" rel="noopener noreferrer" class="gi-pr-btn gi-pr-btn-outline">
-                        <span>Let's Start Chat</span>
+                    <a href="<?php echo esc_url( $t3_btn_url ); ?>" target="_blank" rel="noopener noreferrer" class="gi-pr-btn gi-pr-btn-outline">
+                        <span><?php echo esc_html( $t3_btn_text ); ?></span>
                         <svg class="gi-pr-arrow" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
                     </a>
                 </div>
@@ -1267,11 +1308,11 @@ get_header(); ?>
     <section class="gi-pr-sec-cta-dark">
         <div class="gi-pr-container">
             <div class="gi-pr-cta-box-dark" data-gi-animate="fade-up">
-                <h2>Ready to Scale Your Visual Catalog?</h2>
-                <p>Upload up to 3 test images right now. Our senior editors will process them to pixel perfection and return them in under 12 hours for zero cost.</p>
+                <h2><?php echo esc_html( gi_get_field( 'pr_cta_title', 'Ready to Scale Your Visual Catalog?' ) ); ?></h2>
+                <p><?php echo esc_html( gi_get_field( 'pr_cta_desc', 'Upload up to 3 test images right now. Our senior editors will process them to pixel perfection and return them in under 12 hours for zero cost.' ) ); ?></p>
                 <div class="gi-pr-cta-actions-dark">
-                    <a href="<?php echo esc_url( home_url( '/free-trial/' ) ); ?>" class="gi-pr-btn-trial-orange">Start Your Free Trial Now &rarr;</a>
-                    <a href="https://wa.me/8801714516662?text=<?php echo rawurlencode('Hello Graphics Innovator! I want to start a chat about our image catalog.'); ?>" target="_blank" rel="noopener noreferrer" class="gi-pr-btn-chat-glass">Let's Start Chat</a>
+                    <a href="<?php echo esc_url( gi_get_field( 'pr_cta_btn1_url', home_url( '/free-trial/' ) ) ); ?>" class="gi-pr-btn-trial-orange"><?php echo esc_html( gi_get_field( 'pr_cta_btn1_text', 'Start Your Free Trial Now →' ) ); ?></a>
+                    <a href="<?php echo esc_url( gi_get_field( 'pr_cta_btn2_url', 'https://wa.me/8801714516662?text=' . rawurlencode('Hello Graphics Innovator! I want to start a chat about our image catalog.') ) ); ?>" target="_blank" rel="noopener noreferrer" class="gi-pr-btn-chat-glass"><?php echo esc_html( gi_get_field( 'pr_cta_btn2_text', "Let's Start Chat" ) ); ?></a>
                 </div>
             </div>
         </div>

@@ -116,7 +116,8 @@ document.addEventListener('DOMContentLoaded', () => {
                     const target = parseInt(el.getAttribute('data-target'), 10);
                     if (isNaN(target)) return;
 
-                    const duration = 2000;
+                    el.textContent = '0';
+                    const duration = 1600;
                     const startTime = performance.now();
 
                     const updateCounter = (now) => {

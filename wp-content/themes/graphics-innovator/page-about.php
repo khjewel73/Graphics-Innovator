@@ -42,10 +42,10 @@ if ( empty( $team_img ) ) {
                 <?php gi_section_heading( esc_html( $badge ), esc_html( $title ), '', false ); ?>
                 <div class="gi-about-text-content">
                     <?php
-                    $raw_content = get_the_content();
-                    if ( ! empty( trim( $raw_content ) ) ) {
+                    $story_text = gi_get_field( 'about_story_text', '' );
+                    if ( ! empty( trim( $story_text ) ) ) {
                         echo '<div class="gi-about-custom-content" style="color: rgba(255,255,255,0.8); line-height: 1.8; margin-bottom: 2rem;">';
-                        echo apply_filters( 'the_content', $raw_content );
+                        echo wpautop( wp_kses_post( $story_text ) );
                         echo '</div>';
                     } else {
                         ?>

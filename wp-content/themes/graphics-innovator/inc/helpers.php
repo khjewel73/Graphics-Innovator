@@ -141,7 +141,7 @@ function gi_stat_counter( $number, $suffix, $label, $icon = '' ) {
             <div class="gi-stat-icon"><?php echo $icon; ?></div>
         <?php endif; ?>
         <div class="gi-stat-number">
-            <span class="gi-counter" data-target="<?php echo esc_attr( $number ); ?>">0</span><?php echo esc_html( $suffix ); ?>
+            <span class="gi-counter" data-target="<?php echo esc_attr( $number ); ?>"><?php echo esc_html( $number ); ?></span><?php echo esc_html( $suffix ); ?>
         </div>
         <div class="gi-stat-label"><?php echo esc_html( $label ); ?></div>
     </div>

@@ -253,6 +253,7 @@ function gi_render_about_page_meta_box( $post ) {
 
     $badge      = get_post_meta( $post->ID, 'about_story_badge', true );
     $title      = get_post_meta( $post->ID, 'about_story_title', true );
+    $story_text = get_post_meta( $post->ID, 'about_story_text', true );
     $quote      = get_post_meta( $post->ID, 'about_story_quote', true );
     $image      = get_post_meta( $post->ID, 'about_story_image', true );
     $btn_text   = get_post_meta( $post->ID, 'about_story_btn_text', true );
@@ -285,6 +286,12 @@ function gi_render_about_page_meta_box( $post ) {
                     <label class="gi-meta-label" for="gi_about_story_title"><?php esc_html_e( 'Main Heading Title', 'graphics-innovator' ); ?></label>
                     <input type="text" id="gi_about_story_title" name="about_story_title" class="gi-meta-input" value="<?php echo esc_attr( $title ); ?>">
                 </div>
+            </div>
+
+            <div class="gi-meta-row" style="margin-top: 12px;">
+                <label class="gi-meta-label" for="gi_about_story_text"><?php esc_html_e( 'Company Story Paragraphs (Optional Override)', 'graphics-innovator' ); ?></label>
+                <textarea id="gi_about_story_text" name="about_story_text" class="gi-meta-textarea" rows="4" placeholder="<?php esc_attr_e( 'Leave empty to use the standard 3 polished paragraphs...', 'graphics-innovator' ); ?>"><?php echo esc_textarea( $story_text ); ?></textarea>
+                <div class="gi-meta-desc"><?php esc_html_e( 'If empty, the clean default company story is displayed automatically without any legacy database clutter.', 'graphics-innovator' ); ?></div>
             </div>
 
             <div class="gi-meta-row" style="margin-top: 12px;">
@@ -460,6 +467,7 @@ function gi_save_native_page_meta( $post_id ) {
     $keys = [
         'about_story_badge',
         'about_story_title',
+        'about_story_text',
         'about_story_quote',
         'about_story_image',
         'about_story_btn_text',

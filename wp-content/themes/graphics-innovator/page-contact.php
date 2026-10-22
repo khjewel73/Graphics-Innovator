@@ -990,6 +990,17 @@ $quote_nonce = wp_create_nonce( 'gi_quote_action' );
     <!-- Perspective Grid Overlay -->
     <div class="gi-qc-grid-overlay" aria-hidden="true"></div>
 
+    <?php
+    $contact_pill_tag = gi_get_field( 'contact_pill_tag', "LET'S WORK TOGETHER" );
+    $contact_title    = gi_get_field( 'contact_title', "Let's Build<br>Something <span class=\"gi-qc-gradient-text\">Amazing.</span>" );
+    $contact_desc     = gi_get_field( 'contact_desc', "Whether you need bulk eCommerce clipping or high-end editorial retouching, our team is ready. We typically reply within 45 minutes." );
+    $contact_email    = gi_get_field( 'contact_general_email', 'info@graphicsinnovator.com' );
+    $contact_phone    = gi_get_field( 'contact_general_phone', '+880 1714 516 662' );
+    $contact_wa_phone = gi_get_field( 'contact_whatsapp_num', '+880 1714 516 662' );
+    $contact_cy_addr  = gi_get_field( 'contact_office_cy_addr', "ALKEUS 22, STROVOLOS<br>2064 NICOSIA, Cyprus" );
+    $contact_bd_addr  = gi_get_field( 'contact_office_bd_addr', "House: 70, Road: 1/A, Santidhara<br>Rangpur, Bangladesh" );
+    ?>
+
     <div class="gi-qc-container">
         
         <!-- LEFT COLUMN: The Pitch, 4 Badges, 3 Contact Cards, Route Map -->
@@ -998,17 +1009,17 @@ $quote_nonce = wp_create_nonce( 'gi_quote_action' );
             <!-- Top Pill Badge -->
             <div class="gi-qc-pill">
                 <span class="gi-qc-pill-dot"></span>
-                <span>LET'S WORK TOGETHER</span>
+                <span><?php echo esc_html( $contact_pill_tag ); ?></span>
             </div>
 
             <!-- Main Heading -->
             <h1 class="gi-qc-title">
-                Let's Build<br>Something <span class="gi-qc-gradient-text">Amazing.</span>
+                <?php echo wp_kses_post( $contact_title ); ?>
             </h1>
 
             <!-- Subheading Paragraph -->
             <p class="gi-qc-desc">
-                Whether you need bulk eCommerce clipping or high-end editorial retouching, our team is ready. We typically reply within 45 minutes.
+                <?php echo esc_html( $contact_desc ); ?>
             </p>
 
             <!-- 4 Feature Metric Badges Row -->
@@ -1072,20 +1083,20 @@ $quote_nonce = wp_create_nonce( 'gi_quote_action' );
                         <h3>General Inquiries</h3>
                         <p>For pricing, bulk quotes, and direct support.</p>
                         <div class="gi-qc-contact-chips">
-                            <a href="mailto:info@graphicsinnovator.com" class="gi-qc-chip-link" title="Email Us">
+                            <a href="mailto:<?php echo esc_attr( $contact_email ); ?>" class="gi-qc-chip-link" title="Email Us">
                                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
-                                <span>info@graphicsinnovator.com</span>
+                                <span><?php echo esc_html( $contact_email ); ?></span>
                             </a>
-                            <a href="tel:+8801714516662" class="gi-qc-chip-link" title="Call Direct">
+                            <a href="tel:<?php echo esc_attr( preg_replace('/[^0-9+]/', '', $contact_phone) ); ?>" class="gi-qc-chip-link" title="Call Direct">
                                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
-                                <span>+880 1714 516 662</span>
+                                <span><?php echo esc_html( $contact_phone ); ?></span>
                             </a>
                         </div>
                     </div>
                 </div>
 
                 <!-- Card 2: WhatsApp Live Chat (Enabled) -->
-                <a href="https://wa.me/8801714516662?text=Hi%20Graphics%20Innovator,%20I%20have%20an%20inquiry" target="_blank" rel="noopener noreferrer" class="gi-qc-info-card gi-qc-whatsapp-card" title="Chat on WhatsApp (+880 1714 516 662)">
+                <a href="https://wa.me/<?php echo esc_attr( preg_replace('/[^0-9]/', '', $contact_wa_phone) ); ?>?text=Hi%20Graphics%20Innovator,%20I%20have%20an%20inquiry" target="_blank" rel="noopener noreferrer" class="gi-qc-info-card gi-qc-whatsapp-card" title="Chat on WhatsApp">
                     <div class="gi-qc-info-icon icon-whatsapp">
                         <svg viewBox="0 0 24 24" fill="currentColor">
                             <path d="M12.031 2C6.495 2 2 6.494 2 12.029c0 1.97.57 3.81 1.558 5.37L2 22l4.823-1.528A9.99 9.99 0 0 0 12.031 22C17.567 22 22 17.506 22 12.03 22 6.494 17.566 2 12.031 2zm5.797 14.18c-.244.686-1.22 1.258-1.748 1.334-.48.068-1.077.103-3.155-.758-2.658-1.101-4.364-3.799-4.498-3.978-.13-.178-1.075-1.43-1.075-2.727 0-1.298.679-1.936.92-2.195.242-.259.529-.323.705-.323.176 0 .353.003.508.01.164.009.385-.062.602.46.223.535.759 1.85.826 1.984.067.135.112.293.023.472-.09.178-.134.29-.267.447-.134.157-.28.35-.401.47-.134.133-.274.278-.118.546.156.267.693 1.144 1.488 1.852 1.023.91 1.886 1.192 2.153 1.325.268.134.424.112.58-.067.157-.178.67-.78 848-1.048.178-.268.356-.223.593-.134.238.089 1.512.713 1.77.842.259.13.432.193.495.305.064.111.064.646-.18 1.332z"/>
@@ -1097,7 +1108,7 @@ $quote_nonce = wp_create_nonce( 'gi_quote_action' );
                             <span class="gi-qc-live-dot-badge"><span class="gi-qc-live-pulse"></span>Online</span>
                         </div>
                         <p>Fast responses, custom volume quotes &amp; live support.</p>
-                        <span class="gi-qc-info-link gi-qc-info-link--wa">+880 1714 516 662 • Chat Live on WhatsApp &rarr;</span>
+                        <span class="gi-qc-info-link gi-qc-info-link--wa"><?php echo esc_html( $contact_wa_phone ); ?> • Chat Live on WhatsApp &rarr;</span>
                     </div>
                     <div class="gi-qc-info-arrow" aria-hidden="true">
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg>
@@ -1114,7 +1125,7 @@ $quote_nonce = wp_create_nonce( 'gi_quote_action' );
                             <h3>Europe Office (HQ)</h3>
                             <span class="gi-qc-info-tag">Headquarters</span>
                         </div>
-                        <p style="margin:0;">ALKEUS 22, STROVOLOS<br>2064 NICOSIA, Cyprus</p>
+                        <p style="margin:0;"><?php echo nl2br( wp_kses_post( $contact_cy_addr ) ); ?></p>
                     </div>
                 </div>
 
@@ -1128,7 +1139,7 @@ $quote_nonce = wp_create_nonce( 'gi_quote_action' );
                             <h3>Production Studio</h3>
                             <span class="gi-qc-info-tag">Production Studio</span>
                         </div>
-                        <p style="margin:0;">House: 70, Road: 1/A, Santidhara<br>Rangpur, Bangladesh</p>
+                        <p style="margin:0;"><?php echo nl2br( wp_kses_post( $contact_bd_addr ) ); ?></p>
                     </div>
                 </div>
 

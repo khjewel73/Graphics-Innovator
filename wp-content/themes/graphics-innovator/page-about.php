@@ -16,44 +16,73 @@ $base_url = $upload_dir['baseurl'];
 <!-- ==========================================
      COMPANY STORY
      ========================================== -->
+<?php
+$badge      = gi_get_field( 'about_story_badge', 'Who We Are' );
+$title      = gi_get_field( 'about_story_title', 'The Leading eCommerce Photo Editing Agency' );
+$quote      = gi_get_field( 'about_story_quote', '"Headquartered in Nicosia, Cyprus with our massive production facility in Bangladesh, we are uniquely positioned to be your ultimate partner for high-quality, cost-effective image editing solutions."' );
+$btn_text   = gi_get_field( 'about_story_btn_text', 'Partner With Us' );
+$btn_url    = gi_get_field( 'about_story_btn_url', home_url('/contact-us/') );
+
+// Team Image: Custom Meta / ACF -> Featured Image -> Default Theme Asset
+$custom_img = gi_get_field( 'about_story_image' );
+$team_img   = '';
+if ( ! empty( $custom_img ) ) {
+    $team_img = gi_get_image_url( $custom_img, 'full' );
+} elseif ( has_post_thumbnail() ) {
+    $team_img = get_the_post_thumbnail_url( get_the_ID(), 'full' );
+}
+if ( empty( $team_img ) ) {
+    $team_img = get_template_directory_uri() . '/about-team.webp?v=' . GI_VERSION;
+}
+?>
 <section class="gi-section gi-hiw-dark-mode gi-about-section-charcoal">
     <div class="gi-container">
         <div class="gi-grid gi-grid-2" style="align-items: center;">
             <div data-gi-animate="fade-up">
-                <?php gi_section_heading( 'Who We Are', 'The Leading eCommerce Photo Editing Agency', '', false ); ?>
+                <?php gi_section_heading( esc_html( $badge ), esc_html( $title ), '', false ); ?>
                 <div class="gi-about-text-content">
-                    <p style="color: var(--gi-white); line-height: 1.7; margin-bottom: 1.5rem;">
-                        Welcome to Graphics Innovator Ltd. We are a globally recognized agency specializing in premium clipping path and digital image enhancement operations.
-                    </p>
-                    <p style="color: rgba(255,255,255,0.7); line-height: 1.7; margin-bottom: 1.5rem;">
-                        We consistently deliver high-end Photoshop services to clients worldwide—including <strong>Background Removal, Clipping Path, Image Masking, and Retouching</strong>. To date, our dedicated support has empowered e-commerce businesses across more than 25 different nations.
-                    </p>
-                    <p style="color: rgba(255,255,255,0.7); line-height: 1.7; margin-bottom: 2rem;">
-                        Operating <strong>24/7, 365 days a year</strong>, our state-of-the-art studio is driven by a formidable team of over 100 skilled graphic designers. We operate on a simple philosophy: you focus on doing what you do best, and outsource the complex image editing to us.
-                    </p>
+                    <?php
+                    $raw_content = get_the_content();
+                    if ( ! empty( trim( $raw_content ) ) ) {
+                        echo '<div class="gi-about-custom-content" style="color: rgba(255,255,255,0.8); line-height: 1.8; margin-bottom: 2rem;">';
+                        echo apply_filters( 'the_content', $raw_content );
+                        echo '</div>';
+                    } else {
+                        ?>
+                        <p style="color: var(--gi-white); line-height: 1.7; margin-bottom: 1.5rem;">
+                            Welcome to Graphics Innovator Ltd. We are a globally recognized agency specializing in premium clipping path and digital image enhancement operations.
+                        </p>
+                        <p style="color: rgba(255,255,255,0.7); line-height: 1.7; margin-bottom: 1.5rem;">
+                            We consistently deliver high-end Photoshop services to clients worldwide—including <strong>Background Removal, Clipping Path, Image Masking, and Retouching</strong>. To date, our dedicated support has empowered e-commerce businesses across more than 25 different nations.
+                        </p>
+                        <p style="color: rgba(255,255,255,0.7); line-height: 1.7; margin-bottom: 2rem;">
+                            Operating <strong>24/7, 365 days a year</strong>, our state-of-the-art studio is driven by a formidable team of over 100 skilled graphic designers. We operate on a simple philosophy: you focus on doing what you do best, and outsource the complex image editing to us.
+                        </p>
+                        <?php
+                    }
+                    ?>
+                    <?php if ( ! empty( $quote ) ) : ?>
                     <div class="gi-about-quote" style="background: linear-gradient(90deg, rgba(42, 106, 238, 0.1) 0%, rgba(42, 106, 238, 0) 100%); border-left: 4px solid var(--gi-teal); padding: 1.5rem 2rem; border-radius: 0 12px 12px 0; margin-bottom: 2.5rem;">
                         <p style="color: var(--gi-white); margin: 0; line-height: 1.7;">
-                            "Headquartered in Nicosia, Cyprus with our massive production facility in Bangladesh, we are uniquely positioned to be your ultimate partner for high-quality, cost-effective image editing solutions."
+                            <?php echo esc_html( $quote ); ?>
                         </p>
                     </div>
+                    <?php endif; ?>
                 </div>
                 <div style="margin-top: var(--gi-space-8);">
-                    <a href="<?php echo esc_url( home_url('/contact-us/') ); ?>" class="gi-btn gi-btn-primary gi-btn-lg">Partner With Us</a>
+                    <a href="<?php echo esc_url( $btn_url ); ?>" class="gi-btn gi-btn-primary gi-btn-lg"><?php echo esc_html( $btn_text ); ?></a>
                 </div>
             </div>
             <div data-gi-animate="fade-up" data-gi-delay="120">
                 <div class="gi-about-image-frame" style="position: relative; border-radius: 20px; overflow: hidden; box-shadow: 0 25px 60px rgba(0,0,0,0.5), 0 0 35px rgba(42, 106, 238, 0.15); border: 1px solid rgba(255,255,255,0.12); transition: transform 0.4s ease;">
-                    <picture>
-                        <source srcset="<?php echo esc_url( get_template_directory_uri() . '/about-team.webp?v=' . GI_VERSION ); ?>" type="image/webp">
-                        <img src="<?php echo esc_url( get_template_directory_uri() . '/about-team.jpg?v=' . GI_VERSION ); ?>" 
-                             alt="<?php esc_attr_e( 'Graphics Innovator Production Team & Studio Operations', 'graphics-innovator' ); ?>" 
-                             width="1024" 
-                             height="682"
-                             loading="eager"
-                             fetchpriority="high"
-                             decoding="async"
-                             style="width: 100%; height: auto; display: block; object-fit: cover; transition: transform 0.4s ease;">
-                    </picture>
+                    <img src="<?php echo esc_url( $team_img ); ?>" 
+                         alt="<?php esc_attr_e( 'Graphics Innovator Production Team & Studio Operations', 'graphics-innovator' ); ?>" 
+                         width="1024" 
+                         height="682"
+                         loading="eager"
+                         fetchpriority="high"
+                         decoding="async"
+                         style="width: 100%; height: auto; display: block; object-fit: cover; transition: transform 0.4s ease;">
                 </div>
             </div>
         </div>
@@ -178,8 +207,7 @@ $base_url = $upload_dir['baseurl'];
                     <div class="gi-contact-card-value" style="font-weight: 400; color: rgba(255,255,255,0.7); font-size: var(--gi-text-sm); line-height: 1.6;">
                         <strong>Graphics Innovator Ltd.</strong><br>
                         ALKEUS 22, STROVOLOS<br>
-                        2064 Nicosia, Cyprus<br><br>
-                        <strong style="color: rgba(255,255,255,0.5);">Phone:</strong> <a href="tel:<?php echo esc_attr( preg_replace('/[^0-9+]/', '', get_theme_mod('gi_phone_cy', '+357 96 341 452')) ); ?>" style="color: #2a6aee;"><?php echo esc_html( get_theme_mod('gi_phone_cy', '+357 96 341 452') ); ?></a>
+                        2064 Nicosia, Cyprus
                     </div>
                 </div>
             </div>
@@ -187,15 +215,14 @@ $base_url = $upload_dir['baseurl'];
             <!-- Bangladesh Production -->
             <div class="gi-contact-card" data-gi-animate="fade-up" data-gi-delay="100">
                 <div class="gi-contact-card-icon">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="24" height="24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="24" height="24"><path d="M3 21h18"></path><path d="M5 21V7l8-4v18"></path><path d="M19 21V11l-6-4"></path><line x1="9" y1="9" x2="9" y2="9.01"></line><line x1="9" y1="13" x2="9" y2="13.01"></line><line x1="9" y1="17" x2="9" y2="17.01"></line></svg>
                 </div>
                 <div>
                     <h3 class="gi-contact-card-title">Production House (Bangladesh)</h3>
                     <div class="gi-contact-card-value" style="font-weight: 400; color: rgba(255,255,255,0.7); font-size: var(--gi-text-sm); line-height: 1.6;">
                         <strong>Graphics Innovator Ltd.</strong><br>
-                        House 70, Road 1/4, Santidhara<br>
-                        Rangpur, Bangladesh<br><br>
-                        <strong style="color: rgba(255,255,255,0.5);">Phone:</strong> <a href="tel:<?php echo esc_attr( preg_replace('/[^0-9+]/', '', get_theme_mod('gi_phone_bd', '+88 01714 516 662')) ); ?>" style="color: #2a6aee;"><?php echo esc_html( get_theme_mod('gi_phone_bd', '+88 01714 516 662') ); ?></a>
+                        House 70, Road 1/A, Santidhara<br>
+                        Rangpur, Bangladesh
                     </div>
                 </div>
             </div>

@@ -16,7 +16,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 // ─────────────────────────────────────────────
 //  THEME CONSTANTS
 // ─────────────────────────────────────────────
-define( 'GI_VERSION',  '1.0.38' );
+define( 'GI_VERSION',  '1.0.39' );
 define( 'GI_ROOT',     get_template_directory() );
 define( 'GI_ROOT_URI', get_template_directory_uri() );
 define( 'GI_ASSETS',   GI_ROOT_URI . '/assets' );
@@ -48,6 +48,7 @@ $gi_modules = [
     '/inc/acf-helpers.php',    // Dynamic content safe fetchers
     '/inc/acf-setup.php',      // ACF options pages & admin notifications
     '/inc/acf-fields.php',     // Programmatic field groups (Git-synced)
+    '/inc/admin-meta-boxes.php', // Native WP Page Editor Meta Boxes (Zero Plugin Dependency)
 ];
 
 foreach ( $gi_modules as $module ) {

@@ -25,6 +25,18 @@ function gi_get_field( $field_name, $default = '', $post_id = null ) {
             return $val;
         }
     }
+
+    // Native WordPress post_meta fallback (Zero-plugin compatibility)
+    if ( $post_id === null ) {
+        $post_id = get_the_ID();
+    }
+    if ( $post_id ) {
+        $meta_val = get_post_meta( $post_id, $field_name, true );
+        if ( $meta_val !== '' && $meta_val !== false && $meta_val !== null ) {
+            return $meta_val;
+        }
+    }
+
     return $default;
 }
 

@@ -289,6 +289,114 @@ $quote_nonce = wp_create_nonce( 'gi_quote_action' );
     background: linear-gradient(135deg, #047857 0%, #059669 100%);
     box-shadow: 0 8px 22px rgba(5, 150, 105, 0.45);
 }
+.gi-qc-info-icon.icon-whatsapp {
+    background: linear-gradient(135deg, #059669 0%, #25d366 100%);
+    box-shadow: 0 8px 22px rgba(37, 211, 102, 0.45);
+}
+.gi-qc-info-icon.icon-indigo {
+    background: linear-gradient(135deg, #4338ca 0%, #6366f1 100%);
+    box-shadow: 0 8px 22px rgba(99, 102, 241, 0.45);
+}
+.gi-qc-info-card--static:hover {
+    transform: none;
+    border-color: rgba(148, 163, 184, 0.28);
+    background: rgba(10, 20, 38, 0.85);
+    box-shadow: 0 10px 24px rgba(0, 0, 0, 0.3);
+}
+.gi-qc-info-card--static:hover .gi-qc-info-icon {
+    transform: none;
+}
+.gi-qc-info-tag {
+    display: inline-block;
+    font-size: 0.72rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    padding: 3px 9px;
+    border-radius: 9999px;
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    color: rgba(226, 232, 240, 0.85);
+}
+.gi-qc-contact-chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.6rem;
+    margin-top: 0.45rem;
+}
+.gi-qc-chip-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 0.86rem;
+    font-weight: 600;
+    color: #ffffff;
+    text-decoration: none;
+    padding: 4px 10px;
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: all 0.2s ease;
+}
+.gi-qc-chip-link:hover {
+    background: rgba(56, 189, 248, 0.15);
+    border-color: rgba(56, 189, 248, 0.4);
+    color: #38bdf8;
+    transform: translateY(-1px);
+}
+.gi-qc-chip-link svg {
+    width: 14px;
+    height: 14px;
+    color: #38bdf8;
+    flex-shrink: 0;
+}
+.gi-qc-whatsapp-card {
+    border-color: rgba(37, 211, 102, 0.28);
+    background: rgba(6, 28, 20, 0.68);
+}
+.gi-qc-whatsapp-card:hover {
+    border-color: rgba(37, 211, 102, 0.6);
+    background: rgba(8, 38, 26, 0.88);
+    box-shadow: 0 16px 36px rgba(0, 0, 0, 0.45), 0 0 25px rgba(37, 211, 102, 0.25);
+}
+.gi-qc-whatsapp-card:hover .gi-qc-info-icon {
+    transform: scale(1.08);
+}
+.gi-qc-whatsapp-card .gi-qc-info-link--wa {
+    color: #25d366;
+}
+.gi-qc-whatsapp-card:hover .gi-qc-info-arrow {
+    background: rgba(37, 211, 102, 0.2);
+    border-color: rgba(37, 211, 102, 0.5);
+    color: #25d366;
+}
+.gi-qc-live-dot-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 0.72rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: #25d366;
+    background: rgba(37, 211, 102, 0.12);
+    border: 1px solid rgba(37, 211, 102, 0.3);
+    padding: 2px 7px;
+    border-radius: 9999px;
+}
+.gi-qc-live-pulse {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: #25d366;
+    box-shadow: 0 0 8px #25d366;
+    animation: giLivePulse 1.8s infinite;
+}
+@keyframes giLivePulse {
+    0% { transform: scale(0.95); opacity: 0.8; }
+    50% { transform: scale(1.3); opacity: 1; }
+    100% { transform: scale(0.95); opacity: 0.8; }
+}
 .gi-qc-info-body {
     flex: 1;
 }
@@ -952,53 +1060,77 @@ $quote_nonce = wp_create_nonce( 'gi_quote_action' );
 
             </div>
 
-            <!-- 3 Elevated Contact Cards -->
+            <!-- Elevated Contact Cards -->
             <div class="gi-qc-cards-list">
                 
-                <!-- Card 1: General Inquiries -->
-                <a href="mailto:info@graphicsinnovator.com" class="gi-qc-info-card" title="Email Graphics Innovator">
+                <!-- Card 1: General Inquiries (Email + Mobile +8801714516662) -->
+                <div class="gi-qc-info-card gi-qc-info-card--static">
                     <div class="gi-qc-info-icon icon-blue">
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
                     </div>
                     <div class="gi-qc-info-body">
                         <h3>General Inquiries</h3>
-                        <p>For pricing, bulk quotes, and support.</p>
-                        <span class="gi-qc-info-link">info@graphicsinnovator.com</span>
+                        <p>For pricing, bulk quotes, and direct support.</p>
+                        <div class="gi-qc-contact-chips">
+                            <a href="mailto:info@graphicsinnovator.com" class="gi-qc-chip-link" title="Email Us">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+                                <span>info@graphicsinnovator.com</span>
+                            </a>
+                            <a href="tel:+8801714516662" class="gi-qc-chip-link" title="Call Direct">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+                                <span>+880 1714 516 662</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 2: WhatsApp Live Chat (Enabled) -->
+                <a href="https://wa.me/8801714516662?text=Hi%20Graphics%20Innovator,%20I%20have%20an%20inquiry" target="_blank" rel="noopener noreferrer" class="gi-qc-info-card gi-qc-whatsapp-card" title="Chat on WhatsApp (+880 1714 516 662)">
+                    <div class="gi-qc-info-icon icon-whatsapp">
+                        <svg viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M12.031 2C6.495 2 2 6.494 2 12.029c0 1.97.57 3.81 1.558 5.37L2 22l4.823-1.528A9.99 9.99 0 0 0 12.031 22C17.567 22 22 17.506 22 12.03 22 6.494 17.566 2 12.031 2zm5.797 14.18c-.244.686-1.22 1.258-1.748 1.334-.48.068-1.077.103-3.155-.758-2.658-1.101-4.364-3.799-4.498-3.978-.13-.178-1.075-1.43-1.075-2.727 0-1.298.679-1.936.92-2.195.242-.259.529-.323.705-.323.176 0 .353.003.508.01.164.009.385-.062.602.46.223.535.759 1.85.826 1.984.067.135.112.293.023.472-.09.178-.134.29-.267.447-.134.157-.28.35-.401.47-.134.133-.274.278-.118.546.156.267.693 1.144 1.488 1.852 1.023.91 1.886 1.192 2.153 1.325.268.134.424.112.58-.067.157-.178.67-.78 848-1.048.178-.268.356-.223.593-.134.238.089 1.512.713 1.77.842.259.13.432.193.495.305.064.111.064.646-.18 1.332z"/>
+                        </svg>
+                    </div>
+                    <div class="gi-qc-info-body">
+                        <div style="display:flex; align-items:center; gap:8px;">
+                            <h3>WhatsApp Live Chat</h3>
+                            <span class="gi-qc-live-dot-badge"><span class="gi-qc-live-pulse"></span>Online</span>
+                        </div>
+                        <p>Fast responses, custom volume quotes &amp; live support.</p>
+                        <span class="gi-qc-info-link gi-qc-info-link--wa">+880 1714 516 662 • Chat Live on WhatsApp &rarr;</span>
                     </div>
                     <div class="gi-qc-info-arrow" aria-hidden="true">
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg>
                     </div>
                 </a>
 
-                <!-- Card 2: Europe Office (HQ) -->
-                <a href="tel:+35796341452" class="gi-qc-info-card" title="Call European Headquarters in Cyprus">
+                <!-- Card 3: Europe Office (HQ) (No mobile number) -->
+                <div class="gi-qc-info-card gi-qc-info-card--static">
                     <div class="gi-qc-info-icon icon-amber">
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
                     </div>
                     <div class="gi-qc-info-body">
-                        <h3>Europe Office (HQ)</h3>
-                        <p>ALKEUS 22, STROVOLOS<br>2064 NICOSIA, Cyprus</p>
-                        <span class="gi-qc-info-link">+357 96 341 452</span>
+                        <div style="display:flex; align-items:center; justify-content:space-between; gap:8px; margin-bottom:0.25rem;">
+                            <h3>Europe Office (HQ)</h3>
+                            <span class="gi-qc-info-tag">Headquarters</span>
+                        </div>
+                        <p style="margin:0;">ALKEUS 22, STROVOLOS<br>2064 NICOSIA, Cyprus</p>
                     </div>
-                    <div class="gi-qc-info-arrow" aria-hidden="true">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg>
-                    </div>
-                </a>
+                </div>
 
-                <!-- Card 3: Production Studio (Connected to WhatsApp BD) -->
-                <a href="https://wa.me/8801714516662" target="_blank" rel="noopener noreferrer" class="gi-qc-info-card" title="Chat on WhatsApp with Bangladesh Production Studio">
-                    <div class="gi-qc-info-icon icon-emerald">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="2" width="16" height="20" rx="2" ry="2"></rect><line x1="9" y1="22" x2="9" y2="22.01"></line><line x1="15" y1="22" x2="15" y2="22.01"></line><line x1="9" y1="6" x2="9" y2="6.01"></line><line x1="15" y1="6" x2="15" y2="6.01"></line><line x1="9" y1="10" x2="9" y2="10.01"></line><line x1="15" y1="10" x2="15" y2="10.01"></line><line x1="9" y1="14" x2="9" y2="14.01"></line><line x1="15" y1="14" x2="15" y2="14.01"></line><line x1="9" y1="18" x2="9" y2="18.01"></line><line x1="15" y1="18" x2="15" y2="18.01"></line></svg>
+                <!-- Card 4: Production Studio (No mobile number) -->
+                <div class="gi-qc-info-card gi-qc-info-card--static">
+                    <div class="gi-qc-info-icon icon-indigo">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 21h18"></path><path d="M5 21V7l8-4v18"></path><path d="M19 21V11l-6-4"></path><line x1="9" y1="9" x2="9" y2="9.01"></line><line x1="9" y1="13" x2="9" y2="13.01"></line><line x1="9" y1="17" x2="9" y2="17.01"></line></svg>
                     </div>
                     <div class="gi-qc-info-body">
-                        <h3>Production Studio</h3>
-                        <p>House: 70, Road: 1/A, Santidhara<br>Rangpur, Bangladesh</p>
-                        <span class="gi-qc-info-link">+88 01714 516 662</span>
+                        <div style="display:flex; align-items:center; justify-content:space-between; gap:8px; margin-bottom:0.25rem;">
+                            <h3>Production Studio</h3>
+                            <span class="gi-qc-info-tag">Production Studio</span>
+                        </div>
+                        <p style="margin:0;">House: 70, Road: 1/A, Santidhara<br>Rangpur, Bangladesh</p>
                     </div>
-                    <div class="gi-qc-info-arrow" aria-hidden="true">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg>
-                    </div>
-                </a>
+                </div>
 
             </div>
 

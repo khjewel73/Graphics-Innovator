@@ -136,6 +136,17 @@ $address_cy = gi_get_option( 'gi_address_cy', 'ALKEUS 22, STROVOLOS, 2064 Nicosi
     </div>
 </footer>
 
+<!-- Floating WhatsApp Quick Connect Button -->
+<a href="https://wa.me/8801714516662?text=Hi%20Graphics%20Innovator,%20I%20have%20an%20inquiry" target="_blank" rel="noopener noreferrer" class="gi-floating-wa-btn" title="Chat with us on WhatsApp (+880 1714 516 662)" aria-label="WhatsApp Chat">
+    <span class="gi-floating-wa-pulse" aria-hidden="true"></span>
+    <span class="gi-floating-wa-icon">
+        <svg viewBox="0 0 24 24" fill="currentColor">
+            <path d="M12.031 2C6.495 2 2 6.494 2 12.029c0 1.97.57 3.81 1.558 5.37L2 22l4.823-1.528A9.99 9.99 0 0 0 12.031 22C17.567 22 22 17.506 22 12.03 22 6.494 17.566 2 12.031 2zm5.797 14.18c-.244.686-1.22 1.258-1.748 1.334-.48.068-1.077.103-3.155-.758-2.658-1.101-4.364-3.799-4.498-3.978-.13-.178-1.075-1.43-1.075-2.727 0-1.298.679-1.936.92-2.195.242-.259.529-.323.705-.323.176 0 .353.003.508.01.164.009.385-.062.602.46.223.535.759 1.85.826 1.984.067.135.112.293.023.472-.09.178-.134.29-.267.447-.134.157-.28.35-.401.47-.134.133-.274.278-.118.546.156.267.693 1.144 1.488 1.852 1.023.91 1.886 1.192 2.153 1.325.268.134.424.112.58-.067.157-.178.67-.78 848-1.048.178-.268.356-.223.593-.134.238.089 1.512.713 1.77.842.259.13.432.193.495.305.064.111.064.646-.18 1.332z"/>
+        </svg>
+    </span>
+    <span class="gi-floating-wa-label">WhatsApp</span>
+</a>
+
 <?php wp_footer(); ?>
 
 </body>

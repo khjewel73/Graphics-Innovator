@@ -838,6 +838,149 @@ $shoe_after  = $base_url . '/2023/08/Clipping-Path_B.jpg';
     color: #f87171;
 }
 
+/* WhatsApp Free Trial Enhancements */
+.gi-ft-wa-card {
+    display: flex;
+    align-items: center;
+    gap: 1.15rem;
+    margin-top: 1.75rem;
+    padding: 1.15rem 1.45rem;
+    border-radius: 16px;
+    background: rgba(6, 28, 20, 0.75);
+    border: 1px solid rgba(37, 211, 102, 0.3);
+    text-decoration: none;
+    color: #ffffff;
+    transition: all 0.28s cubic-bezier(0.16, 1, 0.3, 1);
+    backdrop-filter: blur(16px);
+}
+.gi-ft-wa-card:hover {
+    transform: translateY(-2px);
+    border-color: rgba(37, 211, 102, 0.65);
+    background: rgba(8, 38, 26, 0.9);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.4), 0 0 24px rgba(37, 211, 102, 0.22);
+    color: #ffffff;
+}
+.gi-ft-wa-icon {
+    width: 46px;
+    height: 46px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #059669 0%, #25d366 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #ffffff;
+    flex-shrink: 0;
+    box-shadow: 0 6px 18px rgba(37, 211, 102, 0.4);
+}
+.gi-ft-wa-icon svg {
+    width: 24px;
+    height: 24px;
+}
+.gi-ft-wa-content {
+    flex: 1;
+}
+.gi-ft-wa-content h4 {
+    font-size: 1rem;
+    font-weight: 700;
+    margin: 0;
+    color: #ffffff;
+}
+.gi-ft-wa-content p {
+    font-size: 0.84rem;
+    color: rgba(226, 232, 240, 0.7);
+    margin: 3px 0 0 0;
+}
+.gi-ft-wa-content p strong {
+    color: #25d366;
+}
+.gi-ft-wa-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 0.7rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: #25d366;
+    background: rgba(37, 211, 102, 0.12);
+    border: 1px solid rgba(37, 211, 102, 0.35);
+    padding: 1px 7px;
+    border-radius: 9999px;
+}
+.gi-ft-wa-pulse {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: #25d366;
+    box-shadow: 0 0 8px #25d366;
+}
+.gi-ft-wa-arrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: #25d366;
+    padding: 6px 12px;
+    border-radius: 8px;
+    background: rgba(37, 211, 102, 0.1);
+    border: 1px solid rgba(37, 211, 102, 0.25);
+    transition: all 0.2s ease;
+}
+.gi-ft-wa-card:hover .gi-ft-wa-arrow {
+    background: #25d366;
+    color: #060c18;
+}
+.gi-ft-wa-arrow svg {
+    width: 14px;
+    height: 14px;
+}
+.gi-ft-or-divider {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    margin: 1.25rem 0 0.85rem 0;
+    color: rgba(203, 213, 225, 0.45);
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+}
+.gi-ft-or-divider::before,
+.gi-ft-or-divider::after {
+    content: '';
+    flex: 1;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+.gi-ft-or-divider span {
+    padding: 0 10px;
+}
+.gi-ft-wa-btn-direct {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 9px;
+    width: 100%;
+    padding: 0.85rem 1.25rem;
+    border-radius: 12px;
+    background: rgba(6, 28, 20, 0.85);
+    border: 1px solid rgba(37, 211, 102, 0.4);
+    color: #25d366;
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 700;
+    transition: all 0.25s ease;
+}
+.gi-ft-wa-btn-direct:hover {
+    background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+    border-color: #34d399;
+    color: #ffffff;
+    box-shadow: 0 8px 24px rgba(16, 185, 129, 0.35);
+    transform: translateY(-1px);
+}
+.gi-ft-wa-btn-direct svg {
+    width: 20px;
+    height: 20px;
+}
+
 /* ==========================================================================
    RESPONSIVE LAYOUT
    ========================================================================== */
@@ -1092,6 +1235,26 @@ $shoe_after  = $base_url . '/2023/08/Clipping-Path_B.jpg';
                 </div>
             </div>
 
+            <!-- WhatsApp Free Trial Direct Consultation Card -->
+            <a href="https://wa.me/8801714516662?text=Hi%20Graphics%20Innovator,%20I%20would%20like%20to%20request%20a%20Free%20Trial" target="_blank" rel="noopener noreferrer" class="gi-ft-wa-card" title="Chat on WhatsApp (+880 1714 516 662)">
+                <div class="gi-ft-wa-icon">
+                    <svg viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M12.031 2C6.495 2 2 6.494 2 12.029c0 1.97.57 3.81 1.558 5.37L2 22l4.823-1.528A9.99 9.99 0 0 0 12.031 22C17.567 22 22 17.506 22 12.03 22 6.494 17.566 2 12.031 2zm5.797 14.18c-.244.686-1.22 1.258-1.748 1.334-.48.068-1.077.103-3.155-.758-2.658-1.101-4.364-3.799-4.498-3.978-.13-.178-1.075-1.43-1.075-2.727 0-1.298.679-1.936.92-2.195.242-.259.529-.323.705-.323.176 0 .353.003.508.01.164.009.385-.062.602.46.223.535.759 1.85.826 1.984.067.135.112.293.023.472-.09.178-.134.29-.267.447-.134.157-.28.35-.401.47-.134.133-.274.278-.118.546.156.267.693 1.144 1.488 1.852 1.023.91 1.886 1.192 2.153 1.325.268.134.424.112.58-.067.157-.178.67-.78 848-1.048.178-.268.356-.223.593-.134.238.089 1.512.713 1.77.842.259.13.432.193.495.305.064.111.064.646-.18 1.332z"/>
+                    </svg>
+                </div>
+                <div class="gi-ft-wa-content">
+                    <div style="display:flex; align-items:center; gap:8px;">
+                        <h4>Prefer to Chat on WhatsApp?</h4>
+                        <span class="gi-ft-wa-badge"><span class="gi-ft-wa-pulse"></span>Online</span>
+                    </div>
+                    <p>Send trial images or ask questions directly: <strong>+880 1714 516 662</strong></p>
+                </div>
+                <div class="gi-ft-wa-arrow" aria-hidden="true">
+                    <span>Chat Now</span>
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                </div>
+            </a>
+
         </div>
 
         <!-- RIGHT COLUMN: THE UPLOAD PORTAL GLASS CARD -->
@@ -1255,6 +1418,17 @@ $shoe_after  = $base_url . '/2023/08/Clipping-Path_B.jpg';
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
                         <span>Your information is 100% secure and will never be shared.</span>
                     </div>
+
+                    <!-- Direct WhatsApp Alternative Option -->
+                    <div class="gi-ft-or-divider">
+                        <span>OR SEND VIA WHATSAPP</span>
+                    </div>
+                    <a href="https://wa.me/8801714516662?text=Hi%20Graphics%20Innovator,%20I%20would%20like%20to%20send%20images%20for%20a%20Free%20Trial" target="_blank" rel="noopener noreferrer" class="gi-ft-wa-btn-direct" title="Chat on WhatsApp (+880 1714 516 662)">
+                        <svg viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M12.031 2C6.495 2 2 6.494 2 12.029c0 1.97.57 3.81 1.558 5.37L2 22l4.823-1.528A9.99 9.99 0 0 0 12.031 22C17.567 22 22 17.506 22 12.03 22 6.494 17.566 2 12.031 2zm5.797 14.18c-.244.686-1.22 1.258-1.748 1.334-.48.068-1.077.103-3.155-.758-2.658-1.101-4.364-3.799-4.498-3.978-.13-.178-1.075-1.43-1.075-2.727 0-1.298.679-1.936.92-2.195.242-.259.529-.323.705-.323.176 0 .353.003.508.01.164.009.385-.062.602.46.223.535.759 1.85.826 1.984.067.135.112.293.023.472-.09.178-.134.29-.267.447-.134.157-.28.35-.401.47-.134.133-.274.278-.118.546.156.267.693 1.144 1.488 1.852 1.023.91 1.886 1.192 2.153 1.325.268.134.424.112.58-.067.157-.178.67-.78 848-1.048.178-.268.356-.223.593-.134.238.089 1.512.713 1.77.842.259.13.432.193.495.305.064.111.064.646-.18 1.332z"/>
+                        </svg>
+                        <span>Chat &amp; Send Images via WhatsApp (+880 1714 516 662)</span>
+                    </a>
 
                     <!-- CF7 Response / Notification Container -->
                     <div class="wpcf7-response-output gi-ft-status-box" aria-hidden="true"></div>

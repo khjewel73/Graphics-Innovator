@@ -42,34 +42,95 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // ─────────────────────────────────────────────
-    // 2. MOBILE MENU TOGGLE
+    // 2. MOBILE MENU DRAWER & ACCORDION (SSP-ELITE)
     // ─────────────────────────────────────────────
     const mobileToggle = document.querySelector('.gi-mobile-toggle');
     const nav          = document.querySelector('.gi-nav');
+    const navBackdrop  = document.getElementById('gi-nav-backdrop');
 
     if (mobileToggle && nav) {
-        mobileToggle.addEventListener('click', () => {
-            const isOpen = nav.classList.toggle('gi-open');
-            mobileToggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
-            mobileToggle.innerHTML = isOpen
-                ? '<svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="2" fill="none"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>'
-                : '<svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="2" fill="none"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>';
+        const openMenu = () => {
+            nav.classList.add('gi-open');
+            mobileToggle.classList.add('gi-is-active');
+            mobileToggle.setAttribute('aria-expanded', 'true');
+            if (navBackdrop) navBackdrop.classList.add('gi-open');
+            document.body.classList.add('gi-menu-locked');
+        };
+
+        const closeMenu = () => {
+            nav.classList.remove('gi-open');
+            mobileToggle.classList.remove('gi-is-active');
+            mobileToggle.setAttribute('aria-expanded', 'false');
+            if (navBackdrop) navBackdrop.classList.remove('gi-open');
+            document.body.classList.remove('gi-menu-locked');
+        };
+
+        const toggleMenu = () => {
+            if (nav.classList.contains('gi-open')) {
+                closeMenu();
+            } else {
+                openMenu();
+            }
+        };
+
+        mobileToggle.addEventListener('click', (e) => {
+            e.stopPropagation();
+            toggleMenu();
         });
 
-        // Close menu when clicking outside
-        document.addEventListener('click', (e) => {
-            if (!header || (!header.contains(e.target) && nav.classList.contains('gi-open'))) {
-                nav.classList.remove('gi-open');
-                mobileToggle.setAttribute('aria-expanded', 'false');
+        // Close when clicking the glass backdrop
+        if (navBackdrop) {
+            navBackdrop.addEventListener('click', closeMenu);
+        }
+
+        // Close on ESC key press
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && nav.classList.contains('gi-open')) {
+                closeMenu();
             }
         });
 
-        // Mobile submenu toggle
-        document.querySelectorAll('.gi-menu-item.gi-has-submenu > .gi-menu-link').forEach(link => {
+        // Close when clicking outside of nav drawer and toggle
+        document.addEventListener('click', (e) => {
+            if (nav.classList.contains('gi-open')) {
+                if (!nav.contains(e.target) && !mobileToggle.contains(e.target)) {
+                    closeMenu();
+                }
+            }
+        });
+
+        // Auto-close drawer on leaf menu link clicks
+        nav.querySelectorAll('.gi-menu-link').forEach(link => {
             link.addEventListener('click', (e) => {
-                if (window.innerWidth < 992) {
+                const parentItem = link.closest('.gi-menu-item');
+                const isParentWithSubmenu = parentItem && parentItem.classList.contains('gi-has-submenu');
+                const href = link.getAttribute('href');
+
+                // If on mobile and clicking a parent item whose href is empty or "#", toggle the accordion
+                if (window.innerWidth < 992 && isParentWithSubmenu && (!href || href === '#' || href === 'javascript:void(0)')) {
                     e.preventDefault();
-                    link.parentElement.classList.toggle('gi-open');
+                    const isOpen = parentItem.classList.toggle('gi-open');
+                    const toggleBtn = parentItem.querySelector('.gi-submenu-toggle');
+                    if (toggleBtn) toggleBtn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+                    return;
+                }
+
+                // If navigating to an actual link or anchor, close the mobile drawer
+                if (href && href !== '#' && href !== 'javascript:void(0)') {
+                    closeMenu();
+                }
+            });
+        });
+
+        // Dedicated Mobile Submenu Accordion Toggle Button
+        nav.querySelectorAll('.gi-submenu-toggle').forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                e.preventDefault();
+                e.stopPropagation();
+                const parentItem = btn.closest('.gi-menu-item');
+                if (parentItem) {
+                    const isOpen = parentItem.classList.toggle('gi-open');
+                    btn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
                 }
             });
         });
@@ -254,6 +315,13 @@ document.addEventListener('DOMContentLoaded', () => {
         window.addEventListener('resize', () => {
             syncImgDimensions();
             applyPosition(currentPos);
+        }, { passive: true });
+
+        window.addEventListener('orientationchange', () => {
+            setTimeout(() => {
+                syncImgDimensions();
+                applyPosition(currentPos);
+            }, 120);
         }, { passive: true });
 
         // Smooth Mouse Tracking on Hover

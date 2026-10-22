@@ -170,21 +170,102 @@
   font-size: 0.82rem;
 }
 
-/* Mobile Toggle */
+/* ============================================================
+   MOBILE TOGGLE & DRAWER BASE RULES
+   ============================================================ */
+/* Animated Morphing Hamburger Toggle Button */
 .gi-mobile-toggle {
   display: none;
-  background: transparent;
-  border: 1px solid rgba(255,255,255,0.2);
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(148, 163, 184, 0.22);
   border-radius: var(--gi-radius);
   color: var(--gi-white);
   cursor: pointer;
-  padding: 6px;
-  line-height: 0;
-  transition: var(--gi-transition-fast);
+  padding: 0;
+  width: 44px;
+  height: 44px;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  z-index: 202;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  -webkit-tap-highlight-color: transparent;
 }
-.gi-mobile-toggle:hover {
-  background: rgba(255,255,255,0.1);
-  border-color: rgba(255,255,255,0.4);
+.gi-mobile-toggle:hover,
+.gi-mobile-toggle:focus-visible {
+  background: rgba(255, 255, 255, 0.09);
+  border-color: rgba(255, 106, 26, 0.5);
+  box-shadow: 0 0 15px rgba(255, 106, 26, 0.25);
+  outline: none;
+}
+.gi-hamburger-box {
+  width: 22px;
+  height: 16px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+  pointer-events: none;
+}
+.gi-hamburger-line {
+  display: block;
+  width: 100%;
+  height: 2px;
+  background-color: #ffffff;
+  border-radius: 2px;
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.25s ease, background-color 0.25s ease;
+  transform-origin: center;
+}
+/* Morphing hamburger lines to crisp 'X' when open */
+.gi-mobile-toggle.gi-is-active .gi-hamburger-line {
+  background-color: var(--gi-accent);
+}
+.gi-mobile-toggle.gi-is-active .line-1 {
+  transform: translateY(7px) rotate(45deg);
+}
+.gi-mobile-toggle.gi-is-active .line-2 {
+  opacity: 0;
+  transform: scaleX(0);
+}
+.gi-mobile-toggle.gi-is-active .line-3 {
+  transform: translateY(-7px) rotate(-45deg);
+}
+
+/* Mobile Submenu Toggle Button (Desktop: Hidden) */
+.gi-submenu-toggle {
+  display: none;
+}
+
+/* Mobile Drawer Footer Conversion Hub (Desktop: Hidden) */
+.gi-mobile-drawer-footer {
+  display: none;
+}
+
+/* Mobile Nav Backdrop Overlay (Hardware Accelerated Blur) */
+.gi-nav-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(3, 7, 18, 0.72);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.32s cubic-bezier(0.16, 1, 0.3, 1), visibility 0.32s ease;
+  z-index: 198;
+  pointer-events: none;
+}
+.gi-nav-backdrop.gi-open {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+}
+
+/* Body Scroll Lock when Mobile Drawer is Open */
+body.gi-menu-locked {
+  overflow: hidden !important;
+  touch-action: none !important;
+  -webkit-overflow-scrolling: auto;
 }
 
 @media (min-width: 1200px) {

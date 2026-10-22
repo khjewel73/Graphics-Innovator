@@ -984,6 +984,17 @@ $quote_nonce = wp_create_nonce( 'gi_quote_action' );
         padding: 1.15rem 1.25rem;
     }
 }
+@media (max-width: 480px) {
+    .gi-qc-title {
+        font-size: 1.95rem;
+    }
+    .gi-qc-badges-grid {
+        grid-template-columns: 1fr;
+    }
+    .gi-qc-form-card {
+        padding: 1.6rem 1.1rem;
+    }
+}
 </style>
 
 <main class="gi-qc-main">

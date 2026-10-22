@@ -76,6 +76,12 @@ class GI_Nav_Walker extends Walker_Nav_Menu {
         }
 
         $item_output .= '</a>';
+
+        // Add dedicated mobile accordion toggle button for parent items
+        if ( in_array( 'menu-item-has-children', (array) $item->classes ) ) {
+            $item_output .= '<button type="button" class="gi-submenu-toggle" aria-expanded="false" aria-label="' . esc_attr__( 'Toggle submenu', 'graphics-innovator' ) . '"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="16" height="16" aria-hidden="true"><polyline points="6 9 12 15 18 9"></polyline></svg></button>';
+        }
+
         $item_output .= isset( $args->after ) ? $args->after : '';
 
         $output .= apply_filters( 'walker_nav_menu_start_el', $item_output, $item, $depth, $args );

@@ -44,8 +44,8 @@ $base_url = $upload_dir['baseurl'];
             <div data-gi-animate="fade-up" data-gi-delay="120">
                 <div class="gi-about-image-frame" style="position: relative; border-radius: 20px; overflow: hidden; box-shadow: 0 25px 60px rgba(0,0,0,0.5), 0 0 35px rgba(42, 106, 238, 0.15); border: 1px solid rgba(255,255,255,0.12); transition: transform 0.4s ease;">
                     <picture>
-                        <source srcset="<?php echo esc_url( get_template_directory_uri() . '/about-team.webp' ); ?>" type="image/webp">
-                        <img src="<?php echo esc_url( get_template_directory_uri() . '/about-team.jpg' ); ?>" 
+                        <source srcset="<?php echo esc_url( get_template_directory_uri() . '/about-team.webp?v=' . GI_VERSION ); ?>" type="image/webp">
+                        <img src="<?php echo esc_url( get_template_directory_uri() . '/about-team.jpg?v=' . GI_VERSION ); ?>" 
                              alt="<?php esc_attr_e( 'Graphics Innovator Production Team & Studio Operations', 'graphics-innovator' ); ?>" 
                              width="1024" 
                              height="682"

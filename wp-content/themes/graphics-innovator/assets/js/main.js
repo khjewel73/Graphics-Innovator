@@ -482,4 +482,52 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
+    // ─────────────────────────────────────────────
+    // 8. GLOBAL CLICK-TO-COPY CHIPS
+    // ─────────────────────────────────────────────
+    const copyChips = document.querySelectorAll('.gi-chip-copy');
+    copyChips.forEach(chip => {
+        chip.addEventListener('click', function(e) {
+            e.preventDefault();
+            const textToCopy = this.getAttribute('data-copy');
+            if (!textToCopy) return;
+
+            const tooltip = this.querySelector('.gi-chip-tooltip');
+            const defaultTooltip = 'Click to copy';
+
+            let copyPromise;
+            if (navigator.clipboard && window.isSecureContext) {
+                copyPromise = navigator.clipboard.writeText(textToCopy);
+            } else {
+                const ta = document.createElement('textarea');
+                ta.value = textToCopy;
+                ta.setAttribute('readonly', '');
+                ta.style.position = 'fixed';
+                ta.style.top = '-9999px';
+                ta.style.left = '-9999px';
+                document.body.appendChild(ta);
+                ta.select();
+                try {
+                    document.execCommand('copy');
+                } catch (err) {
+                    console.error('Copy fallback error', err);
+                }
+                document.body.removeChild(ta);
+                copyPromise = Promise.resolve();
+            }
+
+            copyPromise.then(() => {
+                this.classList.add('gi-copied');
+                if (tooltip) tooltip.textContent = 'Copied! ✓';
+                if (this._copyTimer) clearTimeout(this._copyTimer);
+                this._copyTimer = setTimeout(() => {
+                    this.classList.remove('gi-copied');
+                    if (tooltip) tooltip.textContent = defaultTooltip;
+                }, 2000);
+            }).catch(err => {
+                console.error('Failed to copy', err);
+            });
+        });
+    });
+
 });

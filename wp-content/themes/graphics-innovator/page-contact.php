@@ -321,34 +321,151 @@ $quote_nonce = wp_create_nonce( 'gi_quote_action' );
 .gi-qc-contact-chips {
     display: flex;
     flex-wrap: wrap;
-    gap: 0.6rem;
-    margin-top: 0.45rem;
+    gap: 0.65rem;
+    margin-top: 0.55rem;
+    position: relative;
 }
 .gi-qc-chip-link {
+    position: relative;
     display: inline-flex;
     align-items: center;
-    gap: 6px;
+    gap: 7px;
     font-size: 0.86rem;
     font-weight: 600;
+    font-family: inherit;
     color: #ffffff;
     text-decoration: none;
-    padding: 4px 10px;
+    padding: 6px 12px;
     border-radius: 8px;
     background: rgba(255, 255, 255, 0.05);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    transition: all 0.2s ease;
+    border: 1px solid rgba(148, 163, 184, 0.22);
+    cursor: pointer;
+    transition: all 0.22s cubic-bezier(0.16, 1, 0.3, 1);
+    outline: none;
+    user-select: none;
+    -webkit-tap-highlight-color: transparent;
 }
-.gi-qc-chip-link:hover {
-    background: rgba(56, 189, 248, 0.15);
-    border-color: rgba(56, 189, 248, 0.4);
+.gi-qc-chip-link:hover,
+.gi-qc-chip-link:focus-visible {
+    background: rgba(56, 189, 248, 0.12);
+    border-color: rgba(56, 189, 248, 0.45);
     color: #38bdf8;
     transform: translateY(-1px);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3), 0 0 12px rgba(56, 189, 248, 0.2);
 }
-.gi-qc-chip-link svg {
+.gi-qc-chip-link:active {
+    transform: translateY(0);
+}
+.gi-qc-chip-link .gi-chip-lead-icon {
     width: 14px;
     height: 14px;
     color: #38bdf8;
     flex-shrink: 0;
+    transition: transform 0.2s ease, color 0.2s ease;
+}
+.gi-qc-chip-link:hover .gi-chip-lead-icon {
+    transform: scale(1.1);
+}
+.gi-chip-value {
+    letter-spacing: -0.01em;
+    white-space: nowrap;
+}
+.gi-chip-action-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 14px;
+    height: 14px;
+    margin-left: 3px;
+    opacity: 0.6;
+    color: currentColor;
+    transition: all 0.2s ease;
+}
+.gi-qc-chip-link:hover .gi-chip-action-icon {
+    opacity: 1;
+}
+.gi-icon-copy,
+.gi-icon-check {
+    width: 13px;
+    height: 13px;
+    display: block;
+}
+.gi-icon-check {
+    display: none;
+}
+
+/* Copied state with emerald glow & checkmark spring pop */
+.gi-qc-chip-link.gi-copied {
+    background: rgba(34, 197, 94, 0.16) !important;
+    border-color: rgba(34, 197, 94, 0.6) !important;
+    color: #4ade80 !important;
+    box-shadow: 0 4px 18px rgba(0, 0, 0, 0.35), 0 0 16px rgba(34, 197, 94, 0.35) !important;
+}
+.gi-qc-chip-link.gi-copied .gi-chip-lead-icon {
+    color: #4ade80 !important;
+}
+.gi-qc-chip-link.gi-copied .gi-icon-copy {
+    display: none !important;
+}
+.gi-qc-chip-link.gi-copied .gi-icon-check {
+    display: block !important;
+    color: #4ade80 !important;
+    animation: giCheckPop 0.32s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+@keyframes giCheckPop {
+    0% { transform: scale(0.4) rotate(-15deg); opacity: 0; }
+    70% { transform: scale(1.25) rotate(4deg); opacity: 1; }
+    100% { transform: scale(1) rotate(0deg); opacity: 1; }
+}
+
+/* Floating Micro-Tooltip */
+.gi-chip-tooltip {
+    position: absolute;
+    bottom: calc(100% + 7px);
+    left: 50%;
+    transform: translateX(-50%) translateY(4px);
+    background: #07152b;
+    color: rgba(255, 255, 255, 0.95);
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+    padding: 3px 8px;
+    border-radius: 6px;
+    border: 1px solid rgba(148, 163, 184, 0.25);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.65);
+    pointer-events: none;
+    opacity: 0;
+    visibility: hidden;
+    white-space: nowrap;
+    transition: opacity 0.18s cubic-bezier(0.16, 1, 0.3, 1), transform 0.18s cubic-bezier(0.16, 1, 0.3, 1), visibility 0.18s ease;
+    z-index: 20;
+}
+.gi-chip-tooltip::after {
+    content: '';
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    border-width: 4px;
+    border-style: solid;
+    border-color: #07152b transparent transparent transparent;
+}
+.gi-qc-chip-link:hover .gi-chip-tooltip {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(-50%) translateY(0);
+}
+.gi-qc-chip-link.gi-copied .gi-chip-tooltip {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(-50%) translateY(0);
+    background: #022013;
+    border-color: rgba(34, 197, 94, 0.5);
+    color: #4ade80;
+    box-shadow: 0 8px 22px rgba(0, 0, 0, 0.7), 0 0 14px rgba(34, 197, 94, 0.3);
+}
+.gi-qc-chip-link.gi-copied .gi-chip-tooltip::after {
+    border-color: #022013 transparent transparent transparent;
 }
 .gi-qc-whatsapp-card {
     border-color: rgba(37, 211, 102, 0.28);
@@ -1094,14 +1211,24 @@ $quote_nonce = wp_create_nonce( 'gi_quote_action' );
                         <h3>General Inquiries</h3>
                         <p>For pricing, bulk quotes, and direct support.</p>
                         <div class="gi-qc-contact-chips">
-                            <a href="mailto:<?php echo esc_attr( $contact_email ); ?>" class="gi-qc-chip-link" title="Email Us">
-                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
-                                <span><?php echo esc_html( $contact_email ); ?></span>
-                            </a>
-                            <a href="tel:<?php echo esc_attr( preg_replace('/[^0-9+]/', '', $contact_phone) ); ?>" class="gi-qc-chip-link" title="Call Direct">
-                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
-                                <span><?php echo esc_html( $contact_phone ); ?></span>
-                            </a>
+                            <button type="button" class="gi-qc-chip-link gi-chip-copy" data-copy="<?php echo esc_attr( $contact_email ); ?>" aria-label="<?php esc_attr_e( 'Copy email address to clipboard', 'graphics-innovator' ); ?>">
+                                <svg class="gi-chip-lead-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+                                <span class="gi-chip-value"><?php echo esc_html( $contact_email ); ?></span>
+                                <span class="gi-chip-action-icon" aria-hidden="true">
+                                    <svg class="gi-icon-copy" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+                                    <svg class="gi-icon-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                                </span>
+                                <span class="gi-chip-tooltip" role="status" aria-live="polite"><?php esc_html_e( 'Click to copy', 'graphics-innovator' ); ?></span>
+                            </button>
+                            <button type="button" class="gi-qc-chip-link gi-chip-copy" data-copy="<?php echo esc_attr( $contact_phone ); ?>" aria-label="<?php esc_attr_e( 'Copy phone number to clipboard', 'graphics-innovator' ); ?>">
+                                <svg class="gi-chip-lead-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+                                <span class="gi-chip-value"><?php echo esc_html( $contact_phone ); ?></span>
+                                <span class="gi-chip-action-icon" aria-hidden="true">
+                                    <svg class="gi-icon-copy" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+                                    <svg class="gi-icon-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                                </span>
+                                <span class="gi-chip-tooltip" role="status" aria-live="polite"><?php esc_html_e( 'Click to copy', 'graphics-innovator' ); ?></span>
+                            </button>
                         </div>
                     </div>
                 </div>
@@ -1498,6 +1625,57 @@ document.addEventListener('DOMContentLoaded', function() {
         responseBox.style.display = 'block';
         responseBox.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
     }
+
+    // 4. Click-to-Copy for General Inquiries Email & Phone
+    var copyChips = document.querySelectorAll('.gi-chip-copy');
+    copyChips.forEach(function(chip) {
+        chip.addEventListener('click', function(e) {
+            e.preventDefault();
+            var textToCopy = this.getAttribute('data-copy');
+            if (!textToCopy) return;
+
+            var tooltip = this.querySelector('.gi-chip-tooltip');
+            var defaultTooltip = 'Click to copy';
+
+            var copyPromise;
+            if (navigator.clipboard && window.isSecureContext) {
+                copyPromise = navigator.clipboard.writeText(textToCopy);
+            } else {
+                // Robust fallback for older browsers or non-https local test environments
+                var ta = document.createElement('textarea');
+                ta.value = textToCopy;
+                ta.setAttribute('readonly', '');
+                ta.style.position = 'fixed';
+                ta.style.top = '-9999px';
+                ta.style.left = '-9999px';
+                document.body.appendChild(ta);
+                ta.select();
+                try {
+                    document.execCommand('copy');
+                } catch (err) {
+                    console.error('Copy fallback error', err);
+                }
+                document.body.removeChild(ta);
+                copyPromise = Promise.resolve();
+            }
+
+            copyPromise.then(function() {
+                chip.classList.add('gi-copied');
+                if (tooltip) {
+                    tooltip.textContent = 'Copied! ✓';
+                }
+                if (chip._copyTimer) clearTimeout(chip._copyTimer);
+                chip._copyTimer = setTimeout(function() {
+                    chip.classList.remove('gi-copied');
+                    if (tooltip) {
+                        tooltip.textContent = defaultTooltip;
+                    }
+                }, 2000);
+            }).catch(function(err) {
+                console.error('Failed to copy', err);
+            });
+        });
+    });
 });
 </script>
 
